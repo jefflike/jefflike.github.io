@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo" />
+  <meta name="keywords" content="Go," />
 
 
 
@@ -88,13 +88,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jefflike&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Java/index.html">
+<meta name="description" content="数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。 数组定义的三种方式1234567891011// 1.定义一个数组，并赋值var arr1 [5]int//[0 0 0 0 0]//va">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言Array与Slice">
+<meta property="og:url" content="http://yoursite.com/2018/05/21/Go语言Array与Slice/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
+<meta property="og:description" content="数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。 数组定义的三种方式1234567891011// 1.定义一个数组，并赋值var arr1 [5]int//[0 0 0 0 0]//va">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-21T15:45:38.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jefflike&#39;s Blog">
+<meta name="twitter:title" content="Go语言Array与Slice">
+<meta name="twitter:description" content="数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。 数组定义的三种方式1234567891011// 1.定义一个数组，并赋值var arr1 [5]int//[0 0 0 0 0]//va">
 
 
 
@@ -133,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Java/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/21/Go语言Array与Slice/"/>
 
 
 
 
 
-  <title>标签: Java | Jefflike's Blog</title>
+  <title>Go语言Array与Slice | Jefflike's Blog</title>
   
 
 
@@ -159,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/jefflike"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>    
 	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,54 +302,265 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Java<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/Go语言Array与Slice/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jefflike">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p8cdfcmvy.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jefflike's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/20/Java程序初始化的顺序/" itemprop="url">
-              
-                <span itemprop="name">Java程序初始化的顺序（一）</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Go语言Array与Slice</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-20T22:23:26+08:00"
-              content="2018-05-20" >
-          05-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T22:35:12+08:00">
+                2018-05-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Go/" itemprop="url" rel="index">
+                    <span itemprop="name">Go</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="数组基础"><a href="#数组基础" class="headerlink" title="数组基础"></a>数组基础</h2><h3 id="为什么要讨论Go语言的数组"><a href="#为什么要讨论Go语言的数组" class="headerlink" title="为什么要讨论Go语言的数组"></a>为什么要讨论Go语言的数组</h3><p>在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？<br>这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。</p>
+<h3 id="数组定义的三种方式"><a href="#数组定义的三种方式" class="headerlink" title="数组定义的三种方式"></a>数组定义的三种方式</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义一个数组，并赋值</span></span><br><span class="line"><span class="keyword">var</span> arr1 [<span class="number">5</span>]<span class="keyword">int</span><span class="comment">//[0 0 0 0 0]</span></span><br><span class="line"><span class="comment">//var arr1 = [5]int&#123;1,2,3,4,5&#125;//[1 2 3 4 5]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.:=要给数组赋初值</span></span><br><span class="line">arr2 := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;<span class="comment">//[1 2 3]</span></span><br><span class="line">fmt.Println(arr1, arr2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.奇葩的赋值方式，但是好用，不确定数组的长度</span></span><br><span class="line">arr3 := [...]<span class="keyword">int</span>&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">10</span>&#125;<span class="comment">//[2 4 6 7 10]</span></span><br><span class="line">fmt.Println(arr3)</span><br></pre></td></tr></table></figure>
+<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.数组的遍历,长度为len()</span></span><br><span class="line"><span class="keyword">for</span> i:=<span class="number">0</span>;i&lt;<span class="built_in">len</span>(arr2);i++&#123;</span><br><span class="line">	fmt.Println(arr2[i])<span class="comment">//1   2    3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.range获取数组的下标，遍历数组</span></span><br><span class="line"><span class="keyword">for</span> i:=<span class="keyword">range</span> arr2&#123;</span><br><span class="line">	fmt.Println(arr2[i])<span class="comment">//1   2    3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.range还可以获得数组的值</span></span><br><span class="line"><span class="keyword">for</span> i, v:=<span class="keyword">range</span> arr2&#123;</span><br><span class="line">	fmt.Println(i, v)<span class="comment">//1   2    3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.只要v的情况,_在Go语言中是一种通用方法</span></span><br><span class="line">sum := <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _, v := <span class="keyword">range</span> arr2&#123;</span><br><span class="line">	sum += v</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数内传入数组"><a href="#函数内传入数组" class="headerlink" title="函数内传入数组"></a>函数内传入数组</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//go语言的数组是值类型的，也就是说，在函数内是不会改变函数外调用的数组的值的</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">array2</span><span class="params">( arr [3]<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	arr[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line">	<span class="keyword">for</span> _,v :=<span class="keyword">range</span> arr&#123;</span><br><span class="line">		fmt.Println(v)<span class="comment">//100,3,4,此处相当于将复制得来的数组改变了，但是外层的数组并没有改变</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//var arr1 [5]int</span></span><br><span class="line">arr2 := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">array1()</span><br><span class="line"><span class="comment">//array2(arr1)//这里是会报错的，array2函数需要传入一个长度为3的数组，go语言里认为长度为3和长度为5的数组不是一个类型的，所以会飘红</span></span><br><span class="line">array2(arr2)</span><br><span class="line">fmt.Println(arr2)<span class="comment">//[2 3 4]</span></span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li>func内传入的形参是一个固定长度的数组，并且传递实参的时候只能传递一个相同长度的数组作为实参传递，否则程序会报错；</li>
+<li>在函数中修改了数组的值，但是实际作为实参的数组的值却没有发生变化，这说明了数组只是传递了值，而不是将整个对象引用过去。<br>形参copy了一个新的数组加以修改，而不是在原有的数组上进行修改。<h3 id="数组的“引用传递”"><a href="#数组的“引用传递”" class="headerlink" title="数组的“引用传递”"></a>数组的“引用传递”</h3>Java与python中的数组本质上是一个对象，在引用传递的过程中，实际赋值操作时是将对象指向堆空间的内存地址进行传递，那么被赋值对象<br>实际上与原对象指向的是同一块堆内存。修改其中的一个，另外一个也会相应的发生变化，这就是引用传递。<br>Go实现类似应用传递的本质与上述的方法理论基本一致。Go指针在此处的作用大抵就是完成了上述的操作。<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">array3</span><span class="params">( arr *[3]<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	arr[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line">	<span class="keyword">for</span> _,v :=<span class="keyword">range</span> arr&#123;</span><br><span class="line">		fmt.Println(v)<span class="comment">//100,3,4,此处相当于将复制得来的数组改变了，但是外层的数组并没有改变</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//array3接收的是一个数组的指针，所以我们传一个arr的地址值进去</span></span><br><span class="line">array3(&amp;arr2)</span><br><span class="line">fmt.Println(arr2)<span class="comment">//[100 3 4]，此时是相当于引用传递的，所以会改变数组的值</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意：从某种程度上来讲，Go语言是一门值传递语言，引入指针的概念后，更确切的说就是，Go语言的参数传递是值传递与指针传递的结合使用。</p>
+<h2 id="Slice"><a href="#Slice" class="headerlink" title="Slice"></a>Slice</h2><p>我们一般翻译过来叫做切片。和其他语言的数组切片非常的相似，包括中括号取索引，半开半闭等，但是实际上Go语言的数组slice与他们相比<br>又有很多独特的地方。</p>
+<p>其实通过上面的demo可以看出，不论是值引用方式还是指针引用方式，用起来都极为不便，func函数里的数组长度必须要求实参与之长度相同。<br>这样用起来是十分麻烦的，这与Go语言所追求的极简的概念也有着冲突。其实我们平时使用的数组都是Slice方式的，这种方式使用数组是极为简便的。</p>
 
       
     </div>
+    
+    
+    
+ 
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文已经结束，感谢您的阅读！-------------</div>
+    
+</div>
+      
+    </div>
+    
+    
 
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/20/Java程序初始化的顺序/" rel="next" title="Java程序初始化的顺序（一）">
+                <i class="fa fa-chevron-left"></i> Java程序初始化的顺序（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -352,6 +568,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -372,8 +592,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -460,6 +689,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组基础"><span class="nav-number">1.</span> <span class="nav-text">数组基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要讨论Go语言的数组"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要讨论Go语言的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组定义的三种方式"><span class="nav-number">1.2.</span> <span class="nav-text">数组定义的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历数组"><span class="nav-number">1.3.</span> <span class="nav-text">遍历数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内传入数组"><span class="nav-number">1.4.</span> <span class="nav-text">函数内传入数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的“引用传递”"><span class="nav-number">1.5.</span> <span class="nav-text">数组的“引用传递”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slice"><span class="nav-number">2.</span> <span class="nav-text">Slice</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -636,6 +881,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
