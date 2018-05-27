@@ -96,10 +96,12 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。 数组定义的三种方式1234567891011// 1.定义一个数组，并赋值var arr1 [5]int//[0 0 0 0 0]//va">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-25T10:25:03.604Z">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180522232451.png">
+<meta property="og:updated_time" content="2018-05-27T00:51:28.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言Array与Slice">
 <meta name="twitter:description" content="数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。 数组定义的三种方式1234567891011// 1.定义一个数组，并赋值var arr1 [5]int//[0 0 0 0 0]//va">
+<meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180522232451.png">
 
 
 
@@ -462,7 +464,7 @@
 <h3 id="Extending-Slice"><a href="#Extending-Slice" class="headerlink" title="Extending Slice"></a>Extending Slice</h3><p>下面的一段代码：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr1 := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;</span><br><span class="line">s1 := arr1[<span class="number">2</span>:<span class="number">6</span>]</span><br><span class="line"><span class="comment">//很明显此时s1的长度是4，即下标是0-3，那么此时的s2会不会报错，答案是不会报错</span></span><br><span class="line">s2 := s1[<span class="number">3</span>:<span class="number">5</span>]</span><br><span class="line">fmt.Println(s2)<span class="comment">//[5 6]</span></span><br><span class="line">s3 := s1[<span class="number">3</span>:]</span><br><span class="line">fmt.Println(s3)<span class="comment">//[5],默认是看不到cap()的值的</span></span><br></pre></td></tr></table></figure></p>
 <p>compare:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">s1 = arr[<span class="number">2</span>:<span class="number">6</span>] <span class="comment"># [2, 3, 4, 5]</span></span><br><span class="line">s2 = s1[<span class="number">3</span>:<span class="number">5</span>] <span class="comment"># [5]</span></span><br><span class="line">print(s1, s2)</span><br></pre></td></tr></table></figure></p>
 <p>Go在s2切片的时候下标已经超出s1的索引范围了，但是结果不仅没有报错，而且还正确的切到了下一个正确值6.</p>
-<p>待续。。。</p>
+<p>待续。。。<br><img src="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180522232451.png" alt="TIM截图20180522232451"></p>
 
       
     </div>
@@ -634,7 +636,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
