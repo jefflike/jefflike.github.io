@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -88,13 +88,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jefflike&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/Go/index.html">
+<meta name="description" content="为什么匿名内部类和局部内部类只能访问final变量前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。在这里就简单的说一说为什么Java会这样设定。 局部内部类或匿名内部类的对象可以被外部方">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="匿名内部类和局部内部类扩展">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/为什么匿名内部类和局部内部类只能访问final变量/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
+<meta property="og:description" content="为什么匿名内部类和局部内部类只能访问final变量前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。在这里就简单的说一说为什么Java会这样设定。 局部内部类或匿名内部类的对象可以被外部方">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-28T11:29:01.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jefflike&#39;s Blog">
+<meta name="twitter:title" content="匿名内部类和局部内部类扩展">
+<meta name="twitter:description" content="为什么匿名内部类和局部内部类只能访问final变量前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。在这里就简单的说一说为什么Java会这样设定。 局部内部类或匿名内部类的对象可以被外部方">
 
 
 
@@ -133,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Go/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/28/为什么匿名内部类和局部内部类只能访问final变量/"/>
 
 
 
 
 
-  <title>分类: Go | Jefflike's Blog</title>
+  <title>匿名内部类和局部内部类扩展 | Jefflike's Blog</title>
   
 
 
@@ -159,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/jefflike"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>    
 	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,55 +302,262 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Go<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/为什么匿名内部类和局部内部类只能访问final变量/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jefflike">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p8cdfcmvy.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jefflike's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/21/Go语言Array与Slice/" itemprop="url">
-              
-                <span itemprop="name">Go语言Array与Slice</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">匿名内部类和局部内部类扩展</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-21T22:35:12+08:00"
-              content="2018-05-21" >
-          05-21
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T17:43:04+08:00">
+                2018-05-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,082
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="为什么匿名内部类和局部内部类只能访问final变量"><a href="#为什么匿名内部类和局部内部类只能访问final变量" class="headerlink" title="为什么匿名内部类和局部内部类只能访问final变量"></a>为什么匿名内部类和局部内部类只能访问final变量</h2><p>前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在<br>方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。<br>在这里就简单的说一说为什么Java会这样设定。</p>
+<p>局部内部类或匿名内部类的对象可以被外部方法作为返回值，返回到方法外使用，那么如果这样的话，就会出现矛盾。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Change c = method();</span><br><span class="line">		<span class="comment">//这里method()已经结束，按理说局部a早就失效，那么下面调用change()，打印出a的值就矛盾了，即change()访问了一个不存在的变量，这是不允许的。</span></span><br><span class="line">		c.change();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Change <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">implements</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"a="</span>+a);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Change in = <span class="keyword">new</span> Inner();</span><br><span class="line">		<span class="keyword">return</span> in;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果说这里的a是一个变量，那么这里就已经产生矛盾了。</p>
+<p>要理解这一点，我们需要知道局部内部类和匿名内部类访问局部变量的机制。</p>
+<p>在java中，类是封装的，内部类也不例外。我们知道，非静态内部类能够访问外部类成员是因为它持有外部类对象的引用 Outer.this，<br>就像子类对像能够访问父类成员是持有父类对象引用super一样。局部内部类也和一般内部类一样，只持有了Outer.this，能够访问外部类成员，<br>但是它又是如何访问到局部变量的呢？</p>
+<p>实际上java是将局部变量作为参数传给了局部内部类的构造函数，而将其作为内部类的成员属性封装在了类中。我们看到的内部类访问局<br>部变量实际上只是访问了自己的成员属性而已，这和类的封装性是一致的。那么上面的代码实际上是这样：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Change c = method();</span><br><span class="line">		c.change();</span><br><span class="line">        <span class="comment">//change()访问的就不是method()的局部变量a，</span></span><br><span class="line">       <span class="comment">//而是Inner内部类的成员变量a，只是它的值是method()的局部变量a的副本</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Change <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">implements</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">		    </span><br><span class="line">		    <span class="comment">//实际上内部做了这样的操作，内部类的a只是方法中的copy，是内部类的私有变量，所以自己可以访问得到</span></span><br><span class="line">			<span class="keyword">private</span> <span class="keyword">int</span> a;</span><br><span class="line">			Inner(<span class="keyword">int</span> a)&#123;</span><br><span class="line">				<span class="keyword">this</span>.a =a;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>&#123;</span><br><span class="line">			    <span class="comment">// 调用的也是内部私有变量a，copy的a不是方法里面的变量a</span></span><br><span class="line">				System.out.println(<span class="string">"a="</span> + <span class="keyword">this</span>.a);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Change in = <span class="keyword">new</span> Inner(a);<span class="comment">//a=10</span></span><br><span class="line">		<span class="keyword">return</span> in;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所以，方法里的a改不改，和我内部类里面的a实际上没有关系。</p>
+<p>那么，如果java不做这个特性，而是将这两种a认作是两个变量（常量），那么我们的代码是这样的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Change c = method();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Change <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">implements</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>&#123;</span><br><span class="line">				a = <span class="number">20</span>; <span class="comment">//如果这里可以修改a的值</span></span><br><span class="line">				System.out.println(<span class="string">"a="</span> + a);<span class="comment">//20</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Change in = <span class="keyword">new</span> Inner();</span><br><span class="line">		in.change();</span><br><span class="line">		System.out.println(“a=”+a);<span class="comment">//从阅读角度，这里预期打印a=20，然而只会打印出a=10，会让人误解，因为在Inner的change()中修改的是Inner内部类对象的this.a，它是method的局部变量a的副本</span></span><br><span class="line">		<span class="keyword">return</span> in;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一眼看下去，我们一定认为，内部类引用了方法里的a，这样代码的可读性太差了。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>为了保证阅读与运行的一致性，只能规定局部变量a（和副本a）不能修改，这样阅读和运行就可保持一致。那么就只能限定a为final，即定义为常量。</p>
 
       
     </div>
+    
+    
+    
+ 
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文已经结束，感谢您的阅读！-------------</div>
+    
+</div>
+      
+    </div>
+    
+    
 
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/26/Java内部类/" rel="next" title="Java内部类">
+                <i class="fa fa-chevron-left"></i> Java内部类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -353,6 +565,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -373,8 +589,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -467,6 +692,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么匿名内部类和局部内部类只能访问final变量"><span class="nav-number">1.</span> <span class="nav-text">为什么匿名内部类和局部内部类只能访问final变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结论"><span class="nav-number">1.0.1.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -645,6 +886,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
