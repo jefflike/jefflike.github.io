@@ -97,7 +97,7 @@
 <meta property="og:description" content="数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。 数组定义的三种方式1234567891011// 1.定义一个数组，并赋值var arr1 [5]int//[0 0 0 0 0]//va">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180522232451.png">
-<meta property="og:updated_time" content="2018-05-27T00:51:28.597Z">
+<meta property="og:updated_time" content="2018-05-29T13:07:21.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言Array与Slice">
 <meta name="twitter:description" content="数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。 数组定义的三种方式1234567891011// 1.定义一个数组，并赋值var arr1 [5]int//[0 0 0 0 0]//va">
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,590
+                  1,689
                 </span>
               
 
@@ -461,10 +461,12 @@
 <p>Go语言在使用数组类似引用传递的操作时一般是不使用指针的，而是上述操作的切片的方式。go文档里说，slice是对数组的一个视图（view），只看我要看的这一小段。</p>
 <h3 id="reSlice"><a href="#reSlice" class="headerlink" title="reSlice"></a>reSlice</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//reslice操作,每次的下标都是针对自己的slice</span></span><br><span class="line">arr := [...]<span class="keyword">int</span>&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>&#125;</span><br><span class="line">a := arr[:]</span><br><span class="line">a = a[:<span class="number">3</span>]</span><br><span class="line">a = a[<span class="number">1</span>:]</span><br><span class="line">fmt.Println(a)<span class="comment">//[4,6]</span></span><br></pre></td></tr></table></figure>
 <p>reSlice理解起来并不难，但是要是想进一步理解Go语言的切片需要理解Extending Slice.的概念。</p>
-<h3 id="Extending-Slice"><a href="#Extending-Slice" class="headerlink" title="Extending Slice"></a>Extending Slice</h3><p>下面的一段代码：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr1 := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;</span><br><span class="line">s1 := arr1[<span class="number">2</span>:<span class="number">6</span>]</span><br><span class="line"><span class="comment">//很明显此时s1的长度是4，即下标是0-3，那么此时的s2会不会报错，答案是不会报错</span></span><br><span class="line">s2 := s1[<span class="number">3</span>:<span class="number">5</span>]</span><br><span class="line">fmt.Println(s2)<span class="comment">//[5 6]</span></span><br><span class="line">s3 := s1[<span class="number">3</span>:]</span><br><span class="line">fmt.Println(s3)<span class="comment">//[5],默认是看不到cap()的值的</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Extending-Slice"><a href="#Extending-Slice" class="headerlink" title="Extending Slice"></a>Extending Slice</h3><p>下面的一段代码：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arr1 := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;</span><br><span class="line">s1 := arr1[<span class="number">2</span>:<span class="number">6</span>]</span><br><span class="line"><span class="comment">//很明显此时s1的长度是4，即下标是0-3，那么此时的s2会不会报错，答案是不会报错</span></span><br><span class="line">s2 := s1[<span class="number">3</span>:<span class="number">5</span>]</span><br><span class="line">fmt.Println(s2)<span class="comment">//[5 6]</span></span><br><span class="line">s3 := s1[<span class="number">3</span>:]</span><br><span class="line">fmt.Println(s3)<span class="comment">//[5],默认是看不到cap()的值的，直接取s1[4]会报错</span></span><br></pre></td></tr></table></figure></p>
 <p>compare:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">s1 = arr[<span class="number">2</span>:<span class="number">6</span>] <span class="comment"># [2, 3, 4, 5]</span></span><br><span class="line">s2 = s1[<span class="number">3</span>:<span class="number">5</span>] <span class="comment"># [5]</span></span><br><span class="line">print(s1, s2)</span><br></pre></td></tr></table></figure></p>
 <p>Go在s2切片的时候下标已经超出s1的索引范围了，但是结果不仅没有报错，而且还正确的切到了下一个正确值6.</p>
-<p>待续。。。<br><img src="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180522232451.png" alt="TIM截图20180522232451"></p>
+<p><img src="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180522232451.png" alt="TIM截图20180522232451"></p>
+<p>golang中的slice除了len()还有一个cap()长度。虽然此时的len(s1)是4，但是cap(s1)还是6，slice是一个视图，视图再切片时还是能知道<br>下面的数据（索引为4和5）的，所以只要不超过cap()长度，即使s1取不到4，5（超过len()长度），但是s2依然可以取到。</p>
+<h4 id="slice的实现"><a href="#slice的实现" class="headerlink" title="slice的实现"></a>slice的实现</h4><p>待续。。。</p>
 
       
     </div>
@@ -636,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -720,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组基础"><span class="nav-number">1.</span> <span class="nav-text">数组基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要讨论Go语言的数组"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要讨论Go语言的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组定义的三种方式"><span class="nav-number">1.2.</span> <span class="nav-text">数组定义的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历数组"><span class="nav-number">1.3.</span> <span class="nav-text">遍历数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内传入数组"><span class="nav-number">1.4.</span> <span class="nav-text">函数内传入数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的“引用传递”"><span class="nav-number">1.5.</span> <span class="nav-text">数组的“引用传递”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slice"><span class="nav-number">2.</span> <span class="nav-text">Slice</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Slice切片的基本形式"><span class="nav-number">2.1.</span> <span class="nav-text">Slice切片的基本形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go语言数组的正确打开方式"><span class="nav-number">2.2.</span> <span class="nav-text">Go语言数组的正确打开方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reSlice"><span class="nav-number">2.3.</span> <span class="nav-text">reSlice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extending-Slice"><span class="nav-number">2.4.</span> <span class="nav-text">Extending Slice</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组基础"><span class="nav-number">1.</span> <span class="nav-text">数组基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要讨论Go语言的数组"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要讨论Go语言的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组定义的三种方式"><span class="nav-number">1.2.</span> <span class="nav-text">数组定义的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历数组"><span class="nav-number">1.3.</span> <span class="nav-text">遍历数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内传入数组"><span class="nav-number">1.4.</span> <span class="nav-text">函数内传入数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的“引用传递”"><span class="nav-number">1.5.</span> <span class="nav-text">数组的“引用传递”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slice"><span class="nav-number">2.</span> <span class="nav-text">Slice</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Slice切片的基本形式"><span class="nav-number">2.1.</span> <span class="nav-text">Slice切片的基本形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go语言数组的正确打开方式"><span class="nav-number">2.2.</span> <span class="nav-text">Go语言数组的正确打开方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reSlice"><span class="nav-number">2.3.</span> <span class="nav-text">reSlice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extending-Slice"><span class="nav-number">2.4.</span> <span class="nav-text">Extending Slice</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#slice的实现"><span class="nav-number">2.4.1.</span> <span class="nav-text">slice的实现</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -754,7 +756,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.0k</span>
+    <span title="Site words total count">15.9k</span>
   
 </div>
 

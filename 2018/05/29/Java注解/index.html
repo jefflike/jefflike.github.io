@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="为什么匿名内部类和局部内部类只能访问final变量前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。在这里就简单的说一说为什么Java会这样设定。 局部内部类或匿名内部类的对象可以被外部方">
+<meta name="description" content="上一篇博客提到了Java的枚举类型，Java的枚举类型从本质上实现是Java的类，所以可以看作是一个特殊的Java类。本篇博客要说的是Java里的注解，注解（Annotation），此处说的注解与我们之前所说的单行注释，多行注释不是一类对象，单行注释，多行注释是编程人员将代码结构进行注释方便日后代码维护所添加的对机器无用的代码块，而Annotation指的是，在代码中会起到相应的作用。 注解三要素">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="匿名内部类和局部内部类扩展">
-<meta property="og:url" content="http://yoursite.com/2018/05/28/为什么匿名内部类和局部内部类只能访问final变量/index.html">
+<meta property="og:title" content="Java注解">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/Java注解/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="为什么匿名内部类和局部内部类只能访问final变量前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。在这里就简单的说一说为什么Java会这样设定。 局部内部类或匿名内部类的对象可以被外部方">
+<meta property="og:description" content="上一篇博客提到了Java的枚举类型，Java的枚举类型从本质上实现是Java的类，所以可以看作是一个特殊的Java类。本篇博客要说的是Java里的注解，注解（Annotation），此处说的注解与我们之前所说的单行注释，多行注释不是一类对象，单行注释，多行注释是编程人员将代码结构进行注释方便日后代码维护所添加的对机器无用的代码块，而Annotation指的是，在代码中会起到相应的作用。 注解三要素">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T11:29:01.367Z">
+<meta property="og:updated_time" content="2018-05-29T12:00:29.264Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="匿名内部类和局部内部类扩展">
-<meta name="twitter:description" content="为什么匿名内部类和局部内部类只能访问final变量前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。在这里就简单的说一说为什么Java会这样设定。 局部内部类或匿名内部类的对象可以被外部方">
+<meta name="twitter:title" content="Java注解">
+<meta name="twitter:description" content="上一篇博客提到了Java的枚举类型，Java的枚举类型从本质上实现是Java的类，所以可以看作是一个特殊的Java类。本篇博客要说的是Java里的注解，注解（Annotation），此处说的注解与我们之前所说的单行注释，多行注释不是一类对象，单行注释，多行注释是编程人员将代码结构进行注释方便日后代码维护所添加的对机器无用的代码块，而Annotation指的是，在代码中会起到相应的作用。 注解三要素">
 
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/28/为什么匿名内部类和局部内部类只能访问final变量/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/29/Java注解/"/>
 
 
 
 
 
-  <title>匿名内部类和局部内部类扩展 | Jefflike's Blog</title>
+  <title>Java注解 | Jefflike's Blog</title>
   
 
 
@@ -316,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/为什么匿名内部类和局部内部类只能访问final变量/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/Java注解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jefflike">
@@ -333,7 +333,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">匿名内部类和局部内部类扩展</h2>
+          <h2 class="post-title" itemprop="name headline">Java注解</h2>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T17:43:04+08:00">
-                2018-05-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T18:26:55+08:00">
+                2018-05-29
               </time>
             
 
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,082
+                  1,872
                 </span>
               
 
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  8
                 </span>
               
             </div>
@@ -441,16 +441,90 @@
       
 
       
-        <h2 id="为什么匿名内部类和局部内部类只能访问final变量"><a href="#为什么匿名内部类和局部内部类只能访问final变量" class="headerlink" title="为什么匿名内部类和局部内部类只能访问final变量"></a>为什么匿名内部类和局部内部类只能访问final变量</h2><p>前面我们提到了Java里的内部类，也提到了关于局部内部类与匿名类，可以访问到所在方法的局部常量，并且在JDK8.0版本以后，即使你在<br>方法中并没有声明变量为final，默认编译的时候也是final类型的，即你不可以改变此方法中被局部内部类引用了的变量（就是变量）。<br>在这里就简单的说一说为什么Java会这样设定。</p>
-<p>局部内部类或匿名内部类的对象可以被外部方法作为返回值，返回到方法外使用，那么如果这样的话，就会出现矛盾。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Change c = method();</span><br><span class="line">		<span class="comment">//这里method()已经结束，按理说局部a早就失效，那么下面调用change()，打印出a的值就矛盾了，即change()访问了一个不存在的变量，这是不允许的。</span></span><br><span class="line">		c.change();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Change <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">implements</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"a="</span>+a);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Change in = <span class="keyword">new</span> Inner();</span><br><span class="line">		<span class="keyword">return</span> in;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果说这里的a是一个变量，那么这里就已经产生矛盾了。</p>
-<p>要理解这一点，我们需要知道局部内部类和匿名内部类访问局部变量的机制。</p>
-<p>在java中，类是封装的，内部类也不例外。我们知道，非静态内部类能够访问外部类成员是因为它持有外部类对象的引用 Outer.this，<br>就像子类对像能够访问父类成员是持有父类对象引用super一样。局部内部类也和一般内部类一样，只持有了Outer.this，能够访问外部类成员，<br>但是它又是如何访问到局部变量的呢？</p>
-<p>实际上java是将局部变量作为参数传给了局部内部类的构造函数，而将其作为内部类的成员属性封装在了类中。我们看到的内部类访问局<br>部变量实际上只是访问了自己的成员属性而已，这和类的封装性是一致的。那么上面的代码实际上是这样：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Change c = method();</span><br><span class="line">		c.change();</span><br><span class="line">        <span class="comment">//change()访问的就不是method()的局部变量a，</span></span><br><span class="line">       <span class="comment">//而是Inner内部类的成员变量a，只是它的值是method()的局部变量a的副本</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Change <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">implements</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">		    </span><br><span class="line">		    <span class="comment">//实际上内部做了这样的操作，内部类的a只是方法中的copy，是内部类的私有变量，所以自己可以访问得到</span></span><br><span class="line">			<span class="keyword">private</span> <span class="keyword">int</span> a;</span><br><span class="line">			Inner(<span class="keyword">int</span> a)&#123;</span><br><span class="line">				<span class="keyword">this</span>.a =a;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>&#123;</span><br><span class="line">			    <span class="comment">// 调用的也是内部私有变量a，copy的a不是方法里面的变量a</span></span><br><span class="line">				System.out.println(<span class="string">"a="</span> + <span class="keyword">this</span>.a);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Change in = <span class="keyword">new</span> Inner(a);<span class="comment">//a=10</span></span><br><span class="line">		<span class="keyword">return</span> in;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>所以，方法里的a改不改，和我内部类里面的a实际上没有关系。</p>
-<p>那么，如果java不做这个特性，而是将这两种a认作是两个变量（常量），那么我们的代码是这样的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Change c = method();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Change <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">implements</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>&#123;</span><br><span class="line">				a = <span class="number">20</span>; <span class="comment">//如果这里可以修改a的值</span></span><br><span class="line">				System.out.println(<span class="string">"a="</span> + a);<span class="comment">//20</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Change in = <span class="keyword">new</span> Inner();</span><br><span class="line">		in.change();</span><br><span class="line">		System.out.println(“a=”+a);<span class="comment">//从阅读角度，这里预期打印a=20，然而只会打印出a=10，会让人误解，因为在Inner的change()中修改的是Inner内部类对象的this.a，它是method的局部变量a的副本</span></span><br><span class="line">		<span class="keyword">return</span> in;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Change</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>一眼看下去，我们一定认为，内部类引用了方法里的a，这样代码的可读性太差了。</p>
-<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>为了保证阅读与运行的一致性，只能规定局部变量a（和副本a）不能修改，这样阅读和运行就可保持一致。那么就只能限定a为final，即定义为常量。</p>
+        <p>上一篇博客提到了Java的枚举类型，Java的枚举类型从本质上实现是Java的类，所以可以看作是一个特殊的Java类。本篇博客要说的是Java里的注解，<br>注解（Annotation），此处说的注解与我们之前所说的单行注释，多行注释不是一类对象，单行注释，多行注释是编程人员将代码结构进行注释<br>方便日后代码维护所添加的对机器无用的代码块，而Annotation指的是，在代码中会起到相应的作用。</p>
+<h3 id="注解三要素"><a href="#注解三要素" class="headerlink" title="注解三要素"></a>注解三要素</h3><ol>
+<li>声明（一般是框架或者核心类库等声明了注解，我们自己也可以声明注解）；</li>
+<li>使用注解（在程序的相应位置，按照一定的格式声明注解）；</li>
+<li>读取注解（读取注解的程序一般声明注解的人写好的，我们不需要重复操作）。<h3 id="最基本的三个注解"><a href="#最基本的三个注解" class="headerlink" title="最基本的三个注解"></a>最基本的三个注解</h3>一、 @Override</li>
+</ol>
+<ul>
+<li>声明：系统预定义的，JRE核心类库已经声明好了。在java.lang.Override中；</li>
+<li>使用：在重写的方法上加注解，表示这个方法是重写的方法；</li>
+<li>读取它：javac.exe读取它。</li>
+</ul>
+<p>作用：编译时会对这个方法进行格式检查，看这个方法是否复合重写的要求。</p>
+<p>二、@SuppressWarnings</p>
+<ul>
+<li>声明：系统预定义的，JRE核心类库已经声明好了。在java.lang.SuppressWarnings中；</li>
+<li>使用：在相应位置表示抑制xx警告；</li>
+<li>读取：javac.exe读取它。</li>
+</ul>
+<p>三、@Deprecated</p>
+<ul>
+<li>声明：系统预定义的，JRE核心类库已经声明好了。在java.lang.Deprecated中；</li>
+<li>使用：在相应位置使用，表示这个类、方法、属性（看使用的位置在哪）已经过时了，不再建议程序员使用它，以弹出警告的方式告知程序员这个xx已经过时了。</li>
+<li>读取：javac.exe读取它。</li>
+</ul>
+<p>注意：已过时的一般来说，就是设计有问题，或者有重大bug，不建议程序员使用的。</p>
+<h3 id="文档注解"><a href="#文档注解" class="headerlink" title="文档注解"></a>文档注解</h3><ul>
+<li>声明：JRE核心类库已经声明好了。</li>
+<li>使用：<br>通用：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 作者</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>    另请参阅</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>  从xx版本开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 当前版本</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>方法上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 这是一个求两个整数的商的方法</span><br><span class="line"> * @param a int 被除数</span><br><span class="line"> * @param b int 除数</span><br><span class="line"> * @return int 返回a/b的商，只保留整数部分</span><br><span class="line"> * @throws ArithmeticException 当b=0时，会报算术异常</span><br><span class="line"> */</span><br><span class="line">public static int divide(int a, int b)throws ArithmeticException&#123;</span><br><span class="line">    return a/b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>读取：javadoc.exe读取。<h4 id="跟踪代码依赖性，替代原来-xml配置文件"><a href="#跟踪代码依赖性，替代原来-xml配置文件" class="headerlink" title="跟踪代码依赖性，替代原来.xml配置文件"></a>跟踪代码依赖性，替代原来.xml配置文件</h4>类似flask装饰器指向路由的使用，后续框架部分详细介绍。<h3 id="JUnit框架的注解"><a href="#JUnit框架的注解" class="headerlink" title="JUnit框架的注解"></a>JUnit框架的注解</h3></li>
+<li>@Test </li>
+</ul>
+<p>声明：不是JRE提供的，而是有JUnit框架提供的；</p>
+<p>使用：使用的方法必须是公共的、无参、void、非静态的；</p>
+<ul>
+<li>@BeforeClass</li>
+</ul>
+<p>静态方法上，在所有测试方法之前运行，而且一个类只运行一次。</p>
+<ul>
+<li>@AfterClass</li>
+</ul>
+<p>静态方法上，在所有测试方法之后运行，而且一个类只运行一次。</p>
+<ul>
+<li><p>@Before</p>
+<p>非静态方法上，在所有的测试方法之前运行，一个测试方法运行一次。</p>
+<ul>
+<li>@After</li>
+</ul>
+<p>非静态方法上，在所有的测试方法之后运行，一个测试方法运行一次。</p>
+<ul>
+<li>@Ignore</li>
+</ul>
+<p>非静态方法上和静态方法上都可以，表示本次测试忽略本方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJUnit</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"helloworld"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">			sum += i;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"sum = "</span> + sum);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@BeforeClass</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bc</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"在所有测试方法之前运行，而且一个类只运行一次"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@AfterClass</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ac</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"在所有测试方法之后运行，而且一个类只运行一次"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Before</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"每一个测试方法之前运行"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@After</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"每一个测试方法之后运行"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Ignore</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"不参与测试"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		TestJUnit t = <span class="keyword">new</span> TestJUnit();</span><br><span class="line">		t.test();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###自定义注解<br>注解三步走，声明，使用，读取，生成一个我们自己的注解也需要编写这三部分。</p>
+<p>声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">【修饰符】 @interface 注解名&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h4><p> 给注解加的注解叫元注解，简称为注解的注解。用来注解我们自定义的注解的一些基本信息的。一共有四个。</p>
+<ul>
+<li><p>@Target：目标位置，用来指明某个注解将来可以加在哪些位置。这个目标位置存放在ElementType枚举类型的常量对象中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> ElementType &#123;</span><br><span class="line">    <span class="comment">/** Class, interface (including annotation type), or enum declaration */</span></span><br><span class="line">    TYPE,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Field declaration (includes enum constants) */</span></span><br><span class="line">    FIELD,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Method declaration */</span></span><br><span class="line">    METHOD,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Formal parameter declaration */</span></span><br><span class="line">    PARAMETER,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Constructor declaration */</span></span><br><span class="line">    CONSTRUCTOR,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Local variable declaration */</span></span><br><span class="line">    LOCAL_VARIABLE,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Annotation type declaration */</span></span><br><span class="line">    ANNOTATION_TYPE,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Package declaration */</span></span><br><span class="line">    PACKAGE,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Type parameter declaration</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.8</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    TYPE_PARAMETER,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Use of a type</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.8</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    TYPE_USE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：TYPE（类型上，例如：类、接口等），FIELD（属性上），METHOD（方法上）等。</p>
+</li>
+<li><p>@Retention：生命周期，用来指明某个注解被使用后，可以保留到什么阶段。<br>三个阶段：RetentionPolicy枚举类型的三个常量对象：<br>SOURCE：源代码阶段  –&gt; CLASS：字节码阶段–&gt;RUNTIME：运行时阶段(只有这个阶段的注解，才能被反射代码读取到).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 源代码 ---&gt;.class --&gt;Class ---&gt; 运行时</span><br><span class="line">* 	   SOURCE     CLASS     RUNTIME</span><br><span class="line">* 	  javac.exe   类加载器            反射</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@Inherited：该注解是否可以被子类继承。</p>
+</li>
+<li>@Documented：该注解是否可以被javadoc.exe文档读取到API中。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDefineAnnotation</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//读取一个注解，我们自定义注解只能在运行时读取它，读取注解需要用到反射</span></span><br><span class="line">		Class&lt;MyClass&gt; clazz = MyClass.class;</span><br><span class="line">		MyAnnotation my = clazz.getAnnotation(MyAnnotation.class);</span><br><span class="line">		System.out.println(my);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用一个注解</span></span><br><span class="line"><span class="meta">@MyAnnotation</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span>&#123;</span><br><span class="line">	<span class="meta">@MyAnnotation</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义注解，声明一个注解</span></span><br><span class="line"><span class="meta">@Target</span>(&#123;ElementType.METHOD,ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@interface</span> MyAnnotation&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="注解的配置参数"><a href="#注解的配置参数" class="headerlink" title="注解的配置参数"></a>注解的配置参数</h4><p>在注解中往往还需要传入参数。<br>声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">【修饰符】 @interface 注解名&#123;</span><br><span class="line">		数据类型   配置参数名() 【default 默认值】;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>赋值:</p>
+<ul>
+<li>（1）如果一个注解声明了配置参数，而且没有默认值，那么在使用注解时必须手动给它赋值,赋值的标准格式：( 参数名 = 参数值);</li>
+<li>（2）如果一个注解它的配置参数只有一个，而且参数名是value，那么可以在赋值的时候省略value=;</li>
+<li><p>（3）配置参数的类型只能是八种基本数据类型、String类型、Class类型、enum类型、Annotation类型、以上所有类型的数组.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDefineAnnotation2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//3、读取注解</span></span><br><span class="line">        Class&lt;YourClass&gt; c = YourClass.class;</span><br><span class="line">        YourAnnotation y = c.getAnnotation(YourAnnotation.class);</span><br><span class="line">        String value = y.value();</span><br><span class="line">        System.out.println(value);</span><br><span class="line"></span><br><span class="line">        Class&lt;OtherClass&gt; c2 = OtherClass.class;</span><br><span class="line">        YourAnnotation y2 = c2.getAnnotation(YourAnnotation.class);</span><br><span class="line">        String value2 = y2.value();</span><br><span class="line">        System.out.println(value2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2、使用</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@YourAnnotation</span>(<span class="string">"dingjie"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YourClass</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里因为@YourAnnotation的配置参数有默认值，可以不赋值</span></span><br><span class="line"><span class="meta">@YourAnnotation</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OtherClass</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1、声明</span></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@interface</span> YourAnnotation&#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "jefflike"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -491,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/26/Java内部类/" rel="next" title="Java内部类">
-                <i class="fa fa-chevron-left"></i> Java内部类
+              <a href="/2018/05/29/Java的Enum数据类型/" rel="next" title="'Java的Enum数据类型'">
+                <i class="fa fa-chevron-left"></i> 'Java的Enum数据类型'
               </a>
             
           </div>
@@ -500,10 +574,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/29/Java的Enum数据类型/" rel="prev" title="'Java的Enum数据类型'">
-                'Java的Enum数据类型' <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -706,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么匿名内部类和局部内部类只能访问final变量"><span class="nav-number">1.</span> <span class="nav-text">为什么匿名内部类和局部内部类只能访问final变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结论"><span class="nav-number">1.0.1.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解三要素"><span class="nav-number">1.</span> <span class="nav-text">注解三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最基本的三个注解"><span class="nav-number">2.</span> <span class="nav-text">最基本的三个注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档注解"><span class="nav-number">3.</span> <span class="nav-text">文档注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#跟踪代码依赖性，替代原来-xml配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">跟踪代码依赖性，替代原来.xml配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JUnit框架的注解"><span class="nav-number">4.</span> <span class="nav-text">JUnit框架的注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#元注解"><span class="nav-number">4.1.</span> <span class="nav-text">元注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注解的配置参数"><span class="nav-number">4.2.</span> <span class="nav-text">注解的配置参数</span></a></li></ol></li></ol></div>
             
 
           </div>
