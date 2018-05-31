@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="为什么使用枚举当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：  枚举类型的对象是public（别人可以访问的）静态final的Java对象； 枚举类型的对象的个数是固定个数； 不能随意的new对象，说明生成对象的类的构造器被私有化了。  JDK1.5之前的枚举值得一提的是，在JDK1.5之前并没有枚举类型，那么当时的枚举类型的实现就是使用的类的构">
+<meta name="description" content="为什么使用枚举当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：  枚举类型的对象是public（别人可以访问的）静态final的Java对象； 枚举类型的对象的个数是固定个数； 不能随意的new对象，说明生成对象的类的构造器被私有化了。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java的Enum数据类型">
 <meta property="og:url" content="http://yoursite.com/2018/05/29/Java的Enum数据类型/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="为什么使用枚举当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：  枚举类型的对象是public（别人可以访问的）静态final的Java对象； 枚举类型的对象的个数是固定个数； 不能随意的new对象，说明生成对象的类的构造器被私有化了。  JDK1.5之前的枚举值得一提的是，在JDK1.5之前并没有枚举类型，那么当时的枚举类型的实现就是使用的类的构">
+<meta property="og:description" content="为什么使用枚举当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：  枚举类型的对象是public（别人可以访问的）静态final的Java对象； 枚举类型的对象的个数是固定个数； 不能随意的new对象，说明生成对象的类的构造器被私有化了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-29T15:15:18.346Z">
+<meta property="og:updated_time" content="2018-05-31T06:38:57.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java的Enum数据类型">
-<meta name="twitter:description" content="为什么使用枚举当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：  枚举类型的对象是public（别人可以访问的）静态final的Java对象； 枚举类型的对象的个数是固定个数； 不能随意的new对象，说明生成对象的类的构造器被私有化了。  JDK1.5之前的枚举值得一提的是，在JDK1.5之前并没有枚举类型，那么当时的枚举类型的实现就是使用的类的构">
+<meta name="twitter:description" content="为什么使用枚举当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：  枚举类型的对象是public（别人可以访问的）静态final的Java对象； 枚举类型的对象的个数是固定个数； 不能随意的new对象，说明生成对象的类的构造器被私有化了。">
 
 
 
@@ -456,7 +456,8 @@
 <ol>
 <li>枚举类型的对象是public（别人可以访问的）静态final的Java对象；</li>
 <li>枚举类型的对象的个数是固定个数；</li>
-<li>不能随意的new对象，说明生成对象的类的构造器被私有化了。</li>
+<li>不能随意的new对象，说明生成对象的类的构造器被私有化了。<a id="more"></a>
+</li>
 </ol>
 <h3 id="JDK1-5之前的枚举"><a href="#JDK1-5之前的枚举" class="headerlink" title="JDK1.5之前的枚举"></a>JDK1.5之前的枚举</h3><p>值得一提的是，在JDK1.5之前并没有枚举类型，那么当时的枚举类型的实现就是使用的类的构造器私有化和枚举类型的固定。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestEnumType</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season s = Season.SPRING;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">    <span class="comment">//2、预先创建好固定的几个对象供外界使用,就是类似实现了枚举的类型</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season SPRING = <span class="keyword">new</span> Season(<span class="string">"春天"</span>);<span class="comment">//调用私有的构造器</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season SUMMER = <span class="keyword">new</span> Season(<span class="string">"夏天"</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season FALL = <span class="keyword">new</span> Season();<span class="comment">//调用私有的无参构造器</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season WINTER = <span class="keyword">new</span> Season();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1、构造器私有化</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String description)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.description = description;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"SPRING:"</span> + description;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -768,7 +769,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.6k</span>
+    <span title="Site words total count">19.6k</span>
   
 </div>
 

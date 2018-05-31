@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？ 发现问题1234567891011121314151617181920212223242526272829class Student&amp;#123;	private String name;		void setName(String name)&amp;#123;		this.n">
+<meta name="description" content="今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java程序初始化的顺序（一）">
 <meta property="og:url" content="http://yoursite.com/2018/05/20/Java程序初始化的顺序/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？ 发现问题1234567891011121314151617181920212223242526272829class Student&amp;#123;	private String name;		void setName(String name)&amp;#123;		this.n">
+<meta property="og:description" content="今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-24T06:27:49.495Z">
+<meta property="og:updated_time" content="2018-05-30T14:50:10.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java程序初始化的顺序（一）">
-<meta name="twitter:description" content="今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？ 发现问题1234567891011121314151617181920212223242526272829class Student&amp;#123;	private String name;		void setName(String name)&amp;#123;		this.n">
+<meta name="twitter:description" content="今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？">
 
 
 
@@ -452,7 +452,7 @@
       
 
       
-        <p>今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？</p>
+        <p>今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？<br><a id="more"></a></p>
 <h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Student()&#123;</span><br><span class="line">		<span class="comment">//this(this.name);</span></span><br><span class="line">		<span class="keyword">this</span>(name);</span><br><span class="line">		System.out.println(<span class="string">"题目要求写一个无参的构造器"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Student(String name)&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestStudent</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Student stu1 = <span class="keyword">new</span> Student();</span><br><span class="line">		System.out.print(stu1.getName());</span><br><span class="line">		Student stu2 = <span class="keyword">new</span> Student(<span class="string">"老大"</span>);</span><br><span class="line">		System.out.println(stu2.getName());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此时会报错：无法在调用超类型构造器之前引用name.</p>
 <p>在使用构造器创建对象时，构造器此时还无法使用类的成员变量name.由此我们需要知道，一个类创建对象时到底做了哪些事。</p>
@@ -768,7 +768,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.6k</span>
+    <span title="Site words total count">19.6k</span>
   
 </div>
 

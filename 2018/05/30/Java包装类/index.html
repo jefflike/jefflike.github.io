@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="包装类的由来Java发明时正遇上C语言盛行的时候，因此Java保留/延续/借鉴了C语言中八种基本数据类型。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T14:46:03.358Z">
+<meta property="og:updated_time" content="2018-05-31T09:17:52.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java包装类">
 <meta name="twitter:description" content="包装类的由来Java发明时正遇上C语言盛行的时候，因此Java保留/延续/借鉴了C语言中八种基本数据类型。">
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  365
+                  1,381
                 </span>
               
 
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -470,9 +470,49 @@
 </ul>
 </li>
 <li>JDK1.5之前，只能用刚才的形式进行手动装箱和手动拆箱。</li>
-<li>JDK1.5之后，开始支持自动装箱与自动拆箱.</li>
+<li>JDK1.5之后，开始支持自动装箱与自动拆箱.<br>JDK之前的手动装箱拆箱的操作：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1、创建一个包装类的对象</span></span><br><span class="line">        Integer i = <span class="keyword">new</span> Integer(<span class="number">12</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2、手动装箱操作</span></span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="comment">//需要把变量a的值存储到集合，或传给引用数据类型的形参时，那么就需要把a变成包装类对象</span></span><br><span class="line">        Integer num = <span class="keyword">new</span> Integer(a);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3、手动拆箱操作</span></span><br><span class="line">        Integer n1 = <span class="keyword">new</span> Integer(<span class="number">10</span>);</span><br><span class="line">        Integer n2 = <span class="keyword">new</span> Integer(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//例如：求和，对象不能直接相加,拆箱成基本数据类型</span></span><br><span class="line">        <span class="keyword">int</span> m1 = n1.intValue();</span><br><span class="line">        <span class="keyword">int</span> m2 = n2.intValue();</span><br><span class="line">        System.out.println(m1 + m2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-
+<p>JDK1.5之后，自动拆箱，装箱<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestWrapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//自动装箱，自动拆箱</span></span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line">        Integer bNum = b;<span class="comment">//自动装箱//等价于 Integer bNum = new Integer(b);</span></span><br><span class="line"></span><br><span class="line">        Integer cNum = <span class="keyword">new</span> Integer(<span class="number">23</span>);</span><br><span class="line">        <span class="keyword">int</span> c = cNum;<span class="comment">//自动拆箱//等价于  int c = cNum.intValue();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//5、演示错误</span></span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">12</span>;<span class="comment">//整型的值是可以赋值给double型的变量，自动类型转换</span></span><br><span class="line"><span class="comment">//		Double dNUm = 12;//错误的  int类型的值和变量只能自动装箱为Integer</span></span><br><span class="line"><span class="comment">//		Double dNUm = 12.0F;//错误的，12.0F只能自动装箱为Float</span></span><br><span class="line">        Double dNum = <span class="number">12.0</span>;<span class="comment">//可以</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：装箱与拆箱的操作，只能与自己对应的基本数据类型和包装类进行。</p>
+<h3 id="缓存的常量对象"><a href="#缓存的常量对象" class="headerlink" title="缓存的常量对象"></a>缓存的常量对象</h3><p>在python中也存在着一个维持的小数池，对于-128到127的值，引用的是同一个对象，按道理说，每new一个包装类的对象，那他就会在堆中<br>创建一个新的包装类对象，但是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1. 在堆中创建了两个Integer包装类对象，那么他们的地址肯定不同，比较一定是false</span></span><br><span class="line">        Integer i1 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        Integer i2 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        System.out.println(i1 == i2);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.比较的是基本数据类型的大小，不是比较内存地址了，大小相等</span></span><br><span class="line">        <span class="keyword">int</span> i3 = <span class="number">128</span>;</span><br><span class="line">        <span class="keyword">int</span> i4 = <span class="number">128</span>;</span><br><span class="line">        System.out.println(i3 == i4);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 不过是基本数据类型进行了自动装箱，本质上还是创建了两个包装类的对象，地址不同</span></span><br><span class="line">        Integer i5 = <span class="number">128</span>;</span><br><span class="line">        Integer i6 = <span class="number">128</span>;</span><br><span class="line">        System.out.println(i5 == i6);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 小于128的整型在方法区（暂且这么说）有一个常量池，都指向的是这个常量池对象，所以是同一个对象</span></span><br><span class="line">        <span class="keyword">int</span> i7 = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> i8 = <span class="number">1</span>;</span><br><span class="line">        System.out.println(i7 == i8);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 由于浮点数的存储机制不同，没有那么大的空间可以存常量，也不精确，所以覅浮点型是没有常量池的</span></span><br><span class="line">        Double d1 = <span class="number">2.0</span>;</span><br><span class="line">        Double d2 = <span class="number">2.0</span>;</span><br><span class="line">        System.out.println(d1 == d2);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">        Boolean b1 = <span class="keyword">true</span>;</span><br><span class="line">        Boolean b2 = <span class="keyword">true</span>;</span><br><span class="line">        System.out.println(b1 == b2);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        Character c1 = <span class="string">'a'</span>;</span><br><span class="line">        Character c2 = <span class="string">'a'</span>;</span><br><span class="line">        System.out.println(c1 == c2);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 中文字符也是没有常量池的，字数太多了</span></span><br><span class="line">        Character c3 = <span class="string">'中'</span>;</span><br><span class="line">        Character c4 = <span class="string">'中'</span>;</span><br><span class="line">        System.out.println(c3 == c4);<span class="comment">//false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>包装类对象可能存储缓存的常量对象：</li>
+<li>Byte,Short,Integer,Long：-128~127</li>
+<li>float，double：不缓存</li>
+<li>Character：0~127</li>
+<li>Boolean：true,false</li>
+</ul>
+<p>Integer 类除了在对象中包装了一个基本类型 int 的值，该类提供了多个方法，能在 int 类型和 String 类型之间互相转换。</p>
+<p>基本数据类型与字符串类型之间的转换：</p>
+<ul>
+<li>（1）int与String</li>
+<li>int i = Integer.parseInt(字符串);</li>
+<li>int i = Integer.valueOf(str1);//隐含了自动拆箱</li>
+<li>int j = new Integer(str1);//隐含了自动拆箱</li>
+<li></li>
+<li>（2）double与字符串</li>
+<li>double d = Double.parseDouble(str3);</li>
+</ul>
+<p>包装类还提供了处理 类型时非常有用的其他一些常量。<br>  例如：</p>
+<ul>
+<li>(1)Integer</li>
+<li>Integer.MAX_VALUE</li>
+<li>Integer.MIN_VALUE</li>
+<li>(2)Double</li>
+<li>Double.MAX_VALUE</li>
+<li>Double.MIN_VALUE等</li>
+</ul>
+<p>包装类还提供了处理 int 类型时非常有用的其他一些方法</p>
+<pre><code>* Integer
+* （1）static String toBinaryString(int i) //转换为二进制
+* （2）static String toHexString(int i)  //转换为十六进制
+* （3）static String toOctalString(int i)  //转换为八进制
+* 
+* Character
+* (1)Character.toUpperCase(c)
+* (2)Character.toLowerCase(c)
+</code></pre>
       
     </div>
     
@@ -723,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#包装类的由来"><span class="nav-number">1.</span> <span class="nav-text">包装类的由来</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本数据类型与其对应的包装类"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型与其对应的包装类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装箱与拆箱"><span class="nav-number">2.</span> <span class="nav-text">装箱与拆箱</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#包装类的由来"><span class="nav-number">1.</span> <span class="nav-text">包装类的由来</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本数据类型与其对应的包装类"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型与其对应的包装类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装箱与拆箱"><span class="nav-number">2.</span> <span class="nav-text">装箱与拆箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存的常量对象"><span class="nav-number">3.</span> <span class="nav-text">缓存的常量对象</span></a></li></ol></div>
             
 
           </div>
@@ -757,7 +797,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.6k</span>
+    <span title="Site words total count">19.6k</span>
   
 </div>
 

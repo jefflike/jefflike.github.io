@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  365
+                  1,381
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -1027,15 +1027,11 @@ Java的异常处理机制的过程，原理：Java程序当某一句代码发生
 
       
         
-          
-          为什么使用枚举当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：
-
-枚举类型的对象是public（别人可以访问的）静态final的Java对象；
-枚举类型的对象的个数是固定个数；
-不能随意的new对象，说明生成对象的类的构造器被私有化了。
-
-JDK1.
-          ...
+          <h3 id="为什么使用枚举"><a href="#为什么使用枚举" class="headerlink" title="为什么使用枚举"></a>为什么使用枚举</h3><p>当某个类型的对象是固定有限的几个，而不是随意new时，那么这样的类型建议声明为枚举类型。这意味着：</p>
+<ol>
+<li>枚举类型的对象是public（别人可以访问的）静态final的Java对象；</li>
+<li>枚举类型的对象的个数是固定个数；</li>
+<li>不能随意的new对象，说明生成对象的类的构造器被私有化了。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/29/Java的Enum数据类型/#more" rel="contents">
@@ -1810,9 +1806,7 @@ JDK1.
 
       
         
-          
-          之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态代码块和子类非静
-          ...
+          <p>之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以<br>再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态代码块<br>和子类非静态代码块。本篇博客我们讨论的就是关于程序初始化的过程中，上述的成员在初始化加载先后顺序。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/23/Java程序初始化的顺序（二）/#more" rel="contents">
@@ -2004,10 +1998,7 @@ JDK1.
 
       
         
-          
-          数组基础为什么要讨论Go语言的数组在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。
-数组定义的三种方式1234567891
-          ...
+          <h2 id="数组基础"><a href="#数组基础" class="headerlink" title="数组基础"></a>数组基础</h2><h3 id="为什么要讨论Go语言的数组"><a href="#为什么要讨论Go语言的数组" class="headerlink" title="为什么要讨论Go语言的数组"></a>为什么要讨论Go语言的数组</h3><p>在其他语言里，比如Java和python里数组(列表)，都是引用传递，但是到了Go语言里，数组的传递方式依然是值传递。那么值传递的数组是怎么使用的呢？<br>这篇文章里简单的整理一下Go语言的数组的使用与其配合的Slice的工作原理。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/21/Go语言Array与Slice/#more" rel="contents">
@@ -2199,10 +2190,7 @@ JDK1.
 
       
         
-          
-          今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？
-发现问题1234567891011121314151617181920212223242526272829class Student&#123;	private Str
-          ...
+          <p>今天在写构造器方法的时候，遇到了一个小问题，由这个问题引发了一连串的思考，在一个Java类中变量与类的初始化执行顺序是什么样的呢？<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/20/Java程序初始化的顺序/#more" rel="contents">
@@ -2399,7 +2387,7 @@ JDK1.
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.6k</span>
+    <span title="Site words total count">19.6k</span>
   
 </div>
 
