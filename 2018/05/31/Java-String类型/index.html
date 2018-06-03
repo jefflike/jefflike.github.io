@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。12* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.* ORA">
+<meta name="description" content="要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。 java.lang.String简介12* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All ri">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java String类型">
+<meta property="og:title" content="String类型源码解析（一）">
 <meta property="og:url" content="http://yoursite.com/2018/05/31/Java-String类型/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。12* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.* ORA">
+<meta property="og:description" content="要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。 java.lang.String简介12* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All ri">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-03T14:38:10.271Z">
+<meta property="og:updated_time" content="2018-06-03T15:31:43.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java String类型">
-<meta name="twitter:description" content="要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。12* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.* ORA">
+<meta name="twitter:title" content="String类型源码解析（一）">
+<meta name="twitter:description" content="要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。 java.lang.String简介12* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All ri">
 
 
 
@@ -145,7 +145,7 @@
 
 
 
-  <title>Java String类型 | Jefflike's Blog</title>
+  <title>String类型源码解析（一） | Jefflike's Blog</title>
   
 
 
@@ -334,7 +334,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Java String类型</h2>
+          <h2 class="post-title" itemprop="name headline">String类型源码解析（一）</h2>
         
 
         <div class="post-meta">
@@ -386,7 +386,7 @@
 
           
           
-             <span id="/2018/05/31/Java-String类型/" class="leancloud_visitors" data-flag-title="Java String类型">
+             <span id="/2018/05/31/Java-String类型/" class="leancloud_visitors" data-flag-title="String类型源码解析（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -453,10 +453,11 @@
       
 
       
-        <p>要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能<br>会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line">* ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</span><br></pre></td></tr></table></figure></p>
+        <p>要讲Java的String类型，我们需要结合他的代码来看，根据源码的解读可以更好的理解Java底层实现的具体细节，所以这次的博客篇幅可能<br>会比较的长，所以我会分成几个部分来写，希望通过源码的解读，学习到优秀的Java代码该如何实现。</p>
+<h3 id="java-lang-String简介"><a href="#java-lang-String简介" class="headerlink" title="java.lang.String简介"></a>java.lang.String简介</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* Copyright (c) 1994, 2013, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line">* ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.</span><br></pre></td></tr></table></figure>
 <p>String包声明在java.lang下。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang;</span><br></pre></td></tr></table></figure></p>
 <p>String包简介：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* @author  Lee Boynton//作者们</span><br><span class="line">* @author  Arthur van Hoff</span><br><span class="line">* @author  Martin Buchholz</span><br><span class="line">* @author  Ulf Zibis</span><br><span class="line">* @see     java.lang.Object#toString()// 另请参阅</span><br><span class="line">* @see     java.lang.StringBuffer</span><br><span class="line">* @see     java.lang.StringBuilder</span><br><span class="line">* @see     java.nio.charset.Charset</span><br><span class="line">* @since   JDK1.0//版本号</span><br></pre></td></tr></table></figure></p>
-<p>声明<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="String类声明属性"><a href="#String类声明属性" class="headerlink" title="String类声明属性"></a>String类声明属性</h3><p>声明<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>final表示String类是不可被继承的，String实现了Serializable（可序列化）接口，Comparable（可比较）接口，CharSequence（字符序列）接口。<br>具体的实现会在后面实现代码解析的时候进行详细的分析。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/** The value is used for character storage. */</span><br><span class="line">private final char value[];</span><br></pre></td></tr></table></figure>
 <p>The value is used for character storage.就是说这个声明的value数组用于存储字符。</p>
@@ -467,7 +468,14 @@
 <p>定义了一个静态的serialVersionUID常量。具体用的时候再讲。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Class String is special cased within the Serialization Stream Protocol.</span><br><span class="line"> *</span><br><span class="line"> * A String instance is written into an ObjectOutputStream according to</span><br><span class="line"> * &lt;a href=&quot;&#123;@docRoot&#125;/../platform/serialization/spec/output.html&quot;&gt;</span><br><span class="line"> * Object Serialization Specification, Section 6.2, &quot;Stream Elements&quot;&lt;/a&gt;</span><br><span class="line"> */</span><br><span class="line">private static final ObjectStreamField[] serialPersistentFields =</span><br><span class="line">    new ObjectStreamField[0];</span><br></pre></td></tr></table></figure>
 <p>待补充。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Initializes a newly created &#123;@code String&#125; object so that it represents</span><br><span class="line"> * an empty character sequence.  Note that use of this constructor is</span><br><span class="line"> * unnecessary since Strings are immutable.</span><br><span class="line"> */</span><br><span class="line">public String() &#123;</span><br><span class="line">    this.value = &quot;&quot;.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="String构造器"><a href="#String构造器" class="headerlink" title="String构造器"></a>String构造器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Initializes a newly created &#123;@code String&#125; object so that it represents</span><br><span class="line"> * an empty character sequence.  Note that use of this constructor is</span><br><span class="line"> * unnecessary since Strings are immutable.</span><br><span class="line"> */</span><br><span class="line">public String() &#123;</span><br><span class="line">    this.value = &quot;&quot;.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一个构造器：无参构造器<br>使用String的无参构造器生成的对象默认是一个空字符串。我们可以使用代码验证一下。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="keyword">new</span> String());<span class="comment">// 调用字符串的无参构造器，会生成一个空字符串对象</span></span><br><span class="line">		System.out.println(<span class="number">1</span>+<span class="keyword">new</span> String()+<span class="number">2</span>);<span class="comment">//12 这里生成的是一个字符串拼接的结果</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Initializes a newly created &#123;@code String&#125; object so that it represents</span><br><span class="line"> * the same sequence of characters as the argument; in other words, the</span><br><span class="line"> * newly created string is a copy of the argument string. Unless an</span><br><span class="line"> * explicit(明确的) copy of &#123;@code original&#125; is needed, use of this constructor is</span><br><span class="line"> * unnecessary since Strings are immutable(不可变的).</span><br><span class="line"> *</span><br><span class="line"> * @param  original</span><br><span class="line"> *         A &#123;@code String&#125;</span><br><span class="line"> */</span><br><span class="line">public String(String original) &#123;</span><br><span class="line">    this.value = original.value;</span><br><span class="line">    this.hash = original.hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二个构造器：传入String对象<br>String的有参构造器中可以传入一个字符串类型的对象，此构造器初始化字符串类型的value数组与hash值。<br>in other words, the newly created string is a copy of the argument string.意思是换句话说，新创建的字符串复制了参数的字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Allocates a new &#123;@code String&#125; so that it represents the sequence of</span><br><span class="line"> * characters currently contained in the character array argument. The</span><br><span class="line"> * contents of the character array are copied; subsequent modification of</span><br><span class="line"> * the character array does not affect the newly created string.</span><br><span class="line"> *</span><br><span class="line"> * @param  value</span><br><span class="line"> *         The initial value of the string</span><br><span class="line"> */</span><br><span class="line">public String(char value[]) &#123;</span><br><span class="line">    this.value = Arrays.copyOf(value, value.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三个构造器：传入一个字符数组<br>很明显你还可以传入一个字符数组，当然你得到的还是一个新的字符串，字符数组的值赋给了String的value数组了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'j'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'f'</span>&#125;));<span class="comment">//jeff</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public String(char value[], int offset, int count) &#123;</span><br><span class="line">    if (offset &lt; 0) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(offset);</span><br><span class="line">    &#125;</span><br><span class="line">    if (count &lt;= 0) &#123;</span><br><span class="line">        if (count &lt; 0) &#123;</span><br><span class="line">            throw new StringIndexOutOfBoundsException(count);</span><br><span class="line">        &#125;</span><br><span class="line">        if (offset &lt;= value.length) &#123;</span><br><span class="line">            this.value = &quot;&quot;.value;//count=0，返回一个空串</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // Note: offset or count might be near -1&gt;&gt;&gt;1.</span><br><span class="line">    if (offset &gt; value.length - count) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(offset + count);</span><br><span class="line">    &#125;//offset+count&gt;len,此时会报错</span><br><span class="line">    this.value = Arrays.copyOfRange(value, offset, offset+count);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第四个构造器：传入一个字符数组的起始下标与传入的个数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'j'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'f'</span>, <span class="string">'l'</span>, <span class="string">'i'</span>, <span class="string">'k'</span>, <span class="string">'e'</span>&#125;, <span class="number">4</span>, <span class="number">4</span>));<span class="comment">//like</span></span><br><span class="line">		System.out.println(<span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'j'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'f'</span>, <span class="string">'l'</span>, <span class="string">'i'</span>, <span class="string">'k'</span>, <span class="string">'e'</span>&#125;, <span class="number">4</span>, <span class="number">0</span>));<span class="comment">//还是一个空串</span></span><br><span class="line">		<span class="comment">// System.out.println(new String(new char[]&#123;'j', 'e', 'f', 'f', 'l', 'i', 'k', 'e'&#125;, 4, 5));//java.lang.StringIndexOutOfBoundsException: String index out of range: 9</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -606,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -700,6 +717,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-String简介"><span class="nav-number">1.</span> <span class="nav-text">java.lang.String简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String类声明属性"><span class="nav-number">2.</span> <span class="nav-text">String类声明属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String构造器"><span class="nav-number">3.</span> <span class="nav-text">String构造器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
