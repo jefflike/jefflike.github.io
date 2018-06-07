@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态代码块和子类非静态代码块。本篇博客我们讨论的就是关于程序初始化的过程中，上述的成员在初始化加载先后顺序。">
+<meta name="description" content="前面说了一下包装类怎么用，本篇简单看一看，Java是怎么实现包装类的。 Number1public abstract class Number implements java.io.Serializable 实现Serializable，所以继承了他的类都可以以Object形式写入文件。12345678910public abstract int intValue();public abstrac">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java程序初始化的顺序（二）">
-<meta property="og:url" content="http://yoursite.com/2018/05/23/Java程序初始化的顺序（二）/index.html">
+<meta property="og:title" content="Java包装类(二)">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/Java包装类-二/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态代码块和子类非静态代码块。本篇博客我们讨论的就是关于程序初始化的过程中，上述的成员在初始化加载先后顺序。">
+<meta property="og:description" content="前面说了一下包装类怎么用，本篇简单看一看，Java是怎么实现包装类的。 Number1public abstract class Number implements java.io.Serializable 实现Serializable，所以继承了他的类都可以以Object形式写入文件。12345678910public abstract int intValue();public abstrac">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-30T14:50:10.721Z">
+<meta property="og:updated_time" content="2018-06-06T15:03:43.780Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java程序初始化的顺序（二）">
-<meta name="twitter:description" content="之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态代码块和子类非静态代码块。本篇博客我们讨论的就是关于程序初始化的过程中，上述的成员在初始化加载先后顺序。">
+<meta name="twitter:title" content="Java包装类(二)">
+<meta name="twitter:description" content="前面说了一下包装类怎么用，本篇简单看一看，Java是怎么实现包装类的。 Number1public abstract class Number implements java.io.Serializable 实现Serializable，所以继承了他的类都可以以Object形式写入文件。12345678910public abstract int intValue();public abstrac">
 
 
 
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/23/Java程序初始化的顺序（二）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/Java包装类-二/"/>
 
 
 
 
 
-  <title>Java程序初始化的顺序（二） | Jefflike's Blog</title>
+  <title>Java包装类(二) | Jefflike's Blog</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/Java程序初始化的顺序（二）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/Java包装类-二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jefflike">
@@ -334,7 +334,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Java程序初始化的顺序（二）</h2>
+          <h2 class="post-title" itemprop="name headline">Java包装类(二)</h2>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T23:42:54+08:00">
-                2018-05-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T21:01:04+08:00">
+                2018-06-06
               </time>
             
 
@@ -386,7 +386,7 @@
 
           
           
-             <span id="/2018/05/23/Java程序初始化的顺序（二）/" class="leancloud_visitors" data-flag-title="Java程序初始化的顺序（二）">
+             <span id="/2018/06/06/Java包装类-二/" class="leancloud_visitors" data-flag-title="Java包装类(二)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,279
+                  467
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  2
                 </span>
               
             </div>
@@ -453,14 +453,30 @@
       
 
       
-        <p>之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以<br>再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态代码块<br>和子类非静态代码块。本篇博客我们讨论的就是关于程序初始化的过程中，上述的成员在初始化加载先后顺序。<br><a id="more"></a><br>在此前我们讨论得出的结论：在一个类中，Java程序加载的顺序是：静态变量–&gt;静态代码块–&gt;非静态变量–&gt;非静态代码块–&gt;构造器.<br>父类的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">//父类与子类都在一个包中，这里我们就使用default修饰符</span></span><br><span class="line">    <span class="comment">//这是一个父类的静态变量,此时还是初始化的默认值null</span></span><br><span class="line">    <span class="keyword">static</span> String superStaticVariale;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 静态代码块，给String赋值</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        superStaticVariale = <span class="string">"父类静态代码块赋值成功"</span>;</span><br><span class="line">        System.out.println(<span class="string">"此时运行的是父类的静态代码块："</span>+superStaticVariale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 无参构造，覆盖静态代码块的值</span></span><br><span class="line">    SuperClass()&#123;</span><br><span class="line">        superStaticVariale = <span class="string">"父类构造器赋值成功"</span>;</span><br><span class="line">        System.out.println(<span class="string">"此时运行的是父类的构造器："</span>+superStaticVariale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个非静态变量</span></span><br><span class="line">    String superVariale;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义一个非静态代码块</span></span><br><span class="line">    &#123;</span><br><span class="line">        superVariale = <span class="string">"父类非静态代码块赋值"</span>;</span><br><span class="line">        System.out.println(<span class="string">"此时运行的是父类的非静态代码块："</span>+superVariale);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>子类的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> String subStaticVariale;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 静态代码块，给String赋值</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        subStaticVariale = <span class="string">"子类静态代码块赋值成功"</span>;</span><br><span class="line">        System.out.println(<span class="string">"此时运行的是子类的静态代码块："</span>+subStaticVariale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 无参构造，覆盖静态代码块的值</span></span><br><span class="line">    SubClass()&#123;</span><br><span class="line">        superStaticVariale = <span class="string">"子类构造器赋值成功"</span>;</span><br><span class="line">        System.out.println(<span class="string">"此时运行的是子类的构造器："</span>+superStaticVariale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个非静态变量</span></span><br><span class="line">    String subVariale;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义一个非静态代码块</span></span><br><span class="line">    &#123;</span><br><span class="line">        subVariale = <span class="string">"子类非静态代码块赋值"</span>;</span><br><span class="line">        System.out.println(<span class="string">"此时运行的是子类非静态代码块："</span>+subVariale);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>测试代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SubClass s = <span class="keyword">new</span> SubClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">此时运行的是父类的静态代码块：父类静态代码块赋值成功</span><br><span class="line">此时运行的是子类的静态代码块：子类静态代码块赋值成功</span><br><span class="line">此时运行的是父类的非静态代码块：父类非静态代码块赋值</span><br><span class="line">此时运行的是父类的构造器：父类构造器赋值成功</span><br><span class="line">此时运行的是子类非静态代码块：子类非静态代码块赋值</span><br><span class="line">此时运行的是子类的构造器：子类构造器赋值成功</span><br></pre></td></tr></table></figure></p>
-<p>很显然，在继承关系中，代码的加载顺序是：父类的静态变量–&gt;父类的静态代码块–&gt;子类静态变量–&gt;子类的静态代码块–&gt;父类非静态变量–&gt;父类的非静态代码块–&gt;父类的构造器<br>–&gt;子类非静态变量–&gt;子类非静态代码块–&gt;子类构造器</p>
-<p>进一步测试：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SubClass s = <span class="keyword">new</span> SubClass();</span><br><span class="line">        SubClass s1 = <span class="keyword">new</span> SubClass();</span><br><span class="line">        SubClass s2 = <span class="keyword">new</span> SubClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">此时运行的是父类的静态代码块：父类静态代码块赋值成功</span><br><span class="line">此时运行的是子类的静态代码块：子类静态代码块赋值成功</span><br><span class="line">此时运行的是父类的非静态代码块：父类非静态代码块赋值</span><br><span class="line">此时运行的是父类的构造器：父类构造器赋值成功</span><br><span class="line">此时运行的是子类非静态代码块：子类非静态代码块赋值</span><br><span class="line">此时运行的是子类的构造器：子类构造器赋值成功</span><br><span class="line">此时运行的是父类的非静态代码块：父类非静态代码块赋值</span><br><span class="line">此时运行的是父类的构造器：父类构造器赋值成功</span><br><span class="line">此时运行的是子类非静态代码块：子类非静态代码块赋值</span><br><span class="line">此时运行的是子类的构造器：子类构造器赋值成功</span><br><span class="line">此时运行的是父类的非静态代码块：父类非静态代码块赋值</span><br><span class="line">此时运行的是父类的构造器：父类构造器赋值成功</span><br><span class="line">此时运行的是子类非静态代码块：子类非静态代码块赋值</span><br><span class="line">此时运行的是子类的构造器：子类构造器赋值成功</span><br></pre></td></tr></table></figure></p>
-<p>得出结论：<br>父类与子类的静态代码都只执行一次，然后非静态代码块与构造器是组合出现的。</p>
+        <p>前面说了一下包装类怎么用，本篇简单看一看，Java是怎么实现包装类的。</p>
+<h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Number implements java.io.Serializable</span><br></pre></td></tr></table></figure>
+<p>实现Serializable，所以继承了他的类都可以以Object形式写入文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public abstract int intValue();</span><br><span class="line">public abstract long longValue();</span><br><span class="line">public abstract float floatValue();</span><br><span class="line">public abstract double doubleValue();</span><br><span class="line">public byte byteValue() &#123;</span><br><span class="line">        return (byte)intValue();</span><br><span class="line">    &#125;</span><br><span class="line">public short shortValue() &#123;</span><br><span class="line">        return (short)intValue();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是一个抽象类，子类都要实现相应的拆箱。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final long serialVersionUID = -8742448824652078965L;</span><br></pre></td></tr></table></figure></p>
+<p>serialVersionUID,保证修改类Object文件依然可以正常读取。</p>
+<h3 id="Byte"><a href="#Byte" class="headerlink" title="Byte"></a>Byte</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang;</span><br></pre></td></tr></table></figure>
+<p>声明在java.lang包下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final class Byte extends Number implements Comparable&lt;Byte&gt;</span><br></pre></td></tr></table></figure></p>
+<p>继承了Number类，实现Comparable，可进行比较。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public static final byte   MIN_VALUE = -128;</span><br><span class="line">public static final byte   MAX_VALUE = 127;</span><br></pre></td></tr></table></figure></p>
+<p>保留了最大最小常量值。</p>
+<h4 id="TYPE"><a href="#TYPE" class="headerlink" title="TYPE"></a>TYPE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Byte.TYPE);//byte</span><br></pre></td></tr></table></figure>
+<p>定义一个常量，可以直接打印出此对象的类型。</p>
+<h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><p>它的toString底层调用了Integer的toString。</p>
+<h4 id="parseByte"><a href="#parseByte" class="headerlink" title="parseByte"></a>parseByte</h4><p>调用的Integer.parseInt。<br>…<br>总的来说，Byte包装类的实现基本上在底层实现都是调用Integer的方法，所以，重点应放在Integer解读时理清细节。</p>
+<h3 id="Short"><a href="#Short" class="headerlink" title="Short"></a>Short</h3><p>Short的底层也是一样，也是调用Integer的方法。</p>
+<h3 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Native public static final int   MIN_VALUE = 0x80000000;</span><br><span class="line">@Native public static final int   MAX_VALUE = 0x7fffffff;</span><br><span class="line"></span><br><span class="line">@Documented</span><br><span class="line">@Target(ElementType.FIELD)</span><br><span class="line">@Retention(RetentionPolicy.SOURCE)</span><br><span class="line">public @interface Native &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Native注解field defining a constant value may be referenced from native code.</p>
+<p>此注解说明这两个常量底层非Java实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">final static char[] digits = &#123;</span><br><span class="line">    &apos;0&apos; , &apos;1&apos; , &apos;2&apos; , &apos;3&apos; , &apos;4&apos; , &apos;5&apos; ,</span><br><span class="line">    &apos;6&apos; , &apos;7&apos; , &apos;8&apos; , &apos;9&apos; , &apos;a&apos; , &apos;b&apos; ,</span><br><span class="line">    &apos;c&apos; , &apos;d&apos; , &apos;e&apos; , &apos;f&apos; , &apos;g&apos; , &apos;h&apos; ,</span><br><span class="line">    &apos;i&apos; , &apos;j&apos; , &apos;k&apos; , &apos;l&apos; , &apos;m&apos; , &apos;n&apos; ,</span><br><span class="line">    &apos;o&apos; , &apos;p&apos; , &apos;q&apos; , &apos;r&apos; , &apos;s&apos; , &apos;t&apos; ,</span><br><span class="line">    &apos;u&apos; , &apos;v&apos; , &apos;w&apos; , &apos;x&apos; , &apos;y&apos; , &apos;z&apos;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>All possible chars for representing a number as a String.此char字符数组包含了所有可能为数值的字符。</p>
+<p>总结：</p>
+<ol>
+<li>都是在java.lang下声明；</li>
+<li>底层实现都是调用的Integer的相应方法；</li>
+</ol>
 
       
     </div>
@@ -501,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/21/Go语言Array与Slice/" rel="next" title="Go语言Array与Slice">
-                <i class="fa fa-chevron-left"></i> Go语言Array与Slice
+              <a href="/2018/06/06/几种简单的设计模式/" rel="next" title="简单的设计模式">
+                <i class="fa fa-chevron-left"></i> 简单的设计模式
               </a>
             
           </div>
@@ -510,10 +526,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/25/Interface实现多继承/" rel="prev" title="Interface实现多继承">
-                Interface实现多继承 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -603,8 +615,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -697,6 +718,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Number"><span class="nav-number">1.</span> <span class="nav-text">Number</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Byte"><span class="nav-number"></span> <span class="nav-text">Byte</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TYPE"><span class="nav-number">1.</span> <span class="nav-text">TYPE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toString-NaN"><span class="nav-number">2.</span> <span class="nav-text">toString</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parseByte"><span class="nav-number">3.</span> <span class="nav-text">parseByte</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Short"><span class="nav-number"></span> <span class="nav-text">Short</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer"><span class="nav-number"></span> <span class="nav-text">Integer</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
