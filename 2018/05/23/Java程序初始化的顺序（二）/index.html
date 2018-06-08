@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态成员变量和子类非静态代码块。本篇博客我们讨论的就是关于程序初始化的过程中，上述的成员在初始化加载先后顺序。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-07T14:53:29.910Z">
+<meta property="og:updated_time" content="2018-06-08T12:43:22.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java程序初始化的顺序（二）">
 <meta name="twitter:description" content="之前的一篇博客里我写了关于在一个类中的程序初始化顺序，但是在Java的面向对象里，类之间还存在着继承的关系。所以关于程序的初始化顺序，我们可以再细划分为：父类静态变量，父类的静态代码块，父类构造器，父类非静态变量，父类非静态代码块，子类静态变量，子类静态代码块，子类构造器，子类非静态成员变量和子类非静态代码块。本篇博客我们讨论的就是关于程序初始化的过程中，上述的成员在初始化加载先后顺序。">
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,924
+                  1,986
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  8
                 </span>
               
             </div>
@@ -471,6 +471,7 @@
 <li>在执行子类的无参构造器时会默认调用最高级父类无参构造，并逐级调用直至子类的无参构造；</li>
 <li>Java程序的加载顺为父类的静态变量–&gt;父类的静态代码块–&gt;子类静态变量–&gt;子类的静态代码块–&gt;父类非静态变量–&gt;父类的非静态代码块–&gt;父类的构造器<br>–&gt;子类非静态变量–&gt;子类非静态代码块–&gt;子类构造器，且静态变量或代码块无论构造器调用多少次，他只会执行一次，后面再调用构造器<br>则会执行非静态属性及代码块构造器。</li>
 </ol>
+<p>最后关于为什么子类会调用父类的构造器，这个从设计着的角度来看是为了给从父类继承的属性初始化，子类需要知道父类是如何给属性初始化的。</p>
 
       
     </div>
@@ -735,7 +736,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.0k</span>
+    <span title="Site words total count">30.3k</span>
   
 </div>
 
