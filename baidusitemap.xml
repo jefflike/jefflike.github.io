@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/26/Java%E5%86%85%E9%83%A8%E7%B1%BB/</loc>
+    <lastmod>2018-06-09T07:08:51.008Z</lastmod>
+    <data>
+        <display>
+        <title>Java内部类</title>
+        <pubTime>2018-05-26T11:35:26.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/06/%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2018-06-08T15:40:16.062Z</lastmod>
+    <data>
+        <display>
+        <title>简单的设计模式</title>
+        <pubTime>2018-06-06T10:16:03.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/05/25/Interface%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BB%A7%E6%89%BF/</loc>
     <lastmod>2018-06-08T13:17:19.452Z</lastmod>
     <data>
@@ -30,26 +70,6 @@
         <display>
         <title>Java程序初始化的顺序（二）</title>
         <pubTime>2018-05-23T15:42:54.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/06/%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2018-06-08T08:15:12.282Z</lastmod>
-    <data>
-        <display>
-        <title>简单的设计模式</title>
-        <pubTime>2018-06-06T10:16:03.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -272,26 +292,6 @@
         <display>
         <title>匿名内部类和局部内部类扩展</title>
         <pubTime>2018-05-28T09:43:04.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/05/26/Java%E5%86%85%E9%83%A8%E7%B1%BB/</loc>
-    <lastmod>2018-05-28T09:35:48.914Z</lastmod>
-    <data>
-        <display>
-        <title>Java内部类</title>
-        <pubTime>2018-05-26T11:35:26.000Z</pubTime>
         
         <tag>Java</tag>
          
