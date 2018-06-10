@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/25/Interface%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2018-06-10T16:34:26.045Z</lastmod>
+    <data>
+        <display>
+        <title>Interface实现多继承</title>
+        <pubTime>2018-05-25T10:10:21.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/05/23/Java%E7%A8%8B%E5%BA%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E9%A1%BA%E5%BA%8F%EF%BC%88%E4%BA%8C%EF%BC%89/</loc>
     <lastmod>2018-06-10T16:22:26.886Z</lastmod>
     <data>
@@ -110,26 +130,6 @@
         <display>
         <title>简单的设计模式</title>
         <pubTime>2018-06-06T10:16:03.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/05/25/Interface%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BB%A7%E6%89%BF/</loc>
-    <lastmod>2018-06-08T13:17:19.452Z</lastmod>
-    <data>
-        <display>
-        <title>Interface实现多继承</title>
-        <pubTime>2018-05-25T10:10:21.000Z</pubTime>
         
         <tag>Java</tag>
          
