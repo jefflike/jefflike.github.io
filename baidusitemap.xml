@@ -5,11 +5,31 @@
     
   <url>
     <loc>http://yoursite.com/2018/06/10/Reflect/</loc>
-    <lastmod>2018-06-10T12:49:58.241Z</lastmod>
+    <lastmod>2018-06-10T14:38:59.299Z</lastmod>
     <data>
         <display>
         <title>Reflect</title>
         <pubTime>2018-06-10T01:42:44.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/10/ClassLoader/</loc>
+    <lastmod>2018-06-10T13:40:08.992Z</lastmod>
+    <data>
+        <display>
+        <title>ClassLoader</title>
+        <pubTime>2018-06-10T13:29:28.000Z</pubTime>
         
         <tag>Java</tag>
          

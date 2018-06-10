@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="Reflect我们一般单人编写代码时，使用到某个类都是先声明再使用，即声明类，创建类对象，调用方法，也就是说，我们知道我们要使用的类的各种细节，往往Reflect并不适用于这种情况。在通用性强的框架设计的代码里，才是Reflect大放异彩的地方，框架设计者并不需要知道使用框架的人设计类的细节，所以，框架设计者需要将一个未知类创建对象，调用对象方法。（1）即类型编译期未知但是我们需要写“创建它的对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T12:49:58.241Z">
+<meta property="og:updated_time" content="2018-06-10T14:38:59.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reflect">
 <meta name="twitter:description" content="Reflect我们一般单人编写代码时，使用到某个类都是先声明再使用，即声明类，创建类对象，调用方法，也就是说，我们知道我们要使用的类的各种细节，往往Reflect并不适用于这种情况。在通用性强的框架设计的代码里，才是Reflect大放异彩的地方，框架设计者并不需要知道使用框架的人设计类的细节，所以，框架设计者需要将一个未知类创建对象，调用对象方法。（1）即类型编译期未知但是我们需要写“创建它的对象">
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,310
+                  4,439
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  19
+                  20
                 </span>
               
             </div>
@@ -456,14 +456,16 @@
         <h2 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h2><p>我们一般单人编写代码时，使用到某个类都是先声明再使用，即声明类，创建类对象，调用方法，也就是说，我们知道我们要使用的类<br>的各种细节，往往Reflect并不适用于这种情况。在通用性强的框架设计的代码里，才是Reflect大放异彩的地方，框架设计者并不需要知道<br>使用框架的人设计类的细节，所以，框架设计者需要将一个未知类创建对象，调用对象方法。（1）即类型编译期未知但是我们需要写“创建它的对象的代码”，<br>或者还要在运行期间“获取这个类型的信息”，并且“调用它的方法等”。</p>
 <p>（2）同样，我们有时希望在运行期间，可以随意指定创建接口的任意一个实现类的对象，而不是在编译期间确定下来。</p>
 <p>以上两点也是Reflect机制产生的原因。</p>
+<p>一句话来说反射机制就是：可以于运行时加载、探知、使用编译期间完全未知的类。这体现了Java语言的动态性(虽然Java是一门静态语言)。</p>
+<p>类加载完成后吗，在堆内存的方法区就成生了一个Class的对象(一个类只又一个Class对象)，这个Class对象包含这个类完整的结构信息，<br>我们通过这个对象看类的结构的过程，我们就叫它反射。</p>
 <h3 id="Reflect使用情景"><a href="#Reflect使用情景" class="headerlink" title="Reflect使用情景"></a>Reflect使用情景</h3><ol>
 <li>动态的创建任意类型的对象；</li>
 <li>获取任意类型的信息；</li>
 <li>获取任意对象的属性并设置或获取它的属性值；</li>
 <li>获取任意对象的方法并调用它。</li>
 </ol>
-<p>Reflect实现依赖于java.lang.Class，Class 类的实例表示正在运行的 Java 应用程序中的类和接口(他认为枚举是一种类，注解是一种接口)。Class是反射的根源。</p>
-<p>注意：除了类以外，每个数组属于被映射为 Class 对象的一个类，所有具有相同元素类型和维数的数组都共享该 Class 对象。<br>基本的 Java 类型（boolean、byte、char、short、int、long、float 和 double）和关键字 void 也表示为 Class 对象。<br>Java运行程序时，每一种类型被加载到内存后，都会产生这个类型的唯一的一个Class对象。</p>
+<p>Reflect的根源是java.lang.Class，Class 类的实例表示正在运行的 Java 应用程序中的类和接口(他认为枚举是一种类，注解是一种接口)。Class是反射的根源。</p>
+<p>注意：除了类(class)以外，每个数组属于被映射为 Class 对象的一个类，所有具有相同元素类型和维数的数组都共享该 Class 对象。<br>基本的 Java 类型（boolean、byte、char、short、int、long、float 和 double）和关键字 void 也表示为 Class 对象。<br>Java运行程序时，每一种类型被加载到内存后，都会产生这个类型的唯一的一个Class对象。</p>
 <h3 id="获取某个类型的Class对象"><a href="#获取某个类型的Class对象" class="headerlink" title="获取某个类型的Class对象"></a>获取某个类型的Class对象</h3><p>获取运行时的Class的对象方式有四种：</p>
 <ol>
 <li>类型.class，要求是编译期间这个类型是已知的。</li>
@@ -594,6 +596,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/06/10/ClassLoader/" rel="prev" title="ClassLoader">
+                ClassLoader <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -711,7 +717,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -829,7 +835,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">35.2k</span>
+    <span title="Site words total count">35.6k</span>
   
 </div>
 
@@ -1018,7 +1024,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
