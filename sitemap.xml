@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/26/Java%E5%86%85%E9%83%A8%E7%B1%BB/</loc>
+    
+    <lastmod>2018-06-10T16:41:27.844Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/25/Interface%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BB%A7%E6%89%BF/</loc>
     
     <lastmod>2018-06-10T16:34:26.045Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2018/06/10/ClassLoader/</loc>
     
     <lastmod>2018-06-10T13:40:08.992Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/26/Java%E5%86%85%E9%83%A8%E7%B1%BB/</loc>
-    
-    <lastmod>2018-06-09T07:08:51.008Z</lastmod>
     
   </url>
   
