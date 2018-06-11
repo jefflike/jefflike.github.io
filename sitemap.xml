@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/30/Java%E5%8C%85%E8%A3%85%E7%B1%BB/</loc>
+    
+    <lastmod>2018-06-11T14:41:00.834Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/30/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
     
     <lastmod>2018-06-11T14:38:18.793Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2018/06/03/Java-String%E7%B1%BB%E5%9E%8B/</loc>
     
     <lastmod>2018-06-11T12:41:23.909Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/30/Java%E5%8C%85%E8%A3%85%E7%B1%BB/</loc>
-    
-    <lastmod>2018-06-11T12:08:43.341Z</lastmod>
     
   </url>
   
