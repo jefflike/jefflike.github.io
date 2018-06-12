@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="前言在说集合之前，要先提一下数组这个数据结构。数组本身是一个线性的数据结构，从物理结构看是一个顺序存储结构。每次申请一段连续的空间，一旦申请到，内存就固定了。所有数据存储在这个连续的空间中，数组中的每一个元素都是一个具体的数据（或对象），所有数据都紧密排布，不能有间隔。数组可以通过下标快速的查找元素，但是当数组做插入和删除操作操作时，效率则会极其的低下，而且也不能直接访问到当前数组中有效元素的个数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T16:21:59.187Z">
+<meta property="og:updated_time" content="2018-06-12T12:13:58.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Collection">
 <meta name="twitter:description" content="前言在说集合之前，要先提一下数组这个数据结构。数组本身是一个线性的数据结构，从物理结构看是一个顺序存储结构。每次申请一段连续的空间，一旦申请到，内存就固定了。所有数据存储在这个连续的空间中，数组中的每一个元素都是一个具体的数据（或对象），所有数据都紧密排布，不能有间隔。数组可以通过下标快速的查找元素，但是当数组做插入和删除操作操作时，效率则会极其的低下，而且也不能直接访问到当前数组中有效元素的个数">
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  503
+                  2,830
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  11
                 </span>
               
             </div>
@@ -460,8 +460,76 @@
 <li>具备功能：添加，删除，查找获取，和直接获取有效元素的个数；</li>
 <li>Java集合分为两类，Collection和Map（可理解为list和dict，但是种类复杂得多）；</li>
 <li>只能存放对象；</li>
-<li>容量自动调节。​<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3>Collection 层次结构中的根接口。Collection 表示一组对象，这些对象也称为 collection 的元素。一些 collection 允许有重复的元素，而另一些则不允许。一些 collection 是有序的，而另一些则是无序的。JDK 不提供此接口的任何直接实现：它提供更具体的子接口（如 Set 和 List）实现。此接口通常用来传递 collection，并在需要最大普遍性的地方操作这些 collection。</li>
+<li>容量自动调节。​<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><h4 id="Collection简介"><a href="#Collection简介" class="headerlink" title="Collection简介"></a>Collection简介</h4>Collection层次结构中的根接口。Collection表示一组对象，这些对象也称为collection的元素。一些collection允许有重复的元素，而另一些则不允许。一些collection是有序的，而另一些则是无序的。JDK不提供此接口的任何直接实现：它提供更具体的子接口（如Set和List）实现。此接口通常用来传递collection，并在需要最大普遍性的地方操作这些collection。<br>Collection(java.util)继承了Iterable(java.lang)，所以集合都是可以迭代的,Iterable(java.lang)是集合类的最上层接口。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface Collection&lt;E&gt; extends Iterable&lt;E&gt; </span><br><span class="line"></span><br><span class="line">default void forEach(Consumer&lt;? super T&gt; action) &#123;// Iterable方法，1.8后增加，用于lambda遍历</span><br><span class="line">    Objects.requireNonNull(action);</span><br><span class="line">    for (T t : this) &#123;</span><br><span class="line">        action.accept(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<h4 id="Collection方法"><a href="#Collection方法" class="headerlink" title="Collection方法"></a>Collection方法</h4><p>Collection里规定了很多方法：</p>
+<p>添加:<br>add(Object obj),添加单个对象，addAll(Collection coll)：添加一组对象。</p>
+<p>删除：<br>remove(Object o)，删除单个对象，removeAll(Collection c)，删除两个集合的交集部分，clear()：清空。</p>
+<p>查找：<br>contains(Object o)，是否包含某个对象，containsAll(Collection c)，是否包含某个集合。</p>
+<p>isEmpty()是否空集。</p>
+<p>size()获取有效元素的个数。</p>
+<p>Object[] toArray()返回所有对象。</p>
+<p>retainAll(Collection c)保留当前集合与c交集的部分。</p>
+<p>Iterator iterator()获取当前集合的迭代器对象，迭代器对象可用来遍历当前集合。</p>
+<h4 id="Collection操作"><a href="#Collection操作" class="headerlink" title="Collection操作"></a>Collection操作</h4><p>操作Collection：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// c可以进行上述的方法操作</span><br><span class="line">Collection c = new ArrayList();</span><br></pre></td></tr></table></figure></p>
+<h4 id="Collection特点"><a href="#Collection特点" class="headerlink" title="Collection特点"></a>Collection特点</h4><ol>
+<li>Collection本身不可以直接而实例化对象，操作Collection就是操作的Collection的子类(可隔代)实例化对象操作。</li>
+<li>Collection是一个上层概念，但是Collection还有上层，Collection的上层是Iterable，Collection继承了它。</li>
+<li>Collection包含了集合的基本操作方法，但是大多数方法都未实现，只是定义了接口，需要不同的子接口根据需求自行实现。</li>
+</ol>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>List是Collection的子接口之一，它实现了很多方法，除了父接口继承的以外又增加了一些。List的特点是单值，有序，可重复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface List&lt;E&gt; extends Collection&lt;E&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="List方法"><a href="#List方法" class="headerlink" title="List方法"></a>List方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get， set， lastIndexOf， listIterator， subList等</span><br></pre></td></tr></table></figure>
+<h4 id="List特点"><a href="#List特点" class="headerlink" title="List特点"></a>List特点</h4><ol>
+<li>List是Collection的子接口，同时它也是一个上层接口，它不直接实现对象，使用List类型的集合需要使用实现了它的子类的实例；</li>
+<li>List相较于Collection也增建了一些接口，但是都是抽象接口，它本身并未实现；</li>
+<li>所有的List共有特点单值，有序，可重复。</li>
+</ol>
+<h3 id="ArrayList和Vector-动态数组"><a href="#ArrayList和Vector-动态数组" class="headerlink" title="ArrayList和Vector(动态数组)"></a>ArrayList和Vector(动态数组)</h3><h4 id="共同父类AbstractCollection"><a href="#共同父类AbstractCollection" class="headerlink" title="共同父类AbstractCollection"></a>共同父类AbstractCollection</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract class AbstractList&lt;E&gt; extends AbstractCollection&lt;E&gt; implements List&lt;E&gt;// 具体实现了indexOf和lastIndexOf，clear，addAll，</span><br></pre></td></tr></table></figure>
+<p>AbstractList具体实现了indexOf和lastIndexOf，clear，addAll，removeRange等，定义（private class Itr implements Iterator<e>）内部类具体实现迭代的细节（内部类方式实现迭代）。</e></p>
+<h4 id="两者异同比较"><a href="#两者异同比较" class="headerlink" title="两者异同比较"></a>两者异同比较</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 发行时间不同</span><br><span class="line"> * @since   1.2</span><br><span class="line">public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt; implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</span><br><span class="line"></span><br><span class="line"> * @since   JDK1.0</span><br><span class="line">public class Vector&lt;E&gt; extends AbstractList&lt;E&gt; implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 底层实现物理结构都是数组</span><br><span class="line">transient Object[] elementData; // non-private to simplify nested class access</span><br><span class="line"></span><br><span class="line">protected Object[] elementData;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// 创建与扩容机制不同</span><br><span class="line">    private static final int DEFAULT_CAPACITY = 10;// 默认创建长度是10，但是初始化数组为空时集合长度0，直到加入数据时长度变为10</span><br><span class="line"></span><br><span class="line">    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;    </span><br><span class="line">    public ArrayList() &#123;</span><br><span class="line">        this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">    private void grow(int minCapacity) &#123;</span><br><span class="line">        // overflow-conscious code</span><br><span class="line">        int oldCapacity = elementData.length;</span><br><span class="line">        int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);// 扩容1.5倍</span><br><span class="line">        if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">            newCapacity = minCapacity;</span><br><span class="line">        if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">            newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">        // minCapacity is usually close to size, so this is a win:</span><br><span class="line">        elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public Vector() &#123;</span><br><span class="line">        this(10);//初始是10字节</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    private void grow(int minCapacity) &#123;</span><br><span class="line">        // overflow-conscious code</span><br><span class="line">        int oldCapacity = elementData.length;</span><br><span class="line">        int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?</span><br><span class="line">                                         capacityIncrement : oldCapacity);// 扩容一倍或capacityIncrement多字节</span><br><span class="line">        if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">            newCapacity = minCapacity;</span><br><span class="line">        if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">            newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">        elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>异同总结：</p>
+<ol>
+<li>共同父类AbstractCollection，内部很多方法都基本一致；</li>
+<li>两者底层实现都是数组的操作；</li>
+<li>版本不同ArrayList(1.2)比Vector(1.0)新；</li>
+<li>Vector线程安全，效率略低，ArrayList线程不安全，效率高</li>
+<li>扩容机制不同通过无参构造创建Vector时，默认的数组的长度为10，当容量不够，扩容要么按照指定的capacityIncrement进行扩容，要么扩大为原来的2倍；通过无参构造创建ArrayList对象时，默认是初始化为一个长度为0空数组常量。如果一开始是初始化为空数组时，当添加第一个元素时，扩容为长度为10的数组。当容量再不够时，扩容为原来的1.5倍，尽量减少浪费。</li>
+</ol>
+<p>注意：ArrayList在JDK1.7及以前一开始就会扩容长度10的数组。</p>
+<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedList&lt;E&gt;</span><br><span class="line">    extends AbstractSequentialList&lt;E&gt;</span><br><span class="line">    implements List&lt;E&gt;, Deque&lt;E&gt;, Cloneable, java.io.Serializable</span><br></pre></td></tr></table></figure>
+<p>LinkedList也是List的实现类，他的逻辑结构类似于双端连接的链表。</p>
+<h4 id="LinkedList特点"><a href="#LinkedList特点" class="headerlink" title="LinkedList特点"></a>LinkedList特点</h4><ol>
+<li>动态数组需要开辟连续的空间，而双向链表不需要，是通过结点(Node)的互相“引用，连接”的方法把集合的元素串起来；</li>
+<li>LinkedList遍历查找的效率低，因为动态数组位置连续的，还可以根据索引index直接定位位置，而LinkedList只能从head或last两头开始遍历查找；</li>
+<li>LinkedList在频繁的插入、指定对象删除一个对象时，效率反而高，因为不涉及移动大量的元素，只需要修改前后元素的next,pre即可。</li>
+</ol>
+<p>注意：实现List接口的还有一种集合，Stack，栈结构特点先入后出，平时使用并不多。</p>
+<h3 id="List新增方法"><a href="#List新增方法" class="headerlink" title="List新增方法"></a>List新增方法</h3><ol>
+<li>add，add(index, obj)：指定位置添加，addAll(index, Collection c)：指定位置插入集合c；</li>
+<li>get(index)获取指定位置的元素；</li>
+<li>indexOf(obj)：返回第一个找到的对象的索引，没有就返回-1，int lastIndexOf(Object o) ：返回最后一个找到的对象的索引，没有返回-1；</li>
+<li>set(index,value)，设定指定位置对象；</li>
+<li>subList(int fromIndex, int toIndex)，截取当前列表的一部分；</li>
+<li>ListIterator  listIterator()，ListIterator继承了Iterator。<h4 id="ListIterator方法"><a href="#ListIterator方法" class="headerlink" title="ListIterator方法"></a>ListIterator方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* （1）hasPrevious()：是否有前一个元素</span><br><span class="line">* （2）previous() ：取出前一个元素</span><br><span class="line">* （3）add(Object)：说明可以在遍历的同时添加元素</span><br><span class="line">* （4）set(Object)：说明可以在遍历的同时替换元素</span><br><span class="line">* （5）nextIndex()：下一个元素的索引</span><br><span class="line">* （6）previousIndex()：前一个元素的索引</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set接口是Collection的子接口，set接口没有提供额外的方法，Set不保证添加顺序，数据不可重复。Set 判断两个对象是否相同不是使用 == 运算符，而是根据 equals 方法。因此存放到Set集合中的元素一定要注意equals方法的重写。Set的常用实现类有：HashSet、TreeSet、LinkedHashSet。</p>
+<h4 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h4><p>HashSet：依据元素的hashCode()和equals()方法，来确定它的存储的顺序和保证不可重复，认为两个对象equals相等，即是重复元素，不能保证元素的排列顺序，非线程安全，元素可以为null。底层也是数组，初始容量为16，当如果使用率超过0.75，（16*0.75=12）就会扩大容量为原来的2倍。</p>
+<p>工作方式：当向HashSet集合中存入一个元素时，HashSet会调用该对象的hashCode()方法来得到该对象的hashCode值，然后根据hashCode值，通过某种散列函数决定该对象在HashSe 中的存储位置。（这个散列函数会与底层数组的长度相计算得到在数组中的下标，并且这种散列函数计算还尽可能保证能均匀存储元素，越是散列分布，该散列函数设计的越好）。如果两个元素的hashCode()值相等，会再继续调用equals方法，如果equals方法结果为true，添加失败，如果为false，那么会保存该元素，但是该数组的位置已经有元素了，那么会通过链表的方式继续链接。<br>TreeSet：依据元素的“大小”顺序来确定他的存储顺序和保证不可重复，认为两个对象“大小”相等，即是重复的元素，元素的“大小”顺序依赖于Comparable或Comparator的接口的实现方法。</p>
+<h4 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h4><p>LinkedHashSet：LinkedHashSet是HashSet的子类，既延续了父类的特征，又扩展了一些特性，元素是有序的，比HashSet多维护了添加时前后元素的关系，效率低。</p>
+<h3 id="集合遍历"><a href="#集合遍历" class="headerlink" title="集合遍历"></a>集合遍历</h3><p>集合遍历有三种方式：集合调用方法返回数组，然后通过for循环遍历数组；直接使用foreach遍历集合；通过迭代器遍历集合。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">	Collection big = new ArrayList();</span><br><span class="line">	big.add(&quot;老大&quot;);</span><br><span class="line">	big.add(&quot;老二&quot;);</span><br><span class="line">	big.add(&quot;jefflike&quot;);</span><br><span class="line">	</span><br><span class="line">	// 方式一：for循环</span><br><span class="line">	Object[] array = big.toArray();</span><br><span class="line">	for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">		System.out.println(array[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	// 方式二：foreach</span><br><span class="line">       for (Object object : big) &#123;</span><br><span class="line">           System.out.println(object);</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       // 方式三：Iterator迭代</span><br><span class="line">       Iterator iterator = big.iterator();//直接就返回一个迭代器对象</span><br><span class="line">       while(iterator.hasNext())&#123;</span><br><span class="line">           Object next = iterator.next();</span><br><span class="line">           if(&quot;老大&quot;.equals(next))&#123;</span><br><span class="line">               iterator.remove();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       for (Object object : big) &#123;</span><br><span class="line">           System.out.println(object);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>三种遍历集合方式的比较：</p>
+<ol>
+<li>foreach和Iterator没有下标信息；</li>
+<li>foreach不能修改元素；</li>
+<li>for下标遍历应用不广泛，效率不如foreach高；</li>
+<li>Iterator可以在遍历过程中进行删除，修改等操作；</li>
+<li>迭代器是一个独立的对象，他有自己的方法与属性，它以内部类方式实现。</li>
+</ol>
+<p>集合的继承关系：</p>
 
       
     </div>
@@ -511,6 +579,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/12/Map/" rel="prev" title="Map">
+                Map <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -629,7 +701,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -713,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection"><span class="nav-number">3.</span> <span class="nav-text">Collection</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection"><span class="nav-number">3.</span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Collection简介"><span class="nav-number">3.1.</span> <span class="nav-text">Collection简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Collection方法"><span class="nav-number">3.2.</span> <span class="nav-text">Collection方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Collection操作"><span class="nav-number">3.3.</span> <span class="nav-text">Collection操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Collection特点"><span class="nav-number">3.4.</span> <span class="nav-text">Collection特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">4.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#List方法"><span class="nav-number">4.1.</span> <span class="nav-text">List方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List特点"><span class="nav-number">4.2.</span> <span class="nav-text">List特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList和Vector-动态数组"><span class="nav-number">5.</span> <span class="nav-text">ArrayList和Vector(动态数组)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共同父类AbstractCollection"><span class="nav-number">5.1.</span> <span class="nav-text">共同父类AbstractCollection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两者异同比较"><span class="nav-number">5.2.</span> <span class="nav-text">两者异同比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-number">6.</span> <span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList特点"><span class="nav-number">6.1.</span> <span class="nav-text">LinkedList特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List新增方法"><span class="nav-number">7.</span> <span class="nav-text">List新增方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ListIterator方法"><span class="nav-number">7.1.</span> <span class="nav-text">ListIterator方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">8.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet"><span class="nav-number">8.1.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashSet"><span class="nav-number">8.2.</span> <span class="nav-text">LinkedHashSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合遍历"><span class="nav-number">9.</span> <span class="nav-text">集合遍历</span></a></li></ol></div>
             
 
           </div>
@@ -747,7 +819,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">36.7k</span>
+    <span title="Site words total count">39.7k</span>
   
 </div>
 
