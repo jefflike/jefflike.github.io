@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="MapMap与Collection并列存在。用于保存具有映射关系的数据:Key-Value。Map中的key和value都可以是任何引用类型的数据，Map中的key不允许重复，key和value之间存在单向一对一关系，即通过指定的key总能找到唯一的、确定的value。Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。允许使用null键和nu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-12T12:38:43.633Z">
+<meta property="og:updated_time" content="2018-06-13T11:04:07.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Map">
 <meta name="twitter:description" content="MapMap与Collection并列存在。用于保存具有映射关系的数据:Key-Value。Map中的key和value都可以是任何引用类型的数据，Map中的key不允许重复，key和value之间存在单向一对一关系，即通过指定的key总能找到唯一的、确定的value。Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。允许使用null键和nu">
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  432
+                  942
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -463,7 +463,11 @@
 <li>是否为空：isEmpty()。</li>
 </ol>
 <h4 id="遍历Map"><a href="#遍历Map" class="headerlink" title="遍历Map"></a>遍历Map</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;map的所有key:&quot;);</span><br><span class="line">Set keys = map.keySet();//HashSet</span><br><span class="line">for(Object key : keys)&#123;</span><br><span class="line">    System.out.println(key+&quot;-&gt;&quot;+map.get(key));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;map的所有的value：&quot;);</span><br><span class="line">Collection values = map.values();</span><br><span class="line">Iterator iter = values.iterator();</span><br><span class="line">while(iter.hasNext())&#123;</span><br><span class="line">    System.out.println(iter.next());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;map所有的映射关系：&quot;);</span><br><span class="line">//映射关系的类型是Map.Entry类型，它是Map接口的内部接口</span><br><span class="line">Set mappings = map.entrySet();</span><br><span class="line">for(Object mapping : mappings)&#123;</span><br><span class="line">    //System.out.println(mapping);</span><br><span class="line">    Map.Entry entry = (Map.Entry)mapping;</span><br><span class="line">    System.out.println(&quot;key是：&quot;+ entry.getKey()+ &quot;，value是：&quot;+entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>注意：</p>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>HashMap判断key与value是否相等的操作与HashSet的方式一致（hashcode与equals）。</p>
+<h4 id="1-8之前的HashMap"><a href="#1-8之前的HashMap" class="headerlink" title="1.8之前的HashMap"></a>1.8之前的HashMap</h4><p>HashMap的内部存储结构其实是数组和链表的结合。当实例化一个HashMap时，系统会创建一个长度为Capacity的Entry数组，这个长度在哈希表中被称为容量(Capacity)，在这个数组中可以存放元素的位置我们称之为“桶”(bucket)，每个bucket都有自己的索引，系统可以根据索引快速的查找bucket中的元素。每个bucket中存储一个元素，即一个Entry对象，但每一个Entry对象可以带一个引用变量，用于指向下一个元素，因此，在一个桶中，就有可能生成一个Entry链。而且新添加的元素作为链表的head。<br>当HashMap中的元素越来越多的时候，hash冲突的几率也就越来越高，因为数组的长度是固定的。所以为了提高查询的效率，就要对HashMap的数组进行扩容，而在HashMap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是resize。</p>
+<p>那么HashMap什么时候进行扩容呢？</p>
+<p>当HashMap中的元素个数超过数组大小(数组总大小length,不是数组中个数size)<em>loadFactor时，就会进行数组扩容，loadFactor的默认值为0.75，这是一个折中的取值。也就是说，默认情况下，数组大小为16，那么当HashMap中元素个数超过16</em>0.75=12（这个值就是代码中的threshold值，也叫做临界值）的时候，就把数组的大小扩展为 2*16=32，即扩大一倍，然后重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作，所以如果我们已经预知HashMap中元素的个数，那么预设元素的个数能够有效的提高HashMap的性能。</p>
+<p>注意：</p>
 <ol>
 <li>不管哪种Map，添加到map中后，这个key就不用修改了，特别是这个属性值涉及到hashCode和equals或comparexx的计算或比较的属性。一旦修改了key，和原来的key就不一样，那么就找不到原来的数据了。所以实际开发中，比较多见把String或Integer这样的不可变的类型作为key值。</li>
 </ol>
@@ -722,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Map常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">Map常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历Map"><span class="nav-number">1.2.</span> <span class="nav-text">遍历Map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Map常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">Map常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历Map"><span class="nav-number">1.2.</span> <span class="nav-text">遍历Map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8之前的HashMap"><span class="nav-number">2.1.</span> <span class="nav-text">1.8之前的HashMap</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -756,7 +760,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">39.7k</span>
+    <span title="Site words total count">43.1k</span>
   
 </div>
 
