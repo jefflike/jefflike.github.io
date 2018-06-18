@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/06/14/%E6%B3%9B%E5%9E%8B/</loc>
+    <lastmod>2018-06-18T03:38:16.866Z</lastmod>
+    <data>
+        <display>
+        <title>泛型</title>
+        <pubTime>2018-06-14T11:05:17.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/06/17/180617%E6%89%8B%E8%AE%B0/</loc>
     <lastmod>2018-06-17T06:44:46.431Z</lastmod>
     <data>
@@ -38,21 +58,6 @@
              
               <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/14/%E6%B3%9B%E5%9E%8B/</loc>
-    <lastmod>2018-06-14T11:05:17.125Z</lastmod>
-    <data>
-        <display>
-        <title>泛型</title>
-        <pubTime>2018-06-14T11:05:17.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
