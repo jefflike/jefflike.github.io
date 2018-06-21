@@ -97,12 +97,13 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="MapMap与Collection并列存在。用于保存具有映射关系的数据:Key-Value。Map中的key和value都可以是任何引用类型的数据，Map中的key不允许重复，key和value之间存在单向一对一关系，即通过指定的key总能找到唯一的、确定的value。Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。允许使用null键和nu">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/entry.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180614184646.png">
-<meta property="og:updated_time" content="2018-06-21T13:12:12.376Z">
+<meta property="og:updated_time" content="2018-06-21T15:00:56.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Map">
 <meta name="twitter:description" content="MapMap与Collection并列存在。用于保存具有映射关系的数据:Key-Value。Map中的key和value都可以是任何引用类型的数据，Map中的key不允许重复，key和value之间存在单向一对一关系，即通过指定的key总能找到唯一的、确定的value。Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。允许使用null键和nu">
-<meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180614184646.png">
+<meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/entry.png">
 
 
 
@@ -470,7 +471,7 @@
 <li>Map的遍历，不能支持foreach；</li>
 <li>可以单独遍历所有key，根据key获取对应value；</li>
 <li>可以单独遍历value；</li>
-<li>成对遍历：遍历的是映射关系Map.Entry，Map.Entry是Map接口的内部接口。每一种Map内部有自己的Map.Entry的实现类。<br>在Map中存储数据，实际上是将Key，value的数据存储在Map.Entry接口的实例中，再在Map集合中插入Map.Entry的实例化对象。</li>
+<li>成对遍历：遍历的是映射关系Map.Entry，Map.Entry是Map接口的内部接口。每一种Map内部有自己的Map.Entry的实现类。<br>在Map中存储数据，实际上是将Key，value的数据存储在Map.Entry接口的实例中，再在Map集合中插入Map.Entry的实例化对象。<br><img src="http://p94ypeu3q.bkt.clouddn.com/entry.png" alt="entry"></li>
 </ol>
 <h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>HashMap判断key与value是否相等的操作与HashSet的方式一致（hashcode与equals）。</p>
 <h4 id="1-8之前的HashMap"><a href="#1-8之前的HashMap" class="headerlink" title="1.8之前的HashMap"></a>1.8之前的HashMap</h4><p>HashMap的内部存储结构其实是数组和链表的结合。当实例化一个HashMap时，系统会创建一个长度为Capacity的Entry数组，这个长度在哈希表中被称为容量(Capacity)，在这个数组中可以存放元素的位置我们称之为“桶”(bucket)，每个bucket都有自己的索引，系统可以根据索引快速的查找bucket中的元素。每个bucket中存储一个元素，即一个Entry对象，但每一个Entry对象可以带一个引用变量，用于指向下一个元素，因此，在一个桶中，就有可能生成一个Entry链。而且新添加的元素作为链表的head。<br>当HashMap中的元素越来越多的时候，hash冲突的几率也就越来越高，因为数组的长度是固定的。所以为了提高查询的效率，就要对HashMap的数组进行扩容，而在HashMap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是resize。</p>
