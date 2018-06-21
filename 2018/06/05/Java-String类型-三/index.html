@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="继续接着上一篇博客内容继续讲，看到源码的1925行，里面很多一部分都是注释，大部分的方法介绍的都很全面，基本上读完注释，使用起来没什么难度。这说明了，写代码多写注释确实是一个很好的习惯。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-07T15:07:21.359Z">
+<meta property="og:updated_time" content="2018-06-21T09:25:44.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-String类型(三)">
 <meta name="twitter:description" content="继续接着上一篇博客内容继续讲，看到源码的1925行，里面很多一部分都是注释，大部分的方法介绍的都很全面，基本上读完注释，使用起来没什么难度。这说明了，写代码多写注释确实是一个很好的习惯。">
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,964
+                  2,080
                 </span>
               
 
@@ -491,7 +491,10 @@
 <li>大量使用注释，方便学习阅读各个方法的使用细节；</li>
 <li>面向对象编程，大量使用重载和封装，减少代码冗余；</li>
 <li>大量封装代码，减少代码复用；</li>
-<li>在代码实现的细节上，首先会进行特殊值判断，null，length的特殊值，临界值等。</li>
+<li>在代码实现的细节上，首先会进行特殊值判断，null，length的特殊值，临界值等；</li>
+<li>字符串常量存储在字符串常量池，目的是为了共享，字符串非常量对象存储在堆中。</li>
+<li>关于常量所在区域：常量与常量的拼接结果在常量池，只要其中有一个是变量，结果就在堆中，如果拼接的结果调用intern()方法，就在常量池中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str = &quot;123&quot;;// 字符串常量</span><br><span class="line">str1 = new String(&quot;123&quot;); // 非字符串常量，存储在堆中</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>非常浅显的整理了一下String的源码，有些代码写得很精妙，但是还无法彻底领会，随着后面深入理解Java还会再次修改这里面的一些内容。</p>
 
@@ -783,7 +786,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">47.5k</span>
+    <span title="Site words total count">47.8k</span>
   
 </div>
 
