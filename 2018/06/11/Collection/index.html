@@ -98,7 +98,7 @@
 <meta property="og:description" content="前言在说集合之前，要先提一下数组这个数据结构。数组本身是一个线性的数据结构，从物理结构看是一个顺序存储结构。每次申请一段连续的空间，一旦申请到，内存就固定了。所有数据存储在这个连续的空间中，数组中的每一个元素都是一个具体的数据（或对象），所有数据都紧密排布，不能有间隔。数组可以通过下标快速的查找元素，但是当数组做插入和删除操作操作时，效率则会极其的低下，而且也不能直接访问到当前数组中有效元素的个数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/TIM截图20180612200737.png">
-<meta property="og:updated_time" content="2018-06-12T14:32:38.178Z">
+<meta property="og:updated_time" content="2018-06-21T12:57:08.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Collection">
 <meta name="twitter:description" content="前言在说集合之前，要先提一下数组这个数据结构。数组本身是一个线性的数据结构，从物理结构看是一个顺序存储结构。每次申请一段连续的空间，一旦申请到，内存就固定了。所有数据存储在这个连续的空间中，数组中的每一个元素都是一个具体的数据（或对象），所有数据都紧密排布，不能有间隔。数组可以通过下标快速的查找元素，但是当数组做插入和删除操作操作时，效率则会极其的低下，而且也不能直接访问到当前数组中有效元素的个数">
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,830
+                  2,860
                 </span>
               
 
@@ -485,7 +485,8 @@
 <h4 id="List特点"><a href="#List特点" class="headerlink" title="List特点"></a>List特点</h4><ol>
 <li>List是Collection的子接口，同时它也是一个上层接口，它不直接实现对象，使用List类型的集合需要使用实现了它的子类的实例；</li>
 <li>List相较于Collection也增建了一些接口，但是都是抽象接口，它本身并未实现；</li>
-<li>所有的List共有特点单值，有序，可重复。</li>
+<li>所有的List共有特点单值，有序，可重复；</li>
+<li>它实现一个ListIterator迭代器，这个迭代器相较于Iterator又增加了一些实用的方法。</li>
 </ol>
 <h3 id="ArrayList和Vector-动态数组"><a href="#ArrayList和Vector-动态数组" class="headerlink" title="ArrayList和Vector(动态数组)"></a>ArrayList和Vector(动态数组)</h3><h4 id="共同父类AbstractCollection"><a href="#共同父类AbstractCollection" class="headerlink" title="共同父类AbstractCollection"></a>共同父类AbstractCollection</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract class AbstractList&lt;E&gt; extends AbstractCollection&lt;E&gt; implements List&lt;E&gt;// 具体实现了indexOf和lastIndexOf，clear，addAll，</span><br></pre></td></tr></table></figure>
 <p>AbstractList具体实现了indexOf和lastIndexOf，clear，addAll，removeRange等，定义（private class Itr implements Iterator<e>）内部类具体实现迭代的细节（内部类方式实现迭代）。</e></p>
@@ -821,7 +822,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">47.8k</span>
+    <span title="Site words total count">47.9k</span>
   
 </div>
 
