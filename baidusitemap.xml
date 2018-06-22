@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/06/10/Reflect/</loc>
+    <lastmod>2018-06-22T10:44:28.974Z</lastmod>
+    <data>
+        <display>
+        <title>Reflect</title>
+        <pubTime>2018-06-10T01:42:44.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/14/%E6%B3%9B%E5%9E%8B/</loc>
+    <lastmod>2018-06-22T01:37:07.543Z</lastmod>
+    <data>
+        <display>
+        <title>泛型</title>
+        <pubTime>2018-06-14T11:05:17.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/06/12/Map/</loc>
     <lastmod>2018-06-21T15:00:56.932Z</lastmod>
     <data>
@@ -70,26 +110,6 @@
         <display>
         <title>Java-String类型(三)</title>
         <pubTime>2018-06-05T11:06:55.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/14/%E6%B3%9B%E5%9E%8B/</loc>
-    <lastmod>2018-06-20T09:33:57.548Z</lastmod>
-    <data>
-        <display>
-        <title>泛型</title>
-        <pubTime>2018-06-14T11:05:17.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -330,26 +350,6 @@
         <display>
         <title>Java程序初始化的顺序（一）</title>
         <pubTime>2018-05-20T14:23:26.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/10/Reflect/</loc>
-    <lastmod>2018-06-10T14:38:59.299Z</lastmod>
-    <data>
-        <display>
-        <title>Reflect</title>
-        <pubTime>2018-06-10T01:42:44.000Z</pubTime>
         
         <tag>Java</tag>
          
