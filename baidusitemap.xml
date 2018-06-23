@@ -5,11 +5,31 @@
     
   <url>
     <loc>http://yoursite.com/2018/06/22/JDBC/</loc>
-    <lastmod>2018-06-22T13:28:58.261Z</lastmod>
+    <lastmod>2018-06-23T06:47:49.223Z</lastmod>
     <data>
         <display>
-        <title>Java连接数据库操作</title>
+        <title>Java数据库操作</title>
         <pubTime>2018-06-22T10:46:33.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/14/%E6%B3%9B%E5%9E%8B/</loc>
+    <lastmod>2018-06-23T01:39:23.582Z</lastmod>
+    <data>
+        <display>
+        <title>泛型</title>
+        <pubTime>2018-06-14T11:05:17.000Z</pubTime>
         
         <tag>Java</tag>
          
@@ -30,26 +50,6 @@
         <display>
         <title>Reflect</title>
         <pubTime>2018-06-10T01:42:44.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/06/14/%E6%B3%9B%E5%9E%8B/</loc>
-    <lastmod>2018-06-22T01:37:07.543Z</lastmod>
-    <data>
-        <display>
-        <title>泛型</title>
-        <pubTime>2018-06-14T11:05:17.000Z</pubTime>
         
         <tag>Java</tag>
          

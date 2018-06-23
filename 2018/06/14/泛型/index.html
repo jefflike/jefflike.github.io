@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="什么是泛型集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection，List，ArrayList   这个就是类型">
+<meta name="description" content="什么是泛型集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把存储元素类型设计为Object，JDK1.5之后使用泛型来解决。存放元素时除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection，List，ArrayList   这个就是类">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泛型">
 <meta property="og:url" content="http://yoursite.com/2018/06/14/泛型/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="什么是泛型集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection，List，ArrayList   这个就是类型">
+<meta property="og:description" content="什么是泛型集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把存储元素类型设计为Object，JDK1.5之后使用泛型来解决。存放元素时除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection，List，ArrayList   这个就是类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T01:37:07.543Z">
+<meta property="og:updated_time" content="2018-06-23T01:39:23.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛型">
-<meta name="twitter:description" content="什么是泛型集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection，List，ArrayList   这个就是类型">
+<meta name="twitter:description" content="什么是泛型集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把存储元素类型设计为Object，JDK1.5之后使用泛型来解决。存放元素时除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection，List，ArrayList   这个就是类">
 
 
 
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,450
+                  2,451
                 </span>
               
 
@@ -453,7 +453,7 @@
       
 
       
-        <h3 id="什么是泛型"><a href="#什么是泛型" class="headerlink" title="什么是泛型"></a>什么是泛型</h3><p>集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection<e>，List<e>，ArrayList<e>   这个<e>就是类型参数，即泛型。在声明阶段定义一个标签，当此标签被传入泛型实参后，容器里存放怎样的数据就定格了。</e></e></e></e></p>
+        <h3 id="什么是泛型"><a href="#什么是泛型" class="headerlink" title="什么是泛型"></a>什么是泛型</h3><p>集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把存储元素类型设计为Object，JDK1.5之后使用泛型来解决。存放元素时除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection<e>，List<e>，ArrayList<e>   这个<e>就是类型参数，即泛型。在声明阶段定义一个标签，当此标签被传入泛型实参后，容器里存放怎样的数据就定格了。</e></e></e></e></p>
 <p>从JDK1.5以后，Java引入了“参数化类型（Parameterized type）”的概念，允许我们在创建集合时再指定集合元素的类型，正如：List<string>，这表明该List只能保存字符串类型的对象。</string></p>
 <h3 id="为什么使用泛型"><a href="#为什么使用泛型" class="headerlink" title="为什么使用泛型"></a>为什么使用泛型</h3><p>使用泛型优于Object是因为在Object读取类型对象的时候需要进行类型强转，这个过程可能会发生类型转换异常。但是使用泛型不需要进行类型转换，减少了类型异常的风险。同时Object可以接受Java的任意对象，这使得集合中的元素具有不同类型的风险，但是泛型只有指定的元素可以存放至集合，集合元素类型更安全。</p>
 <p>简单的来说，泛型就是为了解决声明阶段不能确定元素类型，但在使用阶段可以确定类型的情况。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 未使用泛型的集合，管理混乱</span></span><br><span class="line">        ArrayList list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        list.add(<span class="number">1</span>);</span><br><span class="line">        list.add(<span class="string">"jeff"</span>);</span><br><span class="line">        list.add(<span class="number">3.14</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -780,7 +780,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">49.3k</span>
+    <span title="Site words total count">52.8k</span>
   
 </div>
 
