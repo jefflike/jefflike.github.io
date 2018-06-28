@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="继续接着上一篇博客内容继续讲，看到源码的1925行，里面很多一部分都是注释，大部分的方法介绍的都很全面，基本上读完注释，使用起来没什么难度。这说明了，写代码多写注释确实是一个很好的习惯。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-21T09:25:44.382Z">
+<meta property="og:updated_time" content="2018-06-25T06:30:39.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-String类型(三)">
 <meta name="twitter:description" content="继续接着上一篇博客内容继续讲，看到源码的1925行，里面很多一部分都是注释，大部分的方法介绍的都很全面，基本上读完注释，使用起来没什么难度。这说明了，写代码多写注释确实是一个很好的习惯。">
@@ -453,7 +453,7 @@
       
 
       
-        <p>继续接着上一篇博客内容继续讲，看到源码的1925行，里面很多一部分都是注释，大部分的方法介绍的都很全面，基本上读完注释，使用<br>起来没什么难度。这说明了，写代码多写注释确实是一个很好的习惯。<a id="more"></a></p>
+        <p>继续接着上一篇博客内容继续讲，看到源码的1925行，里面很多一部分都是注释，大部分的方法介绍的都很全面，基本上读完注释，使用起来没什么难度。这说明了，写代码多写注释确实是一个很好的习惯。<a id="more"></a></p>
 <h4 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public String substring(int beginIndex) &#123;</span><br><span class="line">    if (beginIndex &lt; 0) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(beginIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    int subLen = value.length - beginIndex;</span><br><span class="line">    if (subLen &lt; 0) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(subLen);</span><br><span class="line">    &#125;</span><br><span class="line">    return (beginIndex == 0) ? this : new String(value, beginIndex, subLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>只传一个数值参数，如果是0则返回整个string对象，否则要创建新的字符串，从beginIndex一直复制到末尾的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public String substring(int beginIndex, int endIndex) &#123;</span><br><span class="line">    if (beginIndex &lt; 0) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(beginIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    if (endIndex &gt; value.length) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(endIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    int subLen = endIndex - beginIndex;</span><br><span class="line">    if (subLen &lt; 0) &#123;</span><br><span class="line">        throw new StringIndexOutOfBoundsException(subLen);</span><br><span class="line">    &#125;</span><br><span class="line">    return ((beginIndex == 0) &amp;&amp; (endIndex == value.length)) ? this</span><br><span class="line">            : new String(value, beginIndex, subLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这个是重载的加强版，new String(value, beginIndex, subLen)，创建一个从index到end的新字符串。</p>
@@ -668,7 +668,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -786,7 +786,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52.8k</span>
+    <span title="Site words total count">56.8k</span>
   
 </div>
 

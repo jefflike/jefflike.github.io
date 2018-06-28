@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="类加载过程将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）只能通过这个Class对象。类加载(ClassLoader)的过程需要类加载器来完成。 类加载器分类（1）引导类加载器（bootstrap class loade">
+<meta name="description" content="类加载过程从本质上来说，JVM在加载Java程序的时候，先从main入口开始加载main所在的类，在运行main函数的过程中遇到需要加载其他的类，那么就会先加载其他的类。 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ClassLoader">
 <meta property="og:url" content="http://yoursite.com/2018/06/10/ClassLoader/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="类加载过程将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）只能通过这个Class对象。类加载(ClassLoader)的过程需要类加载器来完成。 类加载器分类（1）引导类加载器（bootstrap class loade">
+<meta property="og:description" content="类加载过程从本质上来说，JVM在加载Java程序的时候，先从main入口开始加载main所在的类，在运行main函数的过程中遇到需要加载其他的类，那么就会先加载其他的类。 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T13:40:08.992Z">
+<meta property="og:updated_time" content="2018-06-25T08:46:39.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ClassLoader">
-<meta name="twitter:description" content="类加载过程将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）只能通过这个Class对象。类加载(ClassLoader)的过程需要类加载器来完成。 类加载器分类（1）引导类加载器（bootstrap class loade">
+<meta name="twitter:description" content="类加载过程从本质上来说，JVM在加载Java程序的时候，先从main入口开始加载main所在的类，在运行main函数的过程中遇到需要加载其他的类，那么就会先加载其他的类。 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）">
 
 
 
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  294
+                  1,181
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -453,8 +453,21 @@
       
 
       
-        <h3 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h3><p>将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，<br>作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）只能通过这个Class对象。类加载(ClassLoader)的过程需要类加载器来完成。</p>
+        <h3 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h3><p>从本质上来说，JVM在加载Java程序的时候，先从main入口开始加载main所在的类，在运行main函数的过程中遇到需要加载其他的类，那么就会先加载其他的类。</p>
+<p>将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）只能通过这个Class对象。类加载(ClassLoader)的过程需要类加载器来完成。</p>
 <h3 id="类加载器分类"><a href="#类加载器分类" class="headerlink" title="类加载器分类"></a>类加载器分类</h3><p>（1）引导类加载器（bootstrap class loader）<br>用来加载Java的核心库（JAVA_HOME/jre/lib/rt.jar或sun.boot.class.path路径下的内容），这个引导类加载器是用C/C++开发的。<br>（2）扩展类加载器（extensions class loader）<br>加载Java的扩展库（JAVA_HOME/jre/lib/ext/*.jar或java.ext.dirs路径下的内容）。<br>（3）应用程序类加载器（application class loader）<br>根据Java应用的类路径（classpath,java.class.path）的类，通俗的讲就是自定义类型。<br>（4）自定义类加载器<br>例如tomcat就是用自定义类 加载器去加载它需要的class类型，一般来说就是第三方但不是我们实现的类型。</p>
+<h3 id="获取类加载器"><a href="#获取类加载器" class="headerlink" title="获取类加载器"></a>获取类加载器</h3><p>获取某个类型的类加载器对象：Class对象.getClassLoader()；<br>获取系统类的类加载器：ClassLoader.getSystemClassLoader()。</p>
+<h3 id="类加载器的代理模式"><a href="#类加载器的代理模式" class="headerlink" title="类加载器的代理模式"></a>类加载器的代理模式</h3><p>每一种加载器都只负责单一的任务。</p>
+<p>类加载器的工作流程：首先系统类加载器（例如：应用程序类加载）接到一个任务（加载类的任务），系统类加载器，把这个任务传给上一级，一直层层往上到达引导类加载器，引导类加载器，先判定这个类型在它的路径下存不存在，如果存在，就加载，如果不存在，把任务往回传，传给了扩展类加载器，扩展类加载器在负责的路径下搜索，如果存在，就加载，如果不存在，把任务往回传，传给了应用程序类加载，应用程序类加载在负责的路径下搜索，如果存在，就加载，如果不存在，如果后面也没有下一级的类加载器了，就报ClassNotFoundExcetion。</p>
+<p>应用程序类加载器把扩展类加载器称为上级，作为父加载器parent（不是继承关系）；扩展类加载器把引导类加载器称为上级，作为父加载器parent（不是继承关系）。</p>
+<p>Java加载设计成如此是出于安全考虑的，这样你自己写的java.lang.Object类就不会覆盖Java的Object类，你要加载java.lang.Object会一路找到JAVA_HOME/jre/lib/rt.jar里的java.lang.Object。</p>
+<h3 id="类加载器加载类路径下的资源文件"><a href="#类加载器加载类路径下的资源文件" class="headerlink" title="类加载器加载类路径下的资源文件"></a>类加载器加载类路径下的资源文件</h3><p>类加载器的核心作用是加载类，除此之外类加载器还可以加载类路径下的资源文件，配置文件等。</p>
+<p>写代码的时候我们可以简单的认为src下的路径就是所谓的类路径，实际上编译后在bin/classes目录下的就是类路径文件。</p>
+<h4 id="当配置文件在类路径src目录下时"><a href="#当配置文件在类路径src目录下时" class="headerlink" title="当配置文件在类路径src目录下时"></a>当配置文件在类路径src目录下时</h4><p>可使用ClassLoader.getSystemResourceAsStream(文件名)加载，此加载为应用程序类加载器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//现在info.properties在src下，类路径下</span><br><span class="line">Properties pro = new Properties();</span><br><span class="line">pro.load(ClassLoader.getSystemResourceAsStream(&quot;info.properties&quot;));</span><br><span class="line"></span><br><span class="line">String s = pro.getProperty(&quot;info&quot;);</span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure></p>
+<p>当需要使用自定义类加载的时候要使用自定义类加载对象.getResourceAsStream(文件名)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Properties pro = new Properties();</span><br><span class="line"></span><br><span class="line">ClassLoader c = TestClassLoader2.class.getClassLoader();</span><br><span class="line">pro.load(c.getResourceAsStream(&quot;info.properties&quot;));</span><br><span class="line"></span><br><span class="line">String s = pro.getProperty(&quot;info&quot;);</span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure></p>
+<h4 id="当配置文件在类路径下的目录下时"><a href="#当配置文件在类路径下的目录下时" class="headerlink" title="当配置文件在类路径下的目录下时"></a>当配置文件在类路径下的目录下时</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//现在info.properties在src下的包中，在类路径下</span><br><span class="line">Properties pro = new Properties();</span><br><span class="line"></span><br><span class="line">//如果是类，写包名，如果是文件，写路径</span><br><span class="line">pro.load(ClassLoader.getSystemResourceAsStream(&quot;com/jeff/classloader/info.properties&quot;));</span><br><span class="line">String s = pro.getProperty(&quot;info&quot;);</span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure>
+<h4 id="当配置文件在类路径外时"><a href="#当配置文件在类路径外时" class="headerlink" title="当配置文件在类路径外时"></a>当配置文件在类路径外时</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//现在type.properties在src外面，在项目的根目录下</span><br><span class="line"></span><br><span class="line">Properties pro = new Properties();</span><br><span class="line"></span><br><span class="line">pro.load(new FileInputStream(&quot;info.properties&quot;));</span><br><span class="line">// pro.load(new FileInputStream(&quot;resources/info.properties&quot;));</span><br><span class="line">String s = pro.getProperty(&quot;info&quot;);</span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure>
+<h4 id="当配置文件在src文件夹外类路径内时"><a href="#当配置文件在src文件夹外类路径内时" class="headerlink" title="当配置文件在src文件夹外类路径内时"></a>当配置文件在src文件夹外类路径内时</h4><p>在src外config文件夹下，config是一个Source Floder，源代码文件夹，最终编译后也在bin/classes目录，所以config中也是类路径。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Properties pro = new Properties();</span><br><span class="line"></span><br><span class="line">pro.load(ClassLoader.getSystemResourceAsStream(&quot;config.properties&quot;));</span><br><span class="line">String s = pro.getProperty(&quot;config&quot;);</span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -626,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -710,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载过程"><span class="nav-number">1.</span> <span class="nav-text">类加载过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载器分类"><span class="nav-number">2.</span> <span class="nav-text">类加载器分类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载过程"><span class="nav-number">1.</span> <span class="nav-text">类加载过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载器分类"><span class="nav-number">2.</span> <span class="nav-text">类加载器分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取类加载器"><span class="nav-number">3.</span> <span class="nav-text">获取类加载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载器的代理模式"><span class="nav-number">4.</span> <span class="nav-text">类加载器的代理模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载器加载类路径下的资源文件"><span class="nav-number">5.</span> <span class="nav-text">类加载器加载类路径下的资源文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#当配置文件在类路径src目录下时"><span class="nav-number">5.1.</span> <span class="nav-text">当配置文件在类路径src目录下时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当配置文件在类路径下的目录下时"><span class="nav-number">5.2.</span> <span class="nav-text">当配置文件在类路径下的目录下时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当配置文件在类路径外时"><span class="nav-number">5.3.</span> <span class="nav-text">当配置文件在类路径外时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当配置文件在src文件夹外类路径内时"><span class="nav-number">5.4.</span> <span class="nav-text">当配置文件在src文件夹外类路径内时</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -744,7 +757,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52.8k</span>
+    <span title="Site words total count">56.8k</span>
   
 </div>
 
