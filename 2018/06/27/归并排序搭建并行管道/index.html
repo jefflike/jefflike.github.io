@@ -98,7 +98,7 @@
 <meta property="og:description" content="前言这个项目我使用go来完成，在归并排序结果时多个节点之间连线，用Java等面向对象语言来实现就是将节点抽象成对象，通过方法进行互联。与他们相比go实现起来更为自然，节点之间的关系更像是多个goroutine通过管道连接起来的结构，使用go来写代码更为简洁，开发更快。 相关知识go的channel123456789101112131415161718func printhello(i int, c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/外部排序.png">
-<meta property="og:updated_time" content="2018-06-28T14:14:22.475Z">
+<meta property="og:updated_time" content="2018-06-28T14:17:17.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;归并排序搭建并行管道&#39;">
 <meta name="twitter:description" content="前言这个项目我使用go来完成，在归并排序结果时多个节点之间连线，用Java等面向对象语言来实现就是将节点抽象成对象，通过方法进行互联。与他们相比go实现起来更为自然，节点之间的关系更像是多个goroutine通过管道连接起来的结构，使用go来写代码更为简洁，开发更快。 相关知识go的channel123456789101112131415161718func printhello(i int, c">
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  533
+                  546
                 </span>
               
 
@@ -460,7 +460,7 @@
 <p>使用管道可以在两个goroutine之间传递信息，这是实现本项目的基础。</p>
 <h3 id="sort排序"><a href="#sort排序" class="headerlink" title="sort排序"></a>sort排序</h3><p>go自带的排序算法，底层实现是快速排序，我们就使用这个方式。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 排序一个数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	a := []<span class="keyword">int</span>&#123;<span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">43</span>, <span class="number">9</span>, <span class="number">34</span>&#125;</span><br><span class="line">	sort.Ints(a)</span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> a&#123;</span><br><span class="line">		fmt.Printf(<span class="string">"第%d个是%d\n"</span>, i, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序是易于实现的，实现归并排序的基础是每一个被归并节点都要是已经排序好了的，我们从个节点的head开始迭代比较，每次可以获得一个当前最小的值pop出来，无限次递归，最终我们获得pop出来的数据就是排序好了的数据，这就是归并排序的思路。</p>
-<h3 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h3><p>我们的并行管道可能会处理一个非常大的数据流的排序，这个数据的大小很有可能超出内存的容量，那么我们肯定不能使用sort方法直接把整个数据排序，我们实现的方式是将整个数据流切成k快，每一块都能被内存加载，当然我们可以将每一块都sort排序，然后内存切换加载每一块数据流，归并排序出一个结果，结果自然就是排序好的数据流了。<br>外部排序：<img src="http://p94ypeu3q.bkt.clouddn.com/外部排序.png" alt="外部排序"></p>
+<h3 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h3><p>我们的并行管道可能会处理一个非常大的数据流的排序，这个数据的大小很有可能超出内存的容量，那么我们肯定不能使用sort方法直接把整个数据排序，我们实现的方式是将整个数据流切成k快，每一块都能被内存加载，当然我们可以将每一块都sort排序，然后内存切换加载每一块数据流，归并排序出一个结果，结果自然就是排序好的数据流了。<br>外部排序切分的每一块都组成一个节点：<img src="http://p94ypeu3q.bkt.clouddn.com/外部排序.png" alt="外部排序"></p>
 
       
     </div>
