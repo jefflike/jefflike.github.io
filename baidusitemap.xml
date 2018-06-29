@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/06/27/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%90%AD%E5%BB%BA%E5%B9%B6%E8%A1%8C%E7%AE%A1%E9%81%93/</loc>
-    <lastmod>2018-06-28T14:17:17.513Z</lastmod>
+    <loc>http://yoursite.com/2018/06/28/golang%E7%9A%84function/</loc>
+    <lastmod>2018-06-29T13:15:23.525Z</lastmod>
     <data>
         <display>
-        <title>'归并排序搭建并行管道'</title>
-        <pubTime>2018-06-27T12:28:04.000Z</pubTime>
+        <title>golang的function</title>
+        <pubTime>2018-06-28T08:57:17.000Z</pubTime>
         
         <tag>Go</tag>
          
@@ -24,12 +24,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/06/28/golang%E7%9A%84function/</loc>
-    <lastmod>2018-06-28T09:26:21.168Z</lastmod>
+    <loc>http://yoursite.com/2018/06/27/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%90%AD%E5%BB%BA%E5%B9%B6%E8%A1%8C%E7%AE%A1%E9%81%93/</loc>
+    <lastmod>2018-06-29T12:36:52.952Z</lastmod>
     <data>
         <display>
-        <title>golang的function</title>
-        <pubTime>2018-06-28T08:57:17.000Z</pubTime>
+        <title>'归并排序搭建并行管道'</title>
+        <pubTime>2018-06-27T12:28:04.000Z</pubTime>
         
         <tag>Go</tag>
          
