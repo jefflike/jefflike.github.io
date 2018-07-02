@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="函数是Golang的一等公民，golang中大量使用函数式编程，所以理解函数十分有必要。 定义1234func add(形参) 返回值类型 &amp;#123;	函数体	return 返回值&amp;#125; 值得注意的是go的函数允许多个返回值，并且在很多情况我们都会返回两个以上的返回值，前面多个是函数功能应该返回的返回值，最后一个返回值则是error的返回值。 golang的函数func与其他语言的func">
+<meta name="description" content="函数是Golang的一等公民，golang中大量使用函数式编程，所以理解函数十分有必要。 定义1234func 函数名(形参) 返回值类型 &amp;#123;	函数体	return 返回值&amp;#125; 值得注意的是go的函数允许多个返回值，并且在很多情况我们都会返回两个以上的返回值，前面多个是函数功能应该返回的返回值，最后一个返回值则是error的返回值。 golang的函数func与其他语言的func">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="golang的function">
 <meta property="og:url" content="http://yoursite.com/2018/06/28/golang的function/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="函数是Golang的一等公民，golang中大量使用函数式编程，所以理解函数十分有必要。 定义1234func add(形参) 返回值类型 &amp;#123;	函数体	return 返回值&amp;#125; 值得注意的是go的函数允许多个返回值，并且在很多情况我们都会返回两个以上的返回值，前面多个是函数功能应该返回的返回值，最后一个返回值则是error的返回值。 golang的函数func与其他语言的func">
+<meta property="og:description" content="函数是Golang的一等公民，golang中大量使用函数式编程，所以理解函数十分有必要。 定义1234func 函数名(形参) 返回值类型 &amp;#123;	函数体	return 返回值&amp;#125; 值得注意的是go的函数允许多个返回值，并且在很多情况我们都会返回两个以上的返回值，前面多个是函数功能应该返回的返回值，最后一个返回值则是error的返回值。 golang的函数func与其他语言的func">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-29T13:15:23.525Z">
+<meta property="og:updated_time" content="2018-07-02T07:09:21.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="golang的function">
-<meta name="twitter:description" content="函数是Golang的一等公民，golang中大量使用函数式编程，所以理解函数十分有必要。 定义1234func add(形参) 返回值类型 &amp;#123;	函数体	return 返回值&amp;#125; 值得注意的是go的函数允许多个返回值，并且在很多情况我们都会返回两个以上的返回值，前面多个是函数功能应该返回的返回值，最后一个返回值则是error的返回值。 golang的函数func与其他语言的func">
+<meta name="twitter:description" content="函数是Golang的一等公民，golang中大量使用函数式编程，所以理解函数十分有必要。 定义1234func 函数名(形参) 返回值类型 &amp;#123;	函数体	return 返回值&amp;#125; 值得注意的是go的函数允许多个返回值，并且在很多情况我们都会返回两个以上的返回值，前面多个是函数功能应该返回的返回值，最后一个返回值则是error的返回值。 golang的函数func与其他语言的func">
 
 
 
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,151
+                  1,153
                 </span>
               
 
@@ -454,11 +454,11 @@
 
       
         <p>函数是Golang的一等公民，golang中大量使用函数式编程，所以理解函数十分有必要。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(形参)</span> 返回值类型</span> &#123;</span><br><span class="line">	函数体</span><br><span class="line">	<span class="keyword">return</span> 返回值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> 函数名<span class="params">(形参)</span> 返回值类型</span> &#123;</span><br><span class="line">	函数体</span><br><span class="line">	<span class="keyword">return</span> 返回值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>值得注意的是go的函数允许多个返回值，并且在很多情况我们都会返回两个以上的返回值，前面多个是函数功能应该返回的返回值，最后一个返回值则是error的返回值。</p>
 <p>golang的函数func与其他语言的function略有不同，需要讨论一下的就是声明时的函数返回值类型。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test1</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"hello jefflike"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这是一个无参无返回值的function，此时我们可以省略返回值类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func test2() int &#123;</span><br><span class="line">	return 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	a:=test2()</span><br><span class="line">	fmt.Println(a)</span><br></pre></td></tr></table></figure></p>
-<p>当函数有返回值时，声明是必须标明返回值的类型。多个返回值的时候也可以这样写返回值，但是需要使用()将返回值放进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func test3(a,b,c int) (int,int,int) &#123;</span><br><span class="line">	return a,b,c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	a,b,c :=test3(1,2,3)</span><br><span class="line">	fmt.Printf(&quot;a=%d, b=%d, c=%d\n&quot;, a, b, c)</span><br></pre></td></tr></table></figure></p>
+<p>当函数有返回值时，声明是必须标明返回值的类型。多个返回值的时候也可以这样写返回值，但是需要使用()将返回值放进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func test3(a,b,c int) (int,int,int) &#123;</span><br><span class="line">	return a,b,c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	a,b,c := test3(1,2,3)</span><br><span class="line">	fmt.Printf(&quot;a=%d, b=%d, c=%d\n&quot;, a, b, c)</span><br></pre></td></tr></table></figure></p>
 <p>对于多个返回值，golang有一种推荐写法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func test4() (a int,b int,c int) &#123;</span><br><span class="line">	a = 1</span><br><span class="line">	b = 2</span><br><span class="line">	c = 3</span><br><span class="line">	return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	a,b,c := test4()</span><br><span class="line">	fmt.Printf(&quot;a=%d, b=%d, c=%d\n&quot;, a, b, c)</span><br></pre></td></tr></table></figure></p>
 <p>一般多个返回值时，golang推荐写法是上述的写法。在有返回值的function里必须要返回return。</p>
 <h2 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h2><p>也叫做函数指针.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 类型别名</span><br><span class="line">	// 类型别名的关键字就是一个type</span><br><span class="line">	type bigint int64</span><br><span class="line"></span><br><span class="line">	var a bigint</span><br><span class="line">	fmt.Printf(&quot;a type is %T\n&quot;, a)	// a type is main.bigint</span><br></pre></td></tr></table></figure></p>
@@ -516,6 +516,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/02/servlet/" rel="prev" title="servlet">
+                servlet <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -634,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -752,7 +756,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">58.5k</span>
+    <span title="Site words total count">59.9k</span>
   
 </div>
 

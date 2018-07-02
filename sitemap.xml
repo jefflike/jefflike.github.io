@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/07/02/servlet/</loc>
+    
+    <lastmod>2018-07-02T12:12:55.652Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/25/Interface%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BB%A7%E6%89%BF/</loc>
+    
+    <lastmod>2018-07-02T11:08:10.720Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/06/28/golang%E7%9A%84function/</loc>
     
-    <lastmod>2018-06-29T13:15:23.525Z</lastmod>
+    <lastmod>2018-07-02T07:09:21.918Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>http://yoursite.com/2018/06/06/%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2018-06-25T07:31:22.611Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/25/Interface%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BB%A7%E6%89%BF/</loc>
-    
-    <lastmod>2018-06-25T06:30:39.464Z</lastmod>
     
   </url>
   
