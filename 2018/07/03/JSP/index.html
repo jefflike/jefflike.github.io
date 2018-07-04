@@ -92,15 +92,15 @@
 <meta name="description" content="什么是JSPJSP全称Java Server Pages，指运行在java服务器中的页面，也就是在我们JavaWeb中的动态页面，JSP本质就是一个Servlet。 JSP文件的组成JSP的主要构成有HTML网页代码、Java代码片段、JSP标签几部分组成，后缀是.jsp。 Tips：用户访问jsp页面时，服务器会将jsp页面翻译为Servlet.java 存到工作空间的tomcat的work文件">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSP">
+<meta property="og:title" content="JSP(含EL表达式)">
 <meta property="og:url" content="http://yoursite.com/2018/07/03/JSP/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="什么是JSPJSP全称Java Server Pages，指运行在java服务器中的页面，也就是在我们JavaWeb中的动态页面，JSP本质就是一个Servlet。 JSP文件的组成JSP的主要构成有HTML网页代码、Java代码片段、JSP标签几部分组成，后缀是.jsp。 Tips：用户访问jsp页面时，服务器会将jsp页面翻译为Servlet.java 存到工作空间的tomcat的work文件">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/JSP转Java类.png">
-<meta property="og:updated_time" content="2018-07-03T12:45:29.243Z">
+<meta property="og:updated_time" content="2018-07-04T13:23:10.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSP">
+<meta name="twitter:title" content="JSP(含EL表达式)">
 <meta name="twitter:description" content="什么是JSPJSP全称Java Server Pages，指运行在java服务器中的页面，也就是在我们JavaWeb中的动态页面，JSP本质就是一个Servlet。 JSP文件的组成JSP的主要构成有HTML网页代码、Java代码片段、JSP标签几部分组成，后缀是.jsp。 Tips：用户访问jsp页面时，服务器会将jsp页面翻译为Servlet.java 存到工作空间的tomcat的work文件">
 <meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/JSP转Java类.png">
 
@@ -147,7 +147,7 @@
 
 
 
-  <title>JSP | Jefflike's Blog</title>
+  <title>JSP(含EL表达式) | Jefflike's Blog</title>
   
 
 
@@ -336,7 +336,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JSP</h2>
+          <h2 class="post-title" itemprop="name headline">JSP(含EL表达式)</h2>
         
 
         <div class="post-meta">
@@ -388,7 +388,7 @@
 
           
           
-             <span id="/2018/07/03/JSP/" class="leancloud_visitors" data-flag-title="JSP">
+             <span id="/2018/07/03/JSP/" class="leancloud_visitors" data-flag-title="JSP(含EL表达式)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,217
+                  3,457
                 </span>
               
 
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  13
                 </span>
               
             </div>
@@ -489,8 +489,35 @@
 <ol>
 <li>向域中存储数据的方法： void setAttribute(String key ,Object value);</li>
 <li>从域中获取数据的方法：Object getAttribute(String key);</li>
-<li>移除域中指定属性的方法：void removeAttribute(String key);<br>四大域对象作用是能够在web项目的不同资源中共享数据，使用时，必须先存储再获取。</li>
+<li>移除域中指定属性的方法：void removeAttribute(String key);<br>四大域对象作用是能够在web项目的不同资源中共享数据，使用时，必须先存储再获取。<h2 id="Expression-Language表达式"><a href="#Expression-Language表达式" class="headerlink" title="Expression Language表达式"></a>Expression Language表达式</h2>EL表达式是JSP内置的表达式语言（不可以在HTML和servlet中使用），用以访问页面的上下文以及不同作用域中的对象 ，取得对象属性的值，或执行简单的运算或判断操作。EL在得到某个数据时，会自动进行数据类型的转换。EL表达式用于代替JSP表达式(&lt;%= %&gt;)在页面中做输出操作。EL表达式仅仅用来读取数据，而不能对数据进行修改，当读取的数据是null的时候EL表达式会自动忽略，即不输出。<h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<h3 id="EL基本使用"><a href="#EL基本使用" class="headerlink" title="EL基本使用"></a>EL基本使用</h3><h4 id="全域查询"><a href="#全域查询" class="headerlink" title="全域查询"></a>全域查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;key &#125;</span><br></pre></td></tr></table></figure>
+<p>默认全域查询key对应的值，从最小域到最大域遍历查询，找到则返回停止遍历。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 实现思路</span><br><span class="line">Object val = null;</span><br><span class="line">val = pageContext.getAttribute(&quot;key&quot;);</span><br><span class="line">if(val==null)&#123;</span><br><span class="line">    //page域中没有获取到</span><br><span class="line">    val = request.getAttribute(&quot;key&quot;);</span><br><span class="line">&#125;</span><br><span class="line">if(val==null)&#123;</span><br><span class="line">    //request域中没有获取到</span><br><span class="line">    val = session.getAttribute(&quot;key&quot;);</span><br><span class="line">&#125;</span><br><span class="line">if(val==null)&#123;</span><br><span class="line">    //session域中没有获取到</span><br><span class="line">    val = application.getAttribute(&quot;key&quot;);</span><br><span class="line">&#125;</span><br><span class="line">if(val==null)&#123;</span><br><span class="line">    val=&quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="指定域获取属性"><a href="#指定域获取属性" class="headerlink" title="指定域获取属性"></a>指定域获取属性</h4><p>pageScope,requestScope,sessionScope,applicationScope;<br>域对象的类型是Map<string ,="" object="">。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;指定域Scope.key &#125;</span><br></pre></td></tr></table></figure></string></p>
+<h4 id="域中的对象的属性"><a href="#域中的对象的属性" class="headerlink" title="域中的对象的属性"></a>域中的对象的属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;user.属性名&#125;</span><br></pre></td></tr></table></figure>
+<p>EL会自动调用user对象的get属性名方法(“get” + 属性名首字母大写)，不论这个对象里有没有这个属性名，只要能找到”get” + 属性名首字母大写属性方法即可，此属性方法必须有返回值，与其他的get方法一致。</p>
+<h4 id="域中的list指定下标的元素"><a href="#域中的list指定下标的元素" class="headerlink" title="域中的list指定下标的元素"></a>域中的list指定下标的元素</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;list[index]&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="域中的map指定键对应的值"><a href="#域中的map指定键对应的值" class="headerlink" title="域中的map指定键对应的值"></a>域中的map指定键对应的值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$&#123;map.key &#125;</span><br><span class="line"></span><br><span class="line">// map中有特殊键时，键有特殊符号，key为t2-1时，会被EL表达式认为是map.t2-1,即(map.t2)-1，得到答案是-1，不是它对应的值</span><br><span class="line">$&#123;map[&apos;key&apos;]&#125;   </span><br><span class="line">// 例如：</span><br><span class="line">$&#123;map[&apos;t2-1&apos;]&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="EL的十一个内置对象"><a href="#EL的十一个内置对象" class="headerlink" title="EL的十一个内置对象"></a>EL的十一个内置对象</h3><ol>
+<li>四个域对象：pageScope、requestScope、sessionScope、applicationScope；</li>
+<li>pageContext：用来获取jsp的其他8个隐含对象，等于EL一个内置对象就包含了jsp的九个内置对象；</li>
+<li>param：获取请求中的参数，类型是Map<string ,="" string="">，<code>${param.name}</code>；</string></li>
+<li>paramValues:获取请求参数的多个值，类型是：Map<string ,="" string[]="">，<code>${paramValues.key[index] }</code>；</string></li>
+<li>header：请求头数据，类型是：Map<string ,="" string="">，<code>${header.name }</code>或<code>${header[&#39;User-Agent&#39;] }</code>；</string></li>
+<li>headerValues：一个请求头的键对应多个值，类型是：Map<string ,="" string[]="">,基本上用不上；</string></li>
+<li>initParam：翻译后的Servlet配置的初始化参数，类型是：Map&lt;String,String&gt;，基本上用不上；</li>
+<li>cookie：获取浏览器请求报文中的Cookie，类型是：Map<string ,cookie="">，<br>使用内置对象获取当前项目的地址：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;pageContext.request.scheme &#125;://$&#123;pageContext.request.serverName &#125;:$&#123;pageContext.request.serverPort &#125;$&#123;pageContext.request.contextPath &#125;/</span><br></pre></td></tr></table></figure>
+</string></li>
+</ol>
+<h3 id="EL支持运算符"><a href="#EL支持运算符" class="headerlink" title="EL支持运算符"></a>EL支持运算符</h3><p>EL表达式支持一般的运算符，且+不表示拼接，也可以使用三元表达式等运算符。比较特殊的是empty运算符，empty判断集合或字符串是否为空，如果集合字符串==null或者长度为0，那么empty认为是空，即数组、集合、字符串等可以直接判断长度的为空直接会被省略，但是自定义的类没有给定length，size等判断长度的方法，则不会被当作是空。</p>
+<h2 id="JSP-Standard-Tag-Library"><a href="#JSP-Standard-Tag-Library" class="headerlink" title="JSP Standard Tag Library"></a>JSP Standard Tag Library</h2><p>EL表达式配合JSTL的流程控制就是取代原生JSP的，原生JSP的if，for写起来非常繁琐，而且无法调试，页面一庞大就很难找到页面的bug，用起来非常的不人性化，所以使用JSTL替代JSP脚本片段，就是将JSP的脚本片段进行封装，得以使用jsp标签形式使用Java代码，将代码量大大减少，层级结构更清晰，所以调试起来就更简单了。</p>
+<h3 id="常用的JSTL标签库"><a href="#常用的JSTL标签库" class="headerlink" title="常用的JSTL标签库"></a>常用的JSTL标签库</h3><p>使用前先导入jar包，然后在项目的头部导入，使用taglib指令，uri属性是指向引入标签库的唯一标志，prefix属性是标签库在页面中使用时的前缀，例如：<code>&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;</code>。</p>
+<h4 id="核心标签库core"><a href="#核心标签库core" class="headerlink" title="核心标签库core"></a>核心标签库core</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> &lt;%</span><br><span class="line"> 	request.setAttribute(&quot;address&quot;, &quot;家里&quot;);</span><br><span class="line"> 	request.setAttribute(&quot;code&quot;,&quot;&lt;script&gt;alert(&apos;hehe&apos;)&lt;/script&gt;&quot;);</span><br><span class="line"> %&gt;</span><br><span class="line">&lt;c:out value=&quot;$&#123;address &#125;&quot; default=&quot;未知&quot;&gt;&lt;/c:out&gt;</span><br><span class="line">&lt;%-- $&#123;code &#125; --%&gt;</span><br><span class="line">&lt;c:out value=&quot;$&#123;code &#125;&quot; escapeXml=&quot;true&quot;&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+<p>&lt;c:out &gt;&lt;/c:out&gt;是标签输出，value是输出的值，可以使用EL表达式，default可以设置默认值，可以防止XSS攻击（不转换XML格式）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set scope=&quot;page&quot; var=&quot;uname&quot; value=&quot;laowang1&quot;&gt;&lt;/c:set&gt;</span><br><span class="line">&lt;c:set scope=&quot;request&quot; var=&quot;uname&quot; value=&quot;laowang2&quot;&gt;&lt;/c:set&gt;</span><br><span class="line">&lt;c:set scope=&quot;session&quot; var=&quot;uname&quot; value=&quot;laowang3&quot;&gt;&lt;/c:set&gt;</span><br><span class="line">&lt;c:set scope=&quot;application&quot; var=&quot;uname&quot; value=&quot;laowang4&quot;&gt;&lt;/c:set&gt;</span><br></pre></td></tr></table></figure>
+<p>&lt;c:set &gt;&lt;/c:set&gt;向域中设置值，scope设置到哪个域中，默认设置到page域，var设置的属性名，value设置的属性值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:remove scope=&quot;session&quot; var=&quot;uname&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>&lt;c:remove /&gt;移除域中的值，scope指出移除哪个值，var指定移除的属性名，默认移除所有域中var对应的属性。</p>
 
       
     </div>
@@ -742,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JSP"><span class="nav-number">1.</span> <span class="nav-text">什么是JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP文件的组成"><span class="nav-number">2.</span> <span class="nav-text">JSP文件的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-JSP"><span class="nav-number">3.</span> <span class="nav-text">Why JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP的优势"><span class="nav-number">4.</span> <span class="nav-text">JSP的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用JSP"><span class="nav-number">5.</span> <span class="nav-text">如何使用JSP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的指令"><span class="nav-number">5.1.</span> <span class="nav-text">JSP的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#page"><span class="nav-number">5.1.1.</span> <span class="nav-text">page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include"><span class="nav-number">5.1.2.</span> <span class="nav-text">include</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#taglib"><span class="nav-number">5.1.3.</span> <span class="nav-text">taglib</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP动作标签"><span class="nav-number">5.2.</span> <span class="nav-text">JSP动作标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP九大内置对象"><span class="nav-number">6.</span> <span class="nav-text">JSP九大内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pageContext"><span class="nav-number">6.1.</span> <span class="nav-text">pageContext</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request"><span class="nav-number">6.2.</span> <span class="nav-text">request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">6.3.</span> <span class="nav-text">session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#application"><span class="nav-number">6.4.</span> <span class="nav-text">application</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response"><span class="nav-number">6.5.</span> <span class="nav-text">response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#out"><span class="nav-number">6.6.</span> <span class="nav-text">out</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config"><span class="nav-number">6.7.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#page-1"><span class="nav-number">6.8.</span> <span class="nav-text">page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exception"><span class="nav-number">6.9.</span> <span class="nav-text">exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP四大域对象"><span class="nav-number">7.</span> <span class="nav-text">JSP四大域对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JSP"><span class="nav-number">1.</span> <span class="nav-text">什么是JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP文件的组成"><span class="nav-number">2.</span> <span class="nav-text">JSP文件的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-JSP"><span class="nav-number">3.</span> <span class="nav-text">Why JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP的优势"><span class="nav-number">4.</span> <span class="nav-text">JSP的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用JSP"><span class="nav-number">5.</span> <span class="nav-text">如何使用JSP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的指令"><span class="nav-number">5.1.</span> <span class="nav-text">JSP的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#page"><span class="nav-number">5.1.1.</span> <span class="nav-text">page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include"><span class="nav-number">5.1.2.</span> <span class="nav-text">include</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#taglib"><span class="nav-number">5.1.3.</span> <span class="nav-text">taglib</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP动作标签"><span class="nav-number">5.2.</span> <span class="nav-text">JSP动作标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP九大内置对象"><span class="nav-number">6.</span> <span class="nav-text">JSP九大内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pageContext"><span class="nav-number">6.1.</span> <span class="nav-text">pageContext</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request"><span class="nav-number">6.2.</span> <span class="nav-text">request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">6.3.</span> <span class="nav-text">session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#application"><span class="nav-number">6.4.</span> <span class="nav-text">application</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response"><span class="nav-number">6.5.</span> <span class="nav-text">response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#out"><span class="nav-number">6.6.</span> <span class="nav-text">out</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config"><span class="nav-number">6.7.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#page-1"><span class="nav-number">6.8.</span> <span class="nav-text">page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exception"><span class="nav-number">6.9.</span> <span class="nav-text">exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP四大域对象"><span class="nav-number">7.</span> <span class="nav-text">JSP四大域对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expression-Language表达式"><span class="nav-number">8.</span> <span class="nav-text">Expression Language表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法格式"><span class="nav-number">8.1.</span> <span class="nav-text">语法格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EL基本使用"><span class="nav-number">8.2.</span> <span class="nav-text">EL基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全域查询"><span class="nav-number">8.2.1.</span> <span class="nav-text">全域查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定域获取属性"><span class="nav-number">8.2.2.</span> <span class="nav-text">指定域获取属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域中的对象的属性"><span class="nav-number">8.2.3.</span> <span class="nav-text">域中的对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域中的list指定下标的元素"><span class="nav-number">8.2.4.</span> <span class="nav-text">域中的list指定下标的元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域中的map指定键对应的值"><span class="nav-number">8.2.5.</span> <span class="nav-text">域中的map指定键对应的值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EL的十一个内置对象"><span class="nav-number">8.3.</span> <span class="nav-text">EL的十一个内置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EL支持运算符"><span class="nav-number">8.4.</span> <span class="nav-text">EL支持运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP-Standard-Tag-Library"><span class="nav-number">9.</span> <span class="nav-text">JSP Standard Tag Library</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的JSTL标签库"><span class="nav-number">9.1.</span> <span class="nav-text">常用的JSTL标签库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#核心标签库core"><span class="nav-number">9.1.1.</span> <span class="nav-text">核心标签库core</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -776,7 +803,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.1k</span>
+    <span title="Site words total count">63.3k</span>
   
 </div>
 
