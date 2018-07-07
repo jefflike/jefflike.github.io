@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
 <meta property="og:description" content="类加载过程从本质上来说，JVM在加载Java程序的时候，先从main入口开始加载main所在的类，在运行main函数的过程中遇到需要加载其他的类，那么就会先加载其他的类。 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-25T08:46:39.911Z">
+<meta property="og:updated_time" content="2018-07-06T07:47:11.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ClassLoader">
 <meta name="twitter:description" content="类加载过程从本质上来说，JVM在加载Java程序的时候，先从main入口开始加载main所在的类，在运行main函数的过程中遇到需要加载其他的类，那么就会先加载其他的类。 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问入口（即引用地址）。所有需要访问和使用类数据（类的成员等）">
@@ -458,7 +458,7 @@
 <h3 id="类加载器分类"><a href="#类加载器分类" class="headerlink" title="类加载器分类"></a>类加载器分类</h3><p>（1）引导类加载器（bootstrap class loader）<br>用来加载Java的核心库（JAVA_HOME/jre/lib/rt.jar或sun.boot.class.path路径下的内容），这个引导类加载器是用C/C++开发的。<br>（2）扩展类加载器（extensions class loader）<br>加载Java的扩展库（JAVA_HOME/jre/lib/ext/*.jar或java.ext.dirs路径下的内容）。<br>（3）应用程序类加载器（application class loader）<br>根据Java应用的类路径（classpath,java.class.path）的类，通俗的讲就是自定义类型。<br>（4）自定义类加载器<br>例如tomcat就是用自定义类 加载器去加载它需要的class类型，一般来说就是第三方但不是我们实现的类型。</p>
 <h3 id="获取类加载器"><a href="#获取类加载器" class="headerlink" title="获取类加载器"></a>获取类加载器</h3><p>获取某个类型的类加载器对象：Class对象.getClassLoader()；<br>获取系统类的类加载器：ClassLoader.getSystemClassLoader()。</p>
 <h3 id="类加载器的代理模式"><a href="#类加载器的代理模式" class="headerlink" title="类加载器的代理模式"></a>类加载器的代理模式</h3><p>每一种加载器都只负责单一的任务。</p>
-<p>类加载器的工作流程：首先系统类加载器（例如：应用程序类加载）接到一个任务（加载类的任务），系统类加载器，把这个任务传给上一级，一直层层往上到达引导类加载器，引导类加载器，先判定这个类型在它的路径下存不存在，如果存在，就加载，如果不存在，把任务往回传，传给了扩展类加载器，扩展类加载器在负责的路径下搜索，如果存在，就加载，如果不存在，把任务往回传，传给了应用程序类加载，应用程序类加载在负责的路径下搜索，如果存在，就加载，如果不存在，如果后面也没有下一级的类加载器了，就报ClassNotFoundExcetion。</p>
+<p>类加载器的工作流程：首先系统类加载器（例如：应用程序类加载）接到一个任务（加载类的任务），系统类加载器，把这个任务传给上一级，一直层层往上到达引导类加载器，引导类加载器，先判定这个类型在它的路径下存不存在，如果存在，就加载，如果不存在，把任务往回传，传给了扩展类加载器，扩展类加载器在负责的路径下搜索，如果存在，就加载，如果不存在，把任务往回传，传给了应用程序类加载，应用程序类加载在负责的路径下搜索，如果存在，就加载，如果不存在，如果后面也没有下一级的类加载器了，就报ClassNotFoundException。</p>
 <p>应用程序类加载器把扩展类加载器称为上级，作为父加载器parent（不是继承关系）；扩展类加载器把引导类加载器称为上级，作为父加载器parent（不是继承关系）。</p>
 <p>Java加载设计成如此是出于安全考虑的，这样你自己写的java.lang.Object类就不会覆盖Java的Object类，你要加载java.lang.Object会一路找到JAVA_HOME/jre/lib/rt.jar里的java.lang.Object。</p>
 <h3 id="类加载器加载类路径下的资源文件"><a href="#类加载器加载类路径下的资源文件" class="headerlink" title="类加载器加载类路径下的资源文件"></a>类加载器加载类路径下的资源文件</h3><p>类加载器的核心作用是加载类，除此之外类加载器还可以加载类路径下的资源文件，配置文件等。</p>
