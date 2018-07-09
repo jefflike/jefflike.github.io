@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo" />
+  <meta name="keywords" content="Go," />
 
 
 
@@ -89,14 +89,18 @@
 
 
 
+<meta name="description" content="在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。 defer总是在末尾执行1234func defer1()  &amp;#123;	defer fmt.Println(&amp;quot;这是defer里的一句话&amp;qu">
+<meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="defer">
 <meta property="og:url" content="http://yoursite.com/2018/07/08/defer/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
+<meta property="og:description" content="在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。 defer总是在末尾执行1234func defer1()  &amp;#123;	defer fmt.Println(&amp;quot;这是defer里的一句话&amp;qu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-08T15:10:12.389Z">
+<meta property="og:updated_time" content="2018-07-09T07:23:40.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="defer">
+<meta name="twitter:description" content="在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。 defer总是在末尾执行1234func defer1()  &amp;#123;	defer fmt.Println(&amp;quot;这是defer里的一句话&amp;qu">
 
 
 
@@ -353,6 +357,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Go/" itemprop="url" rel="index">
+                    <span itemprop="name">Go</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -390,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  287
                 </span>
               
 
@@ -427,7 +453,12 @@
       
 
       
-        
+        <p>在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。</p>
+<h2 id="defer总是在末尾执行"><a href="#defer总是在末尾执行" class="headerlink" title="defer总是在末尾执行"></a>defer总是在末尾执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func defer1()  &#123;</span><br><span class="line">	defer fmt.Println(&quot;这是defer里的一句话&quot;)// 这句话最后执行</span><br><span class="line">	fmt.Println(&quot;这是函数里的一句话&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="defer维护一个栈执行LIFO顺序"><a href="#defer维护一个栈执行LIFO顺序" class="headerlink" title="defer维护一个栈执行LIFO顺序"></a>defer维护一个栈执行LIFO顺序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func defer2()  &#123;</span><br><span class="line">	defer fmt.Printf(&quot;这是第一个defer语句\n&quot;)</span><br><span class="line">	defer fmt.Printf(&quot;这是第二个defer语句\n&quot;)</span><br><span class="line">	defer fmt.Printf(&quot;这是第三个defer语句\n&quot;)</span><br><span class="line">	defer fmt.Printf(&quot;这是第四个defer语句\n&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这是第四个defer语句</span><br><span class="line">这是第三个defer语句</span><br><span class="line">这是第二个defer语句</span><br><span class="line">这是第一个defer语句</span><br></pre></td></tr></table></figure></p>
+<p>一个函数中有多个defer的时候，defer会一个个加入栈中，执行的时候后进栈的会先执行，即last int first out就是指的这个执行顺序。</p>
+
       
     </div>
     
@@ -451,6 +482,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+          
+        </div>
       
 
       
@@ -559,8 +596,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -654,6 +700,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#defer总是在末尾执行"><span class="nav-number">1.</span> <span class="nav-text">defer总是在末尾执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#defer维护一个栈执行LIFO顺序"><span class="nav-number">2.</span> <span class="nav-text">defer维护一个栈执行LIFO顺序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -681,7 +743,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">64.0k</span>
+    <span title="Site words total count">64.3k</span>
   
 </div>
 
