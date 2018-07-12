@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[defer]]></title>
-    <url>%2F2018%2F07%2F08%2Fdefer%2F</url>
-    <content type="text"><![CDATA[在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。 defer总是在末尾执行1234func defer1() &#123; defer fmt.Println(&quot;这是defer里的一句话&quot;)// 这句话最后执行 fmt.Println(&quot;这是函数里的一句话&quot;)&#125; defer维护一个栈执行LIFO顺序123456func defer2() &#123; defer fmt.Printf(&quot;这是第一个defer语句\n&quot;) defer fmt.Printf(&quot;这是第二个defer语句\n&quot;) defer fmt.Printf(&quot;这是第三个defer语句\n&quot;) defer fmt.Printf(&quot;这是第四个defer语句\n&quot;)&#125; 执行结果1234这是第四个defer语句这是第三个defer语句这是第二个defer语句这是第一个defer语句 一个函数中有多个defer的时候，defer会一个个加入栈中，执行的时候后进栈的会先执行，即last int first out就是指的这个执行顺序。 defer总是执行在函数的最后12345678910func defer3() &#123; a := 10 b := 20 defer func() &#123; fmt.Printf(&quot;defer中，a=%d,b=%d\n&quot;, a, b) &#125;() a = 111 b = 222 fmt.Printf(&quot;func中，a=%d,b=%d\n&quot;, a, b)&#125; 执行的结果是：12func中，a=111,b=222defer中，a=111,b=222 但是defer虽然一般最后才执行，但是除了执行，其他的操作可能会“先做”。12345678910func defer4() &#123; a := 10 b := 20 defer func(a, b int) &#123; fmt.Printf(&quot;defer中，a=%d,b=%d\n&quot;, a, b) &#125;(a, b)// 虽然此时没有执行，但是形参已经传进去了 a = 111 b = 222 fmt.Printf(&quot;func中，a=%d,b=%d\n&quot;, a, b)&#125; 执行结果：12func中，a=111,b=222defer中，a=10,b=20]]></content>
+    <title><![CDATA[2018夏季减肥大会伊始]]></title>
+    <url>%2F2018%2F07%2F12%2F2018%E5%A4%8F%E5%AD%A3%E5%87%8F%E8%82%A5%E5%A4%A7%E4%BC%9A%E4%BC%8A%E5%A7%8B%2F</url>
+    <content type="text"><![CDATA[记录一下今年锻炼的战绩，过年前是119500g。年后去了趟上海涨了20500g。后来起起伏伏，最近要开始抽时间控制一下了，正所谓七月不减肥，八月徒伤悲。7.12减脂大会正式开幕。 day01 skip 2101次init体重：133.8*500g]]></content>
       <categories>
-        <category>Go</category>
+        <category>Life</category>
       </categories>
       <tags>
-        <tag>Go</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
