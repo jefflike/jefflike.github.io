@@ -4,15 +4,40 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/18/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%BF%83%E5%BE%97-%E4%BA%8C/</loc>
-    <lastmod>2018-07-18T12:29:03.006Z</lastmod>
+    <loc>http://yoursite.com/2018/07/12/2018%E5%A4%8F%E5%AD%A3%E5%87%8F%E8%82%A5%E5%A4%A7%E4%BC%9A%E4%BC%8A%E5%A7%8B/</loc>
+    <lastmod>2018-07-18T14:56:05.532Z</lastmod>
     <data>
         <display>
-        <title>电商项目心得(二)</title>
-        <pubTime>2018-07-18T12:29:02.000Z</pubTime>
+        <title>2018夏季减肥大会伊始</title>
+        <pubTime>2018-07-12T14:28:18.000Z</pubTime>
         
+        <tag>Life</tag>
+         
          
            
+             
+              <breadCrumb title="Life" url="http://yoursite.com/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/18/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%BF%83%E5%BE%97-%E4%BA%8C/</loc>
+    <lastmod>2018-07-18T12:33:35.704Z</lastmod>
+    <data>
+        <display>
+        <title>电商项目-项目初始化阶段</title>
+        <pubTime>2018-07-18T12:29:02.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
+          
         </display>
     </data>
     </url>
@@ -32,26 +57,6 @@
            
              
               <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/07/12/2018%E5%A4%8F%E5%AD%A3%E5%87%8F%E8%82%A5%E5%A4%A7%E4%BC%9A%E4%BC%8A%E5%A7%8B/</loc>
-    <lastmod>2018-07-18T10:51:57.100Z</lastmod>
-    <data>
-        <display>
-        <title>2018夏季减肥大会伊始</title>
-        <pubTime>2018-07-12T14:28:18.000Z</pubTime>
-        
-        <tag>Life</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://yoursite.com/categories/Life/"/>
           
         </display>
     </data>
