@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -89,13 +89,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jefflike&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Java/page/2/index.html">
+<meta name="description" content="文件的上传从本质上来说就是将本地的文件通过I/O流将本地文件复制到服务器的某个文件夹下，下载是一个与它相反的操作，将读取服务器的文件，copy到本地文件存储。所以说上传下载，首先就离不开文件读写与复制。 复制文件Java没有内置的方法可以实现copy，copy操作需要一边读文件一边写到文件中。12345678910111213141516171819202122232425262728293031">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件的上传与下载">
+<meta property="og:url" content="http://yoursite.com/2018/07/23/文件的上传与下载/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
+<meta property="og:description" content="文件的上传从本质上来说就是将本地的文件通过I/O流将本地文件复制到服务器的某个文件夹下，下载是一个与它相反的操作，将读取服务器的文件，copy到本地文件存储。所以说上传下载，首先就离不开文件读写与复制。 复制文件Java没有内置的方法可以实现copy，copy操作需要一边读文件一边写到文件中。12345678910111213141516171819202122232425262728293031">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-23T10:55:30.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jefflike&#39;s Blog">
+<meta name="twitter:title" content="文件的上传与下载">
+<meta name="twitter:description" content="文件的上传从本质上来说就是将本地的文件通过I/O流将本地文件复制到服务器的某个文件夹下，下载是一个与它相反的操作，将读取服务器的文件，copy到本地文件存储。所以说上传下载，首先就离不开文件读写与复制。 复制文件Java没有内置的方法可以实现copy，copy操作需要一边读文件一边写到文件中。12345678910111213141516171819202122232425262728293031">
 
 
 
@@ -134,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Java/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/23/文件的上传与下载/"/>
 
 
 
 
 
-  <title>标签: Java | Jefflike's Blog</title>
+  <title>文件的上传与下载 | Jefflike's Blog</title>
   
 
 
@@ -160,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/jefflike"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
 	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -298,310 +303,266 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Java<small>标签</small>
-        </h2>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/文件的上传与下载/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jefflike">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p8cdfcmvy.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jefflike's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/06/11/Collection/" itemprop="url">
-              
-                <span itemprop="name">Collection</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">文件的上传与下载</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-11T23:57:15+08:00"
-              content="2018-06-11" >
-          06-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T17:02:39+08:00">
+                2018-07-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/23/文件的上传与下载/" class="leancloud_visitors" data-flag-title="文件的上传与下载">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  376
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/11/StringAndStringBufferAndStringBiuld/" itemprop="url">
-              
-                <span itemprop="name">String StringBuffer和StringBiuld</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-11T20:55:26+08:00"
-              content="2018-06-11" >
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/10/ClassLoader/" itemprop="url">
-              
-                <span itemprop="name">ClassLoader</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-10T21:29:28+08:00"
-              content="2018-06-10" >
-          06-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/10/Reflect/" itemprop="url">
-              
-                <span itemprop="name">Reflect</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-10T09:42:44+08:00"
-              content="2018-06-10" >
-          06-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/06/几种简单的设计模式/" itemprop="url">
-              
-                <span itemprop="name">简单的设计模式</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-06T18:16:03+08:00"
-              content="2018-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/05/Java-String类型-三/" itemprop="url">
-              
-                <span itemprop="name">Java-String类型(三)</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-05T19:06:55+08:00"
-              content="2018-06-05" >
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/04/Java-String类型-二/" itemprop="url">
-              
-                <span itemprop="name">String类型源码解析(二)</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-04T18:37:48+08:00"
-              content="2018-06-04" >
-          06-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/03/Java-String类型/" itemprop="url">
-              
-                <span itemprop="name">String类型源码解析（一）</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-03T21:48:17+08:00"
-              content="2018-06-03" >
-          06-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/30/Java包装类/" itemprop="url">
-              
-                <span itemprop="name">Java包装类</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-30T20:44:21+08:00"
-              content="2018-05-30" >
-          05-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/30/Java异常处理/" itemprop="url">
-              
-                <span itemprop="name">Java异常处理</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-30T15:15:25+08:00"
-              content="2018-05-30" >
-          05-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <p>文件的上传从本质上来说就是将本地的文件通过I/O流将本地文件复制到服务器的某个文件夹下，下载是一个与它相反的操作，将读取服务器的文件，copy到本地文件存储。所以说上传下载，首先就离不开文件读写与复制。</p>
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p>Java没有内置的方法可以实现copy，copy操作需要一边读文件一边写到文件中。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jeff_code;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	    File f1 = <span class="keyword">new</span> File(<span class="string">"File/1.avi"</span>);</span><br><span class="line">	    File f2 = <span class="keyword">new</span> File(<span class="string">"File/2.avi"</span>);</span><br><span class="line">	    <span class="keyword">if</span>(!f2.exists())&#123;</span><br><span class="line">	        f2.createNewFile();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">new</span> FileCopy().copy(f1, f2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileCopy</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">copy</span><span class="params">(File a, File b)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(a);</span><br><span class="line">        BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(fis);</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(b);</span><br><span class="line">        BufferedOutputStream bos = <span class="keyword">new</span> BufferedOutputStream(fos);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len = bis.read(buffer);</span><br><span class="line">        <span class="keyword">while</span> (len != -<span class="number">1</span>)&#123;</span><br><span class="line">            bos.write(buffer, <span class="number">0</span>, len);<span class="comment">// 每次读取数组的实际长度，最后一次长度可不一定是1024，如果只是buffer就会读到多余的字符</span></span><br><span class="line">            len = bis.read(buffer);</span><br><span class="line">        &#125;</span><br><span class="line">        bis.close();</span><br><span class="line">        bos.close();</span><br><span class="line">        fis.close();</span><br><span class="line">        fos.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码是原地复制，即在当前计算机复制到当前计算机，上传下载的基本原理与其类似，实际中并不实用，操作系统一般都有复制剪切等功能的系统调用，不需要我们实现。</p>
+<h2 id="JavaWEB中的上传下载"><a href="#JavaWEB中的上传下载" class="headerlink" title="JavaWEB中的上传下载"></a>JavaWEB中的上传下载</h2>
       
     </div>
+    
+    
+    
+ 
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文已经结束，感谢您的阅读！-------------</div>
+    
+</div>
+      
+    </div>
+    
+    
 
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/18/电商项目心得-二/" rel="next" title="电商项目-项目初始化阶段">
+                <i class="fa fa-chevron-left"></i> 电商项目-项目初始化阶段
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Java/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/Java/">1</a><span class="page-number current">2</span><a class="page-number" href="/tags/Java/page/3/">3</a><a class="extend next" rel="next" href="/tags/Java/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -609,6 +570,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -629,8 +594,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -723,6 +697,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#复制文件"><span class="nav-number">1.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaWEB中的上传下载"><span class="nav-number">2.</span> <span class="nav-text">JavaWEB中的上传下载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -888,6 +878,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
