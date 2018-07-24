@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Go," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -89,18 +89,20 @@
 
 
 
-<meta name="description" content="在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。 defer总是在末尾执行1234func defer1()  &amp;#123;	defer fmt.Println(&amp;quot;这是defer里的一句话&amp;qu">
-<meta name="keywords" content="Go">
+<meta name="description" content="Spring概述有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。spring的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。 注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="defer">
-<meta property="og:url" content="http://yoursite.com/2018/07/08/defer/index.html">
+<meta property="og:title" content="SSM系列之Spring">
+<meta property="og:url" content="http://yoursite.com/2018/07/24/SSM系列之Spring/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。 defer总是在末尾执行1234func defer1()  &amp;#123;	defer fmt.Println(&amp;quot;这是defer里的一句话&amp;qu">
+<meta property="og:description" content="Spring概述有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。spring的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。 注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-11T13:16:09.192Z">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/Spring组成.png">
+<meta property="og:updated_time" content="2018-07-24T11:41:01.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="defer">
-<meta name="twitter:description" content="在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。 defer总是在末尾执行1234func defer1()  &amp;#123;	defer fmt.Println(&amp;quot;这是defer里的一句话&amp;qu">
+<meta name="twitter:title" content="SSM系列之Spring">
+<meta name="twitter:description" content="Spring概述有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。spring的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。 注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring">
+<meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/Spring组成.png">
 
 
 
@@ -139,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/08/defer/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/24/SSM系列之Spring/"/>
 
 
 
 
 
-  <title>defer | Jefflike's Blog</title>
+  <title>SSM系列之Spring | Jefflike's Blog</title>
   
 
 
@@ -317,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/defer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/SSM系列之Spring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jefflike">
@@ -334,7 +336,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">defer</h2>
+          <h2 class="post-title" itemprop="name headline">SSM系列之Spring</h2>
         
 
         <div class="post-meta">
@@ -346,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-08T23:10:12+08:00">
-                2018-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-24T18:20:41+08:00">
+                2018-07-24
               </time>
             
 
@@ -369,8 +371,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Go/" itemprop="url" rel="index">
-                    <span itemprop="name">Go</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -386,7 +388,7 @@
 
           
           
-             <span id="/2018/07/08/defer/" class="leancloud_visitors" data-flag-title="defer">
+             <span id="/2018/07/24/SSM系列之Spring/" class="leancloud_visitors" data-flag-title="SSM系列之Spring">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -416,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  475
+                  666
                 </span>
               
 
@@ -453,15 +455,17 @@
       
 
       
-        <p>在golang里，defer用于延迟一个函数或方法的执行。首先defer只能使用在golang的方法或者函数里面，然后经常被用于打开，关闭，连接，断开连接，加锁，释放锁等操作中。defer可以保证在非常复杂代码的函数里都能准确地释放指定的资源。</p>
-<h2 id="defer总是在末尾执行"><a href="#defer总是在末尾执行" class="headerlink" title="defer总是在末尾执行"></a>defer总是在末尾执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func defer1()  &#123;</span><br><span class="line">	defer fmt.Println(&quot;这是defer里的一句话&quot;)// 这句话最后执行</span><br><span class="line">	fmt.Println(&quot;这是函数里的一句话&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="defer维护一个栈执行LIFO顺序"><a href="#defer维护一个栈执行LIFO顺序" class="headerlink" title="defer维护一个栈执行LIFO顺序"></a>defer维护一个栈执行LIFO顺序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func defer2()  &#123;</span><br><span class="line">	defer fmt.Printf(&quot;这是第一个defer语句\n&quot;)</span><br><span class="line">	defer fmt.Printf(&quot;这是第二个defer语句\n&quot;)</span><br><span class="line">	defer fmt.Printf(&quot;这是第三个defer语句\n&quot;)</span><br><span class="line">	defer fmt.Printf(&quot;这是第四个defer语句\n&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这是第四个defer语句</span><br><span class="line">这是第三个defer语句</span><br><span class="line">这是第二个defer语句</span><br><span class="line">这是第一个defer语句</span><br></pre></td></tr></table></figure></p>
-<p>一个函数中有多个defer的时候，defer会一个个加入栈中，执行的时候后进栈的会先执行，即last int first out就是指的这个执行顺序。</p>
-<h2 id="defer总是执行在函数的最后"><a href="#defer总是执行在函数的最后" class="headerlink" title="defer总是执行在函数的最后"></a>defer总是执行在函数的最后</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func defer3()  &#123;</span><br><span class="line">	a := 10</span><br><span class="line">	b := 20</span><br><span class="line">	defer func() &#123;</span><br><span class="line">		fmt.Printf(&quot;defer中，a=%d,b=%d\n&quot;, a, b)</span><br><span class="line">	&#125;()</span><br><span class="line">	a = 111</span><br><span class="line">	b = 222</span><br><span class="line">	fmt.Printf(&quot;func中，a=%d,b=%d\n&quot;, a, b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行的结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func中，a=111,b=222</span><br><span class="line">defer中，a=111,b=222</span><br></pre></td></tr></table></figure></p>
-<p>但是defer虽然一般最后才执行，但是除了执行，其他的操作可能会“先做”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func defer4()  &#123;</span><br><span class="line">	a := 10</span><br><span class="line">	b := 20</span><br><span class="line">	defer func(a, b int) &#123;</span><br><span class="line">		fmt.Printf(&quot;defer中，a=%d,b=%d\n&quot;, a, b)</span><br><span class="line">	&#125;(a, b)// 虽然此时没有执行，但是形参已经传进去了</span><br><span class="line">	a = 111</span><br><span class="line">	b = 222</span><br><span class="line">	fmt.Printf(&quot;func中，a=%d,b=%d\n&quot;, a, b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func中，a=111,b=222</span><br><span class="line">defer中，a=10,b=20</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Spring概述"><a href="#Spring概述" class="headerlink" title="Spring概述"></a>Spring概述</h2><p>有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。spring的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。</p>
+<p>注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring的低耦合就是我们的代码可以像可插拔似的，与框架之间的联系不会太紧密，当业务发生改变时我们也不必大量的重写我们的代码（只改变相关业务的部分），关于系统耦合的问题，有机会可以写一篇相关的博客。</p>
+<p>Spring 框架是一个分层架构，由7个定义良好的模块组成。Spring模块构建在核心容器之上，核心容器定义了创建、配置和管理 bean 的方式。<br><img src="http://p94ypeu3q.bkt.clouddn.com/Spring组成.png" alt="Spring组成"><br>组成 Spring 框架的每个模块（或组件）都可以单独存在，或者与其他一个或多个模块联合实现。</p>
+<h2 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h2><p>IoC的设计目的就是为了解耦，控制反转与我们平时获取对象的方式不同，在JavaSE中我们想要获取一个类的对象，一般会直接new一个对象，而在Spring中对象统一管理在IoC容器，通过DI使用对象。控制反转的方式将我们硬编码方式的创建对象的方式改为框架统一管理对象</p>
+<p><strong>简单的来说：控制反转IoC(Inversion of Control)，是一种设计思想，DI(依赖注入)是实现IoC的一种方法。</strong></p>
+<h3 id="IoC在Spring中的实现"><a href="#IoC在Spring中的实现" class="headerlink" title="IoC在Spring中的实现"></a>IoC在Spring中的实现</h3><p>IOC思想必须基于IoC容器来完成， 而IOC容器在最底层实质上就是一个对象工厂。</p>
+<ol>
+<li>在通过IOC容器读取Bean的实例之前，需要先将IOC容器本身实例化。</li>
+<li>Spring提供了IOC容器的两种实现方式：①BeanFactory：IOC容器的基本实现，是Spring内部的基础设施，是面向Spring本身的，不是提供给开发人员使用的。②ApplicationContext：BeanFactory的子接口，提供了更多高级特性。面向Spring的使用者，几乎所有场合都使用ApplicationContext而不是底层的BeanFactory。</li>
+</ol>
+<p>从IoC容器中获取对象的方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;		</span><br><span class="line">	//1. 创建Spring IOC 容器对象</span><br><span class="line">	ApplicationContext  ctx = </span><br><span class="line">		new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span><br><span class="line">	</span><br><span class="line">	//2. 从IOC容器对象中获取Person对象</span><br><span class="line">	Person person = ctx.getBean(&quot;person&quot;, Person.class);</span><br><span class="line">	</span><br><span class="line">	//3. 使用对象</span><br><span class="line">	person.sayHello();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -489,7 +493,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
         </div>
       
@@ -502,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/03/JSP/" rel="next" title="JSP(含EL表达式)">
-                <i class="fa fa-chevron-left"></i> JSP(含EL表达式)
+              <a href="/2018/07/23/文件的上传与下载/" rel="next" title="文件的上传与下载">
+                <i class="fa fa-chevron-left"></i> 文件的上传与下载
               </a>
             
           </div>
@@ -629,7 +633,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -713,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#defer总是在末尾执行"><span class="nav-number">1.</span> <span class="nav-text">defer总是在末尾执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#defer维护一个栈执行LIFO顺序"><span class="nav-number">2.</span> <span class="nav-text">defer维护一个栈执行LIFO顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#defer总是执行在函数的最后"><span class="nav-number">3.</span> <span class="nav-text">defer总是执行在函数的最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring概述"><span class="nav-number">1.</span> <span class="nav-text">Spring概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC"><span class="nav-number">2.</span> <span class="nav-text">IoC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoC在Spring中的实现"><span class="nav-number">2.1.</span> <span class="nav-text">IoC在Spring中的实现</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -747,7 +751,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">64.5k</span>
+    <span title="Site words total count">70.1k</span>
   
 </div>
 
