@@ -89,20 +89,20 @@
 
 
 
-<meta name="description" content="Spring概述有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。它的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring就是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。 注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring的低耦合">
+<meta name="description" content="Spring概述Spring的优点：  非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API，也就是说Spring是一个轻量级的框架，松耦合； 依赖注入：DI——Dependency Injection，反转控制(IOC)最经典的实现； 面向切面编程：Aspect Oriented Programm">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSM系列之Spring">
 <meta property="og:url" content="http://yoursite.com/2018/07/24/SSM系列之Spring/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="Spring概述有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。它的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring就是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。 注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring的低耦合">
+<meta property="og:description" content="Spring概述Spring的优点：  非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API，也就是说Spring是一个轻量级的框架，松耦合； 依赖注入：DI——Dependency Injection，反转控制(IOC)最经典的实现； 面向切面编程：Aspect Oriented Programm">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/Spring组成.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/ioc实现.png">
-<meta property="og:updated_time" content="2018-07-25T04:01:22.332Z">
+<meta property="og:updated_time" content="2018-07-26T02:25:48.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSM系列之Spring">
-<meta name="twitter:description" content="Spring概述有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。它的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring就是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。 注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring的低耦合">
+<meta name="twitter:description" content="Spring概述Spring的优点：  非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API，也就是说Spring是一个轻量级的框架，松耦合； 依赖注入：DI——Dependency Injection，反转控制(IOC)最经典的实现； 面向切面编程：Aspect Oriented Programm">
 <meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/Spring组成.png">
 
 
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,555
+                  1,760
                 </span>
               
 
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -456,7 +456,15 @@
       
 
       
-        <h2 id="Spring概述"><a href="#Spring概述" class="headerlink" title="Spring概述"></a>Spring概述</h2><p>有关Spring的优点我这里就不再赘述了，从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。它的核心是控制反转（IoC）和面向切面（AOP）。简单来说，spring就是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。</p>
+        <h2 id="Spring概述"><a href="#Spring概述" class="headerlink" title="Spring概述"></a>Spring概述</h2><p>Spring的优点：</p>
+<ol>
+<li>非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API非侵入式：基于Spring开发的应用中的对象可以不依赖于Spring的API，也就是说Spring是一个轻量级的框架，松耦合；</li>
+<li>依赖注入：DI——Dependency Injection，反转控制(IOC)最经典的实现；</li>
+<li>面向切面编程：Aspect Oriented Programming——AOP，IoC与AOP是Spring的核心；</li>
+<li>容器：Spring是一个容器，因为它包含并且管理应用对象的生命周期，统一管理JavaBean的生成与销毁的过程，就是Bean的工厂，用的时候可以直接拿到Bean对象；</li>
+<li>组件化：Spring实现了使用简单的组件配置组合成一个复杂的应用。在 Spring 中可以使用XML和Java注解组合这些对象。真正的实现了只要配置注解就实现功能的操作，大大加速开发效率；</li>
+</ol>
+<p>从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从spring中受益。简单来说，spring就是一个分层的JavaSE/EEfull-stack(一站式) 轻量级开源框架。</p>
 <p>注：关于耦合的问题，我这里简单的说一下，耦合指的是我们的业务逻辑代码与框架之间的联系，Spring的低耦合就是我们的代码可以像可插拔似的，与框架之间的联系不会太紧密，当业务发生改变时我们也不必大量的重写我们的代码（只改变相关业务的部分），关于系统耦合的问题，有机会可以写一篇相关的博客。</p>
 <p>Spring框架是一个分层架构，由7个定义良好的模块组成。Spring模块构建在核心容器之上，核心容器定义了创建、配置和管理 bean 的方式。<br><img src="http://p94ypeu3q.bkt.clouddn.com/Spring组成.png" alt="Spring组成"><br>组成 Spring 框架的每个模块（或组件）都可以单独存在，或者与其他一个或多个模块联合实现。</p>
 <h2 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h2><p>IoC的设计目的就是为了解耦，控制反转与我们平时获取对象的方式不同，在JavaSE中我们想要获取一个类的对象，一般会直接new一个对象，而在Spring中对象统一管理在IoC容器，通过DI使用对象。控制反转的方式将我们硬编码方式的创建对象的方式改为框架统一管理对象，这就是解耦。</p>
@@ -765,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.0k</span>
+    <span title="Site words total count">71.2k</span>
   
 </div>
 
