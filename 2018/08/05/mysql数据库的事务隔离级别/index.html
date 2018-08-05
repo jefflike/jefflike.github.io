@@ -89,23 +89,27 @@
 
 
 
-<meta name="description" content="本篇就是简单说说Java的四个事务管理级别。 查询当前的数据库的事务隔离级别1select @@global.tx_isolation,@@tx_isolation; 1234567mysql&amp;gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+-----------------+| @@global.t">
+<meta name="description" content="本篇就是简单说说Java的四个事务管理级别。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql数据库的事务隔离级别">
 <meta property="og:url" content="http://yoursite.com/2018/08/05/mysql数据库的事务隔离级别/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
-<meta property="og:description" content="本篇就是简单说说Java的四个事务管理级别。 查询当前的数据库的事务隔离级别1select @@global.tx_isolation,@@tx_isolation; 1234567mysql&amp;gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+-----------------+| @@global.t">
+<meta property="og:description" content="本篇就是简单说说Java的四个事务管理级别。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交与可重复读.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交两个会话皆可查询整表.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交的行也可读.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交修改.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/可重复读的数据读的都是一样的.png">
-<meta property="og:updated_time" content="2018-08-05T06:07:34.278Z">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/脏读.png">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/脏读与事务回滚.png">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读已提交的不可重复读问题.png">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/for%20update.png">
+<meta property="og:updated_time" content="2018-08-05T07:47:19.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql数据库的事务隔离级别">
-<meta name="twitter:description" content="本篇就是简单说说Java的四个事务管理级别。 查询当前的数据库的事务隔离级别1select @@global.tx_isolation,@@tx_isolation; 1234567mysql&amp;gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+-----------------+| @@global.t">
+<meta name="twitter:description" content="本篇就是简单说说Java的四个事务管理级别。">
 <meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交与可重复读.png">
 
 
@@ -422,7 +426,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  691
+                  1,495
                 </span>
               
 
@@ -438,7 +442,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -459,15 +463,20 @@
       
 
       
-        <p>本篇就是简单说说Java的四个事务管理级别。</p>
+        <p>本篇就是简单说说Java的四个事务管理级别。<a id="more"></a></p>
 <h2 id="查询当前的数据库的事务隔离级别"><a href="#查询当前的数据库的事务隔离级别" class="headerlink" title="查询当前的数据库的事务隔离级别"></a>查询当前的数据库的事务隔离级别</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @@global.tx_isolation,@@tx_isolation;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation  |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| REPEATABLE-READ       | REPEATABLE-READ |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure>
 <p>可以看出mysql的默认事务隔离级别是可重复读。</p>
 <h2 id="修改当前数据库的事务隔离级别"><a href="#修改当前数据库的事务隔离级别" class="headerlink" title="修改当前数据库的事务隔离级别"></a>修改当前数据库的事务隔离级别</h2><p>为了测试不同的事务隔离级别所以首先第一步我们要知道如何修改当前的事务隔离级别。这里我们只修改当前会话的事务隔离级别即可：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span><br></pre></td></tr></table></figure></p>
 <p>session指的就是当前会话，read uncommitted就是读未提交的事务隔离级别，事务隔离级别的最低等级。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set session transaction isolation level read uncommitted;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+------------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation   |</span><br><span class="line">+-----------------------+------------------+</span><br><span class="line">| REPEATABLE-READ       | READ-UNCOMMITTED |</span><br><span class="line">+-----------------------+------------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure></p>
-<h2 id="读未提交"><a href="#读未提交" class="headerlink" title="读未提交"></a>读未提交</h2><p>我开启两个会话窗口，一个事务隔离级别调整为读未提交，一个事务仍旧是可重复读。并且开启两个窗口的事务：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> autocommit = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="读未提交-amp-可重复读"><a href="#读未提交-amp-可重复读" class="headerlink" title="读未提交&amp;可重复读"></a>读未提交&amp;可重复读</h2><p>我开启两个会话窗口，一个事务隔离级别调整为读未提交，一个事务仍旧是可重复读。并且开启两个窗口的事务：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> autocommit = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://p94ypeu3q.bkt.clouddn.com/读未提交与可重复读.png" alt="读未提交与可重复读"><br>下面我的叙述分为左会话(read uncommitted),右会话(repeatable read)，我在左会话查询整表时，在右会话中也可以查询到整表信息(此时没有表锁);<br><img src="http://p94ypeu3q.bkt.clouddn.com/读未提交两个会话皆可查询整表.png" alt="读未提交两个会话皆可查询整表"><br>当然读取行也是可以的<img src="http://p94ypeu3q.bkt.clouddn.com/读未提交的行也可读.png" alt="读未提交的行也可读"><br>当修改某一行的时候：<img src="http://p94ypeu3q.bkt.clouddn.com/读未提交修改.png" alt="读未提交修改"><br>此时左会话修改了第一行，但是事务未提交，那么右会话想修改这一行是不可能修改的，事务默认锁住了这一行，直至左会话提交事务。<br>此时由于右会话是可重复读，已经解决了脏读问题，所以右会话查询结果是修改前的数据，还不是左会话未提交的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 右会话</span><br><span class="line">mysql&gt; select * from biao where id = 1;</span><br><span class="line">+----+---------+--------+---------+</span><br><span class="line">| id | sick_id | doc_id | describ |</span><br><span class="line">+----+---------+--------+---------+</span><br><span class="line">|  1 |    1001 | 100001 | 腹痛    |</span><br><span class="line">+----+---------+--------+---------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
-<p>接着我们将左会话提交，在右会话中查询，得到的结果：<br><img src="http://p94ypeu3q.bkt.clouddn.com/可重复读的数据读的都是一样的.png" alt="可重复读的数据读的都是一样的"><br>为什么我左会话已经提交了，但是右会话查询到的还是之前的数据呢，简单地说就是因为右会话的事务隔离级别是可重复读，那么右会话在左会话commit之前实际上是查询了一次的，查询后并未提交事务，因为当前事务隔离级别是可重复读，所以在上一次查询事务还未结束的情况下，是不可以出现不可重复读的问题，所以独到的仍然是修改前的值。此时我们将右会话commit就可以得到当前事务的</p>
+<p>接着我们将左会话提交，在右会话中查询，得到的结果：<br><img src="http://p94ypeu3q.bkt.clouddn.com/可重复读的数据读的都是一样的.png" alt="可重复读的数据读的都是一样的"><br>为什么我左会话已经提交了，但是右会话查询到的还是之前的数据呢，简单地说就是因为右会话的事务隔离级别是可重复读，那么右会话在左会话commit之前实际上是查询了一次的，查询后并未提交事务，因为当前事务隔离级别是可重复读，所以在上一次查询事务还未结束的情况下，是不可以出现不可重复读的问题，所以独到的仍然是修改前的值。此时我们将右会话commit就可以得到当前修改后的数据了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- 右会话</span><br><span class="line">mysql&gt; commit;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from biao where id = 1;</span><br><span class="line">+----+---------+--------+-----------+</span><br><span class="line">| id | sick_id | doc_id | describ   |</span><br><span class="line">+----+---------+--------+-----------+</span><br><span class="line">|  1 |    1001 | 100001 | 没毛病    |</span><br><span class="line">+----+---------+--------+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p>为了查看读未提交的特性，我们修改右会话的数据，然后对左会话进行测试，基本上一致，除了一点，当我们修改右会话数据的时候，左会话修改同样因为锁而阻塞，查询数据时会出现脏读现象：<img src="http://p94ypeu3q.bkt.clouddn.com/脏读.png" alt="脏读"><br>脏读即读取到对方事务还未提交的数据，这个事务可能回滚数据，所以读到的数据没有有效性，就是一段脏数据。<br><img src="http://p94ypeu3q.bkt.clouddn.com/脏读与事务回滚.png" alt="脏读与事务回滚"><br>解决脏读的方法就是事务隔离级别改为读已提交。</p>
+<h2 id="读已提交"><a href="#读已提交" class="headerlink" title="读已提交"></a>读已提交</h2><p>首先，我们将左会话的事务隔离级别改为读已提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set session transaction isolation level read committed;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+----------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation |</span><br><span class="line">+-----------------------+----------------+</span><br><span class="line">| REPEATABLE-READ       | READ-COMMITTED |</span><br><span class="line">+-----------------------+----------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p>读已提交的事务隔离级别可以解决脏读问题，但是却存在着不可重复读的问题：<br><img src="http://p94ypeu3q.bkt.clouddn.com/读已提交的不可重复读问题.png" alt="读已提交的不可重复读问题"><br>可以看出，在我的左会话的两次查询一次事务中，我查到了两组不同的数据，并且第一次查询的数据不可再现(右会话已经提交修改数据)，这并不是我们希望看到的，对于首次查询的结果不可再现的情况，我们称为不可重复读，解决这种问题，需要我们的事务隔离级别为可重复读。</p>
+<h2 id="可重复读"><a href="#可重复读" class="headerlink" title="可重复读"></a>可重复读</h2><p>我们在读未提交里其实已经可以看到读已提交的效果了，在一次事务会话里，即使数据库中的数据已经改变了，我们依然可以读到之前的数据以保持在一次回话中数据不会发生不可重复读的情况，直到此次事务结束，我们才可以获得当前数据库中真实的值，防止一次回话中的多个线程修改同一条数据，每次查到的结果都不一样，让人不知所措。那么我们知道可重复读并不是事务隔离级别的最高级，最高级是串行化用来解决幻读问题。<br>实现以下幻读的效果，首先将两边的回话都改为可重复读的隔离级别：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set session transaction isolation level repeatable read;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation  |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| REPEATABLE-READ       | REPEATABLE-READ |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<h2 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h2><h2 id="for-update"><a href="#for-update" class="headerlink" title="for update"></a>for update</h2><p>不论哪种隔离级别，查询因为并不会修改数据，所以都不会阻塞，但是我们如果希望某一段之内我操作不论增删改查都不允许第三方操作，那么我们就需要使用for update强行加锁。<br><img src="http://p94ypeu3q.bkt.clouddn.com/for%20update.png" alt="for update"><br>此时先抢占到锁的就会执行此行，其他的sql会被阻塞住。直到抢占方commit后，执行结束，其他sql立刻去操作，抢占加锁。</p>
 
       
     </div>
@@ -719,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询当前的数据库的事务隔离级别"><span class="nav-number">1.</span> <span class="nav-text">查询当前的数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改当前数据库的事务隔离级别"><span class="nav-number">2.</span> <span class="nav-text">修改当前数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读未提交"><span class="nav-number">3.</span> <span class="nav-text">读未提交</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询当前的数据库的事务隔离级别"><span class="nav-number">1.</span> <span class="nav-text">查询当前的数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改当前数据库的事务隔离级别"><span class="nav-number">2.</span> <span class="nav-text">修改当前数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读未提交-amp-可重复读"><span class="nav-number">3.</span> <span class="nav-text">读未提交&amp;可重复读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读已提交"><span class="nav-number">4.</span> <span class="nav-text">读已提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可重复读"><span class="nav-number">5.</span> <span class="nav-text">可重复读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串行化"><span class="nav-number">6.</span> <span class="nav-text">串行化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-update"><span class="nav-number">7.</span> <span class="nav-text">for update</span></a></li></ol></div>
             
 
           </div>
@@ -753,7 +762,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">72.0k</span>
+    <span title="Site words total count">72.8k</span>
   
 </div>
 
