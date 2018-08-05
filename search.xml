@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql数据库的事务隔离级别]]></title>
+    <url>%2F2018%2F08%2F05%2Fmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[本篇就是简单说说Java的四个事务管理级别。 查询当前的数据库的事务隔离级别1select @@global.tx_isolation,@@tx_isolation; 1234567mysql&gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+-----------------+| @@global.tx_isolation | @@tx_isolation |+-----------------------+-----------------+| REPEATABLE-READ | REPEATABLE-READ |+-----------------------+-----------------+1 row in set, 2 warnings (0.00 sec) 可以看出mysql的默认事务隔离级别是可重复读。 修改当前数据库的事务隔离级别为了测试不同的事务隔离级别所以首先第一步我们要知道如何修改当前的事务隔离级别。这里我们只修改当前会话的事务隔离级别即可：1set session transaction isolation level read uncommitted; session指的就是当前会话，read uncommitted就是读未提交的事务隔离级别，事务隔离级别的最低等级。12345678910mysql&gt; set session transaction isolation level read uncommitted;Query OK, 0 rows affected (0.00 sec)mysql&gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+------------------+| @@global.tx_isolation | @@tx_isolation |+-----------------------+------------------+| REPEATABLE-READ | READ-UNCOMMITTED |+-----------------------+------------------+1 row in set, 2 warnings (0.00 sec) 读未提交我开启两个会话窗口，一个事务隔离级别调整为读未提交，一个事务仍旧是可重复读。并且开启两个窗口的事务：1SET autocommit = 0; 下面我的叙述分为左会话(read uncommitted),右会话(repeatable read)，我在左会话查询整表时，在右会话中也可以查询到整表信息(此时没有表锁);当然读取行也是可以的当修改某一行的时候：此时左会话修改了第一行，但是事务未提交，那么右会话想修改这一行是不可能修改的，事务默认锁住了这一行，直至左会话提交事务。此时由于右会话是可重复读，已经解决了脏读问题，所以右会话查询结果是修改前的数据，还不是左会话未提交的数据。12345678-- 右会话mysql&gt; select * from biao where id = 1;+----+---------+--------+---------+| id | sick_id | doc_id | describ |+----+---------+--------+---------+| 1 | 1001 | 100001 | 腹痛 |+----+---------+--------+---------+1 row in set (0.00 sec) 接着我们将左会话提交，在右会话中查询，得到的结果：]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SSM之SpringMVC]]></title>
     <url>%2F2018%2F07%2F25%2FSSM%E4%B9%8BSpringMVC%2F</url>
     <content type="text"></content>
@@ -69,7 +80,7 @@
   <entry>
     <title><![CDATA[2018夏季减肥大会伊始]]></title>
     <url>%2F2018%2F07%2F12%2F2018%E5%A4%8F%E5%AD%A3%E5%87%8F%E8%82%A5%E5%A4%A7%E4%BC%9A%E4%BC%8A%E5%A7%8B%2F</url>
-    <content type="text"><![CDATA[记录一下今年锻炼的战绩，过年前是119*500g。年后去了趟上海涨了20500g。后来起起伏伏，最近要开始抽时间控制一下了，正所谓七月不减肥，八月徒伤悲。7.12减脂大会正式开幕。记不得过了几天了，今天是18.8.4体重掉下130``500g 了，加油，8月你是最胖的。 day16,17 skip 0height： 132.2*500g学习第一。。。推推轮子，跳绳暂时停一下 day16,17 skip 0学习第一。。。推推轮子，跳绳暂时停一下 day15 skip 0height： 132.4*500g忙休一天 day15 skip 2250次height： 131.4*500g day14 skip 2250次height： 132.5*500g day13 skip 0height： 134.1*500g下雨，休息。 day12 skip 0height： 135.9*500g下雨，休息。 day11 skip 2234次height： 133.5*500g推推轮子，一周赶超lb，fighting，吃了很多，返璞归真。 day10 skip n次，n&gt;2000height： 134.2*500g推推轮子，一周赶超lb，fighting，吃了很多，返璞归真。 day09 zeroheight： 133.7*500g推推轮子吧，突如其来的大雨。 day08 skip 2156次height： 131.9*500g推推轮子，一周赶超lb，fighting。 day07 skip 2222次height： 133.0*500g推推轮子，一周赶超lb，fighting。 day06 zeroheight： 135.9*500g下大雨，继续鸽咯。 day05 zeroheight： 136.1*500g下大雨，继续鸽咯。 day04 zeroheight： 134.6*500g继续放鸽子，好久不运动现在已经推不动轮子了。 day03 skip 2254次height： 133.8*500g day02 zero第二天就放鸽子了。。。不太妙啊。 day01 skip 2101次init体重：133.8*500g]]></content>
+    <content type="text"><![CDATA[记录一下今年锻炼的战绩，过年前是119*500g。年后去了趟上海涨了20500g。后来起起伏伏，最近要开始抽时间控制一下了，正所谓七月不减肥，八月徒伤悲。7.12减脂大会正式开幕。记不得过了几天了，今天是180804体重掉下130`500g 了,现在是129.6*`500g，加油，8月你是最胖的。 day16,17 skip 0height： 132.2*500g学习第一。。。推推轮子，跳绳暂时停一下 day16,17 skip 0学习第一。。。推推轮子，跳绳暂时停一下 day15 skip 0height： 132.4*500g忙休一天 day15 skip 2250次height： 131.4*500g day14 skip 2250次height： 132.5*500g day13 skip 0height： 134.1*500g下雨，休息。 day12 skip 0height： 135.9*500g下雨，休息。 day11 skip 2234次height： 133.5*500g推推轮子，一周赶超lb，fighting，吃了很多，返璞归真。 day10 skip n次，n&gt;2000height： 134.2*500g推推轮子，一周赶超lb，fighting，吃了很多，返璞归真。 day09 zeroheight： 133.7*500g推推轮子吧，突如其来的大雨。 day08 skip 2156次height： 131.9*500g推推轮子，一周赶超lb，fighting。 day07 skip 2222次height： 133.0*500g推推轮子，一周赶超lb，fighting。 day06 zeroheight： 135.9*500g下大雨，继续鸽咯。 day05 zeroheight： 136.1*500g下大雨，继续鸽咯。 day04 zeroheight： 134.6*500g继续放鸽子，好久不运动现在已经推不动轮子了。 day03 skip 2254次height： 133.8*500g day02 zero第二天就放鸽子了。。。不太妙啊。 day01 skip 2101次init体重：133.8*500g]]></content>
       <categories>
         <category>Life</category>
       </categories>

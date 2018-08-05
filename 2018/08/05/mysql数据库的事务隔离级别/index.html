@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -89,13 +89,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jefflike&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Java/page/3/index.html">
+<meta name="description" content="本篇就是简单说说Java的四个事务管理级别。 查询当前的数据库的事务隔离级别1select @@global.tx_isolation,@@tx_isolation; 1234567mysql&amp;gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+-----------------+| @@global.t">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据库的事务隔离级别">
+<meta property="og:url" content="http://yoursite.com/2018/08/05/mysql数据库的事务隔离级别/index.html">
 <meta property="og:site_name" content="Jefflike&#39;s Blog">
+<meta property="og:description" content="本篇就是简单说说Java的四个事务管理级别。 查询当前的数据库的事务隔离级别1select @@global.tx_isolation,@@tx_isolation; 1234567mysql&amp;gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+-----------------+| @@global.t">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交与可重复读.png">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交两个会话皆可查询整表.png">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交的行也可读.png">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交修改.png">
+<meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/可重复读的数据读的都是一样的.png">
+<meta property="og:updated_time" content="2018-08-05T05:56:41.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jefflike&#39;s Blog">
+<meta name="twitter:title" content="mysql数据库的事务隔离级别">
+<meta name="twitter:description" content="本篇就是简单说说Java的四个事务管理级别。 查询当前的数据库的事务隔离级别1select @@global.tx_isolation,@@tx_isolation; 1234567mysql&amp;gt; select @@global.tx_isolation,@@tx_isolation;+-----------------------+-----------------+| @@global.t">
+<meta name="twitter:image" content="http://p94ypeu3q.bkt.clouddn.com/读未提交与可重复读.png">
 
 
 
@@ -134,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Java/page/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/05/mysql数据库的事务隔离级别/"/>
 
 
 
 
 
-  <title>标签: Java | Jefflike's Blog</title>
+  <title>mysql数据库的事务隔离级别 | Jefflike's Blog</title>
   
 
 
@@ -160,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/jefflike"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
 	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -298,282 +309,272 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Java<small>标签</small>
-        </h2>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/05/mysql数据库的事务隔离级别/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jefflike">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p8cdfcmvy.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jefflike's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/06/03/Java-String类型/" itemprop="url">
-              
-                <span itemprop="name">String类型源码解析（一）</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">mysql数据库的事务隔离级别</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-03T21:48:17+08:00"
-              content="2018-06-03" >
-          06-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-05T11:36:43+08:00">
+                2018-08-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/05/mysql数据库的事务隔离级别/" class="leancloud_visitors" data-flag-title="mysql数据库的事务隔离级别">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  529
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/30/Java包装类/" itemprop="url">
-              
-                <span itemprop="name">Java包装类</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-30T20:44:21+08:00"
-              content="2018-05-30" >
-          05-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/30/Java异常处理/" itemprop="url">
-              
-                <span itemprop="name">Java异常处理</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-30T15:15:25+08:00"
-              content="2018-05-30" >
-          05-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/29/Java注解/" itemprop="url">
-              
-                <span itemprop="name">Java注解</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-29T18:26:55+08:00"
-              content="2018-05-29" >
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/28/为什么匿名内部类和局部内部类只能访问final变量/" itemprop="url">
-              
-                <span itemprop="name">匿名内部类和局部内部类扩展</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-28T17:43:04+08:00"
-              content="2018-05-28" >
-          05-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/26/Java内部类/" itemprop="url">
-              
-                <span itemprop="name">Java内部类</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-26T19:35:26+08:00"
-              content="2018-05-26" >
-          05-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/25/Interface实现多继承/" itemprop="url">
-              
-                <span itemprop="name">Interface实现多继承</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-25T18:10:21+08:00"
-              content="2018-05-25" >
-          05-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/23/Java程序初始化的顺序（二）/" itemprop="url">
-              
-                <span itemprop="name">Java程序初始化的顺序（二）</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-23T23:42:54+08:00"
-              content="2018-05-23" >
-          05-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/20/Java程序初始化的顺序/" itemprop="url">
-              
-                <span itemprop="name">Java程序初始化的顺序（一）</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-20T22:23:26+08:00"
-              content="2018-05-20" >
-          05-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>本篇就是简单说说Java的四个事务管理级别。</p>
+<h2 id="查询当前的数据库的事务隔离级别"><a href="#查询当前的数据库的事务隔离级别" class="headerlink" title="查询当前的数据库的事务隔离级别"></a>查询当前的数据库的事务隔离级别</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @@global.tx_isolation,@@tx_isolation;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation  |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| REPEATABLE-READ       | REPEATABLE-READ |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>可以看出mysql的默认事务隔离级别是可重复读。</p>
+<h2 id="修改当前数据库的事务隔离级别"><a href="#修改当前数据库的事务隔离级别" class="headerlink" title="修改当前数据库的事务隔离级别"></a>修改当前数据库的事务隔离级别</h2><p>为了测试不同的事务隔离级别所以首先第一步我们要知道如何修改当前的事务隔离级别。这里我们只修改当前会话的事务隔离级别即可：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">session</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span><br></pre></td></tr></table></figure></p>
+<p>session指的就是当前会话，read uncommitted就是读未提交的事务隔离级别，事务隔离级别的最低等级。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set session transaction isolation level read uncommitted;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+------------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation   |</span><br><span class="line">+-----------------------+------------------+</span><br><span class="line">| REPEATABLE-READ       | READ-UNCOMMITTED |</span><br><span class="line">+-----------------------+------------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<h2 id="读未提交"><a href="#读未提交" class="headerlink" title="读未提交"></a>读未提交</h2><p>我开启两个会话窗口，一个事务隔离级别调整为读未提交，一个事务仍旧是可重复读。并且开启两个窗口的事务：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> autocommit = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://p94ypeu3q.bkt.clouddn.com/读未提交与可重复读.png" alt="读未提交与可重复读"><br>下面我的叙述分为左会话(read uncommitted),右会话(repeatable read)，我在左会话查询整表时，在右会话中也可以查询到整表信息(此时没有表锁);<br><img src="http://p94ypeu3q.bkt.clouddn.com/读未提交两个会话皆可查询整表.png" alt="读未提交两个会话皆可查询整表"><br>当然读取行也是可以的<img src="http://p94ypeu3q.bkt.clouddn.com/读未提交的行也可读.png" alt="读未提交的行也可读"><br>当修改某一行的时候：<img src="http://p94ypeu3q.bkt.clouddn.com/读未提交修改.png" alt="读未提交修改"><br>此时左会话修改了第一行，但是事务未提交，那么右会话想修改这一行是不可能修改的，事务默认锁住了这一行，直至左会话提交事务。<br>此时由于右会话是可重复读，已经解决了脏读问题，所以右会话查询结果是修改前的数据，还不是左会话未提交的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 右会话</span><br><span class="line">mysql&gt; select * from biao where id = 1;</span><br><span class="line">+----+---------+--------+---------+</span><br><span class="line">| id | sick_id | doc_id | describ |</span><br><span class="line">+----+---------+--------+---------+</span><br><span class="line">|  1 |    1001 | 100001 | 腹痛    |</span><br><span class="line">+----+---------+--------+---------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p>接着我们将左会话提交，在右会话中查询，得到的结果：<br><img src="http://p94ypeu3q.bkt.clouddn.com/可重复读的数据读的都是一样的.png" alt="可重复读的数据读的都是一样的"></p>
 
       
     </div>
+    
+    
+    
+ 
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文已经结束，感谢您的阅读！-------------</div>
+    
+</div>
+      
+    </div>
+    
+    
 
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/25/SSM之SpringMVC/" rel="next" title="SSM之SpringMVC">
+                <i class="fa fa-chevron-left"></i> SSM之SpringMVC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Java/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/Java/">1</a><a class="page-number" href="/tags/Java/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -581,6 +582,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -601,8 +606,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -695,6 +709,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询当前的数据库的事务隔离级别"><span class="nav-number">1.</span> <span class="nav-text">查询当前的数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改当前数据库的事务隔离级别"><span class="nav-number">2.</span> <span class="nav-text">修改当前数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读未提交"><span class="nav-number">3.</span> <span class="nav-text">读未提交</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -860,6 +890,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
