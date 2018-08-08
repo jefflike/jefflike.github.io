@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/脏读与事务回滚.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/读已提交的不可重复读问题.png">
 <meta property="og:image" content="http://p94ypeu3q.bkt.clouddn.com/for%20update.png">
-<meta property="og:updated_time" content="2018-08-06T15:54:42.253Z">
+<meta property="og:updated_time" content="2018-08-08T10:05:03.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql数据库的事务隔离级别">
 <meta name="twitter:description" content="本篇就是简单说说Java的四个事务管理级别。">
@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,495
+                  1,501
                 </span>
               
 
@@ -476,7 +476,8 @@
 <h2 id="读已提交"><a href="#读已提交" class="headerlink" title="读已提交"></a>读已提交</h2><p>首先，我们将左会话的事务隔离级别改为读已提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set session transaction isolation level read committed;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+----------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation |</span><br><span class="line">+-----------------------+----------------+</span><br><span class="line">| REPEATABLE-READ       | READ-COMMITTED |</span><br><span class="line">+-----------------------+----------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure></p>
 <p>读已提交的事务隔离级别可以解决脏读问题，但是却存在着不可重复读的问题：<br><img src="http://p94ypeu3q.bkt.clouddn.com/读已提交的不可重复读问题.png" alt="读已提交的不可重复读问题"><br>可以看出，在我的左会话的两次查询一次事务中，我查到了两组不同的数据，并且第一次查询的数据不可再现(右会话已经提交修改数据)，这并不是我们希望看到的，对于首次查询的结果不可再现的情况，我们称为不可重复读，解决这种问题，需要我们的事务隔离级别为可重复读。</p>
 <h2 id="可重复读"><a href="#可重复读" class="headerlink" title="可重复读"></a>可重复读</h2><p>我们在读未提交里其实已经可以看到读已提交的效果了，在一次事务会话里，即使数据库中的数据已经改变了，我们依然可以读到之前的数据以保持在一次回话中数据不会发生不可重复读的情况，直到此次事务结束，我们才可以获得当前数据库中真实的值，防止一次回话中的多个线程修改同一条数据，每次查到的结果都不一样，让人不知所措。那么我们知道可重复读并不是事务隔离级别的最高级，最高级是串行化用来解决幻读问题。<br>实现以下幻读的效果，首先将两边的回话都改为可重复读的隔离级别：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set session transaction isolation level repeatable read;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@global.tx_isolation,@@tx_isolation;</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| @@global.tx_isolation | @@tx_isolation  |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">| REPEATABLE-READ       | REPEATABLE-READ |</span><br><span class="line">+-----------------------+-----------------+</span><br><span class="line">1 row in set, 2 warnings (0.00 sec)</span><br></pre></td></tr></table></figure></p>
-<h2 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h2><h2 id="for-update"><a href="#for-update" class="headerlink" title="for update"></a>for update</h2><p>不论哪种隔离级别，查询因为并不会修改数据，所以都不会阻塞，但是我们如果希望某一段之内我操作不论增删改查都不允许第三方操作，那么我们就需要使用for update强行加锁。<br><img src="http://p94ypeu3q.bkt.clouddn.com/for%20update.png" alt="for update"><br>此时先抢占到锁的就会执行此行，其他的sql会被阻塞住。直到抢占方commit后，执行结束，其他sql立刻去操作，抢占加锁。</p>
+<h2 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h2><p>解决幻读问题。</p>
+<h2 id="for-update"><a href="#for-update" class="headerlink" title="for update"></a>for update</h2><p>不论哪种隔离级别，查询因为并不会修改数据，所以都不会阻塞，但是我们如果希望某一段之内我操作不论增删改查都不允许第三方操作，那么我们就需要使用for update强行加锁。<br><img src="http://p94ypeu3q.bkt.clouddn.com/for%20update.png" alt="for update"><br>此时先抢占到锁的就会执行此行，其他的sql会被阻塞住。直到抢占方commit后，执行结束，其他sql立刻去操作，抢占加锁。</p>
 
       
     </div>
