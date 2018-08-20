@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[@import]]></title>
-    <url>%2F2018%2F08%2F19%2Fimport%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[Object与Class]]></title>
     <url>%2F2018%2F08%2F16%2FObject%E4%B8%8EClass%2F</url>
     <content type="text"><![CDATA[大家都知道Object对象的意思，所有的面向对象一般都有这样一个超级父类，所有的类都默认继承这个类，Object的设计就很重要了，它要包含面向对象最基本实现的方法，所以我想知道它的内部代码都写了点什么，这些方法属性都有什么作用。]]></content>
