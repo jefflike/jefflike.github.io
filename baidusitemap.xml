@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/12/2018%E5%A4%8F%E5%AD%A3%E5%87%8F%E8%82%A5%E5%A4%A7%E4%BC%9A%E4%BC%8A%E5%A7%8B/</loc>
+    <lastmod>2018-08-25T15:16:27.052Z</lastmod>
+    <data>
+        <display>
+        <title>2018夏季减肥大会伊始</title>
+        <pubTime>2018-07-12T14:28:18.000Z</pubTime>
+        
+        <tag>Life</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://yoursite.com/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/08/05/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/</loc>
     <lastmod>2018-08-24T13:06:57.038Z</lastmod>
     <data>
@@ -97,26 +117,6 @@
            
              
               <breadCrumb title="Java" url="http://yoursite.com/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/07/12/2018%E5%A4%8F%E5%AD%A3%E5%87%8F%E8%82%A5%E5%A4%A7%E4%BC%9A%E4%BC%8A%E5%A7%8B/</loc>
-    <lastmod>2018-08-04T14:31:34.499Z</lastmod>
-    <data>
-        <display>
-        <title>2018夏季减肥大会伊始</title>
-        <pubTime>2018-07-12T14:28:18.000Z</pubTime>
-        
-        <tag>Life</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://yoursite.com/categories/Life/"/>
           
         </display>
     </data>
